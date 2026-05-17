@@ -1,106 +1,619 @@
-body {
-    margin: 0;
-    background: black;
-    overflow: hidden;
-    font-family: 'Inter', sans-serif;
+/* ========================================
+   CORE SYSTEM
+======================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* INTRO SCREEN */
-#intro-screen {
-    position: fixed;
-    inset: 0;
-    background: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    background:#030303;
+
+    overflow-x:hidden;
+
+    font-family:'Inter',sans-serif;
+
+    color:white;
+
+    scroll-behavior:smooth;
 }
 
-/* SHIELD AREA */
-#shield-container {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Essential: Gives real 3D depth to the revolving door effect */
-    perspective: 1400px; 
+/* ========================================
+   INTRO SCREEN
+======================================== */
+
+#intro-stage{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    overflow:hidden;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
 }
 
-/* OUTER SHIELD FRAME */
-#shield-frame {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    
-    transform-style: preserve-3d;
-    transform-origin: center center; 
-    
-    /* Smooth, linear timeline for continuous premium revolution */
-    animation: luxuryRevolvingDoor 6s linear infinite; 
+/* ========================================
+   SHIELD WRAPPER
+======================================== */
 
-    /* Backface-visibility allows you to decide if you want to see the mirror image flipped */
-    backface-visibility: visible; 
+#intro-shield-wrapper{
+
+    position:relative;
+
+    width:320px;
+    height:320px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    perspective:1800px;
+
+    transition:all 1.5s cubic-bezier(.19,1,.22,1);
+}
+
+/* ========================================
+   SPINNING SHIELD
+======================================== */
+
+#intro-shield-frame{
+
+    position:absolute;
+
+    width:100%;
+
+    animation:
+        shieldGyroSpin 4s linear infinite,
+        shieldGlow 3s ease-in-out infinite;
+
+    transform-style:preserve-3d;
 
     filter:
-        drop-shadow(0 0 15px rgba(255, 255, 255, 0.55))
-        drop-shadow(0 0 30px rgba(255, 255, 255, 0.35))
-        drop-shadow(0 0 60px rgba(255, 0, 0, 0.15));
+        drop-shadow(0 0 15px rgba(255,255,255,0.20))
+        drop-shadow(0 0 45px rgba(255,0,0,0.15));
 }
 
-/* CENTER LOGO (1 SDG) */
-#shield-logo {
-    position: absolute;
-    top: 46%;              /* CHANGED: Moved up slightly from 50% to center it vertically in the shield's headspace */
-    left: 50%;
-    
-    transform: translate(-50%, -50%);
-    
-    width: 210px;          /* CHANGED: Increased size to fill the frame beautifully */
-    z-index: 2;
-    
+/* ========================================
+   STATIC CENTER LOGO
+======================================== */
+
+#intro-shield-logo{
+
+    position:absolute;
+
+    width:185px;
+
+    z-index:2;
+
     filter:
-        drop-shadow(0 0 12px rgba(255, 255, 255, 0.55))
-        drop-shadow(0 0 30px rgba(255, 255, 255, 0.25));
-}
-/* IMPERIUM TITLE */
-#imperium-title {
-    margin-top: 45px;
-    font-size: 72px;
-    font-weight: 700;
-    letter-spacing: 14px;
-    text-align: center;
-    background: linear-gradient(
-        90deg,
-        #666,
-        #ffffff,
-        #777
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+        drop-shadow(0 0 12px rgba(255,255,255,0.35));
 }
 
-/* SDG TEXT */
-#legacy-text {
-    margin-top: 20px;
-    font-size: 48px;
-    font-family: 'Alex Brush', cursive;
-    color: white;
+/* ========================================
+   INTRO TEXT
+======================================== */
+
+#intro-text-element{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+/* IMPERIUM MOTORS */
+
+#intro-text-element h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:72px;
+
+    letter-spacing:12px;
+
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7a7a7a,
+            #ffffff,
+            #7a7a7a
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
     text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.4),
-        0 0 25px rgba(255, 255, 255, 0.2);
+        0 0 15px rgba(255,255,255,0.12);
 }
 
-/* --- THE REVOLVING DOOR (3D VERTICAL AXIS) ANIMATION --- */
-@keyframes luxuryRevolvingDoor {
-    0% {
-        /* Centered anchor, spinning solely around the vertical Y-axis */
-        transform: translate(-50%, -50%) rotateY(0deg);
+/* SOLI DEO GLORIA */
+
+#intro-text-element p{
+
+    margin-top:15px;
+
+    font-size:44px;
+
+    color:#d4b06a;
+
+    font-family:'Alex Brush',cursive;
+
+    text-shadow:
+        0 0 10px rgba(255,215,120,0.2);
+}
+
+/* ========================================
+   SHIELD SPINNING TOP EFFECT
+======================================== */
+
+@keyframes shieldGyroSpin{
+
+    0%{
+        transform:
+            rotateZ(0deg)
+            rotateX(65deg);
     }
-    100% {
-        transform: translate(-50%, -50%) rotateY(360deg);
+
+    100%{
+        transform:
+            rotateZ(360deg)
+            rotateX(65deg);
+    }
+}
+
+/* ========================================
+   SHIELD EDGE GLOW
+======================================== */
+
+@keyframes shieldGlow{
+
+    0%{
+
+        filter:
+            drop-shadow(0 0 10px rgba(255,255,255,0.15))
+            drop-shadow(0 0 25px rgba(255,0,0,0.08));
+    }
+
+    50%{
+
+        filter:
+            drop-shadow(0 0 22px rgba(255,255,255,0.35))
+            drop-shadow(0 0 60px rgba(255,0,0,0.20));
+    }
+
+    100%{
+
+        filter:
+            drop-shadow(0 0 10px rgba(255,255,255,0.15))
+            drop-shadow(0 0 25px rgba(255,0,0,0.08));
+    }
+}
+
+/* ========================================
+   MAIN WEBSITE
+======================================== */
+
+#main-content{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity 1.5s ease;
+}
+
+#main-content.visible{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+#navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:
+        18px 40px;
+
+    z-index:500;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.85),
+            transparent
+        );
+}
+
+/* LEFT NAV */
+
+#nav-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+/* SMALL SHIELD */
+
+#nav-logo-container{
+
+    position:relative;
+
+    width:58px;
+    height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* SHIELD */
+
+#nav-shield{
+
+    position:absolute;
+
+    width:100%;
+
+    animation:
+        shieldGyroSpin 8s linear infinite;
+
+    opacity:.95;
+}
+
+/* CENTER */
+
+#nav-center{
+
+    position:absolute;
+
+    width:30px;
+}
+
+/* IMPERIUM LOGO */
+
+#nav-title{
+
+    height:52px;
+
+    width:auto;
+}
+
+/* NAV LINKS */
+
+#nav-links{
+
+    display:flex;
+
+    gap:40px;
+}
+
+#nav-links a{
+
+    color:#d6d6d6;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    transition:.3s ease;
+}
+
+#nav-links a:hover{
+
+    color:#d4b06a;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+#hero-section{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* HERO BG */
+
+#hero-background{
+
+    position:absolute;
+
+    inset:0;
+}
+
+#hero-background img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transform:scale(1.02);
+}
+
+/* OVERLAY */
+
+#hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.85),
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.9)
+        );
+}
+
+/* HERO CONTENT */
+
+#hero-content{
+
+    position:relative;
+
+    z-index:20;
+
+    text-align:center;
+
+    max-width:1100px;
+
+    padding:0 30px;
+}
+
+/* SUBTITLE */
+
+#hero-subtitle{
+
+    color:#d4b06a;
+
+    letter-spacing:10px;
+
+    font-size:12px;
+
+    margin-bottom:30px;
+}
+
+/* TITLE */
+
+#hero-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:90px;
+
+    line-height:1.1;
+
+    font-weight:700;
+}
+
+#hero-title span{
+
+    font-style:italic;
+
+    color:#d4b06a;
+
+    font-weight:300;
+}
+
+/* LINE */
+
+#hero-line{
+
+    width:120px;
+
+    height:1px;
+
+    background:#d4b06a;
+
+    margin:
+        40px auto;
+}
+
+/* DESCRIPTION */
+
+#hero-description{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#d0d0d0;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    font-weight:300;
+}
+
+/* BUTTONS */
+
+#hero-buttons{
+
+    margin-top:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+}
+
+/* GOLD BUTTON */
+
+.gold-btn{
+
+    background:#d4b06a;
+
+    color:black;
+
+    text-decoration:none;
+
+    padding:
+        16px 34px;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    transition:.35s ease;
+}
+
+.gold-btn:hover{
+
+    background:white;
+}
+
+/* OUTLINE BUTTON */
+
+.outline-btn{
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:
+        16px 34px;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    transition:.35s ease;
+}
+
+.outline-btn:hover{
+
+    border-color:#d4b06a;
+
+    color:#d4b06a;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media(max-width:768px){
+
+    #intro-shield-wrapper{
+
+        width:220px;
+        height:220px;
+    }
+
+    #intro-shield-logo{
+
+        width:130px;
+    }
+
+    #intro-text-element h1{
+
+        font-size:38px;
+
+        letter-spacing:6px;
+    }
+
+    #intro-text-element p{
+
+        font-size:28px;
+    }
+
+    #nav-links{
+
+        display:none;
+    }
+
+    #hero-title{
+
+        font-size:48px;
+    }
+
+    #hero-description{
+
+        font-size:15px;
+    }
+
+    #nav-title{
+
+        height:34px;
     }
 }
