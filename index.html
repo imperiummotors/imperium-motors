@@ -29,7 +29,7 @@
         .bg-gold { background-color: #bfa15f; }
         .text-gold { color: #bfa15f; }
 
-        /* --- INTRO ANIMATION TIMELINE ENGINE --- */
+        /* --- INTRO SCREEN STYLE --- */
         #intro-screen {
             position: fixed;
             inset: 0;
@@ -39,91 +39,79 @@
             justify-content: center;
             align-items: center;
             z-index: 999;
-            animation: fadeOutIntro 0.8s cubic-bezier(0.77, 0, 0.175, 1) 4.5s forwards;
+            transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         #shield-container {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 350px;
+            height: 350px;
             display: flex;
             justify-content: center;
             align-items: center;
             perspective: 1400px;
-            animation: shrinkAndFly 1s cubic-bezier(0.77, 0, 0.175, 1) 4.2s forwards;
         }
 
+        /* Y-Axis Luxury Door Rotation */
         #shield-frame {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300px;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             transform-style: preserve-3d;
-            transform-origin: center center;
-            animation: luxuryRevolvingDoor 3.8s linear infinite;
-            filter: drop-shadow(0 0 25px rgba(255,255,255,0.3));
+            animation: luxuryRevolvingDoor 4s linear infinite;
         }
 
         #shield-logo {
             position: absolute;
-            top: 46%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 210px;
+            width: 220px; /* Big center impact scale */
             z-index: 2;
-            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+            pointer-events: none;
         }
 
-        #intro-titles {
-            text-align: center;
-            animation: fadeOutText 0.5s ease forwards 4.0s;
-        }
-
-        /* --- KEYFRAMES --- */
         @keyframes luxuryRevolvingDoor {
-            0% { transform: translate(-50%, -50%) rotateY(0deg); }
-            100% { transform: translate(-50%, -50%) rotateY(360deg); }
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
         }
-        @keyframes fadeOutText {
-            to { opacity: 0; transform: translateY(15px); }
+
+        /* --- STATE UTILITIES CONTROLLED BY JS --- */
+        .intro-hidden {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
         }
-        @keyframes shrinkAndFly {
-            to {
-                transform: scale(0.18) translate(-750px, -450px);
-                opacity: 0;
-            }
-        }
-        @keyframes fadeOutIntro {
-            to { opacity: 0; visibility: hidden; pointer-events: none; }
-        }
-        
-        /* Reveal Main Content Smoothly */
+
         #main-content {
             opacity: 0;
-            animation: revealSite 1s cubic-bezier(0.25, 1, 0.5, 1) 4.8s forwards;
+            transition: opacity 1s ease-in-out;
         }
-        @keyframes revealSite {
-            to { opacity: 1; }
+
+        .main-revealed {
+            opacity: 1 !important;
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <div id="intro-screen">
+    <div id="intro-screen" onclick="revealSite()">
         <div id="shield-container">
             <img src="IMAGE_1.png" id="shield-frame" alt="Shield Frame">
             <img src="i_SDG.png" id="shield-logo" alt="1 SDG Center">
         </div>
-        <div id="intro-titles" class="mt-8">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-[0.2em] text-white">IMPERIUM MOTORS</h1>
-            <p class="cursive-font text-3xl text-gray-400 mt-2">Soli Deo Gloria</p>
+        <div id="intro-titles" class="mt-12 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-[0.3em] text-white">IMPERIUM MOTORS</h1>
+            <p class="cursive-font text-3xl text-gold mt-2">Soli Deo Gloria</p>
+            <p class="text-[10px] tracking-widest text-gray-500 uppercase mt-4 opacity-60">Click anywhere to enter vault</p>
         </div>
     </div>
 
     <div id="main-content">
         
         <nav class="flex justify-between items-center px-6 md:px-16 py-6 absolute w-full z-50 bg-gradient-to-b from-black/80 to-transparent">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center">
                 <img src="IMPERIUM_MOTORS.png" alt="Imperium Motors Crest" class="h-16 object-contain">
             </div>
             <div class="hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
@@ -136,7 +124,7 @@
         </nav>
 
         <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden">
-            <div class="absolute inset-0 z-0 opacity-40 scale-105 transform hover:scale-100 transition duration-10000">
+            <div class="absolute inset-0 z-0 opacity-40">
                 <img src="FUTURE_DESIGN.jpg" alt="Imperium Showroom Night" class="w-full h-full object-cover">
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-black/40 to-black/80 z-10"></div>
@@ -293,7 +281,7 @@
                 <h2 class="text-4xl md:text-6xl text-white font-medium tracking-tight">Strictly By Invitation Only</h2>
                 <div class="w-16 h-[1px] bg-gold mx-auto"></div>
                 <p class="text-gray-400 font-light max-w-2xl mx-auto text-base leading-relaxed">
-                    Membership granting access to unlisted assets, offshore private viewings, and global VIP convoy allocations requires peer nomination. All applications are scrutinized through our corporate governance office.
+                    Membership granting access to unlisted assets, offshore private viewings, and global VIP convoy allocations requires peer nomination.
                 </p>
                 <div class="pt-6">
                     <a href="#appointment" class="border border-gold text-gold hover:bg-gold hover:text-black font-semibold uppercase text-xs tracking-[0.3em] px-12 py-4 transition duration-300">Propose Membership</a>
@@ -320,29 +308,6 @@
                             <input type="email" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Primary Asset Interest</label>
-                            <select class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
-                                <option class="text-black">Hypercar Sourcing Portfolio</option>
-                                <option class="text-black">Legacy Club Nomination</option>
-                                <option class="text-black">Off-Market Collection Disposal</option>
-                                <option class="text-black">Other Premium Requirements</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Preferred Meeting Location</label>
-                            <select class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
-                                <option class="text-black">Chennai HQ (OMR, Tamil Nadu)</option>
-                                <option class="text-black">London Sourcing Hub (UK)</option>
-                                <option class="text-black">Secure Virtual Video Terminal</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Security Clearance / Special Requests</label>
-                        <textarea rows="4" class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light"></textarea>
-                    </div>
                     <div class="text-center pt-4">
                         <button type="submit" class="w-full sm:w-auto bg-gold text-black font-bold uppercase text-xs tracking-[0.3em] px-16 py-4 hover:bg-white transition duration-300">
                             Transmit Credentials
@@ -363,5 +328,14 @@
 
     </div>
 
+    <script>
+        function revealSite() {
+            document.getElementById('intro-screen').classList.add('intro-hidden');
+            document.getElementById('main-content').classList.add('main-revealed');
+        }
+
+        // Automatic fail-safe fallback trigger if user doesn't click
+        setTimeout(revealSite, 4200);
+    </script>
 </body>
 </html>
