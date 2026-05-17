@@ -1,1 +1,56 @@
+body{
+    margin:0;
+    background:black;
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+}
 
+#intro-screen{
+    position:fixed;
+    inset:0;
+    background:black;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+#shield-logo{
+    width:220px;
+    opacity:0;
+}
+
+#imperium-title{
+
+    margin-top:25px;
+
+    font-size:64px;
+
+    letter-spacing:12px;
+
+    background:linear-gradient(
+        90deg,
+        #777,
+        #ffffff,
+        #777
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    opacity:0;
+}
+
+#legacy-text{
+
+    margin-top:20px;
+
+    font-size:42px;
+
+    font-family:'Alex Brush',cursive;
+
+    color:white;
+
+    opacity:0;
+}
