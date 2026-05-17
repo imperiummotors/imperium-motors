@@ -119,39 +119,33 @@ body{
     0% {
         transform:
             rotateY(0deg)
-            rotateX(8deg)
             scale(1);
     }
 
     25% {
         transform:
-            rotateY(90deg)
-            rotateX(8deg)
+            rotateY(12deg)
             scale(1.02);
     }
 
     50% {
         transform:
-            rotateY(180deg)
-            rotateX(8deg)
+            rotateY(0deg)
             scale(1);
     }
 
     75% {
         transform:
-            rotateY(270deg)
-            rotateX(8deg)
+            rotateY(-12deg)
             scale(1.02);
     }
 
     100% {
         transform:
-            rotateY(360deg)
-            rotateX(8deg)
+            rotateY(0deg)
             scale(1);
     }
 }
-
 /* PLATINUM SHINE EFFECT */
 
 @keyframes shineText {
