@@ -1,5 +1,5 @@
 /* ==========================================================================
-   IMPERIUM MOTORS CORE DESIGN MATRIX
+   IMPERIUM MOTORS SYSTEM CONTROL STYLESHEET
    ========================================================================== */
 
 :root {
@@ -23,15 +23,17 @@ body {
 .serif-font { font-family: 'Playfair Display', serif; }
 .cursive-font { font-family: 'Alex Brush', cursive; }
 
+/* REVEALS THE 'y' CAPTURE BOX BY EXTENDING INTERNAL LAYER PADDING */
 .gold-gradient {
     background: linear-gradient(90deg, #d4af37, #fff2b2, #d4af37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
 }
 
-/* ==========================================================================
-   INTRO SCREEN PARAMETERS
-   ========================================================================== */
+/* CINEMATIC LAYER CODES */
 #intro-screen {
     position: fixed;
     inset: 0;
@@ -63,16 +65,14 @@ body {
 
 .fade-out-text { opacity: 0 !important; }
 
-/* ==========================================================================
-   DYNAMIC FLYING CREST & BRAND MATRIX (Enlarged Top Left Coordinates)
-   ========================================================================== */
+/* STRUCTURAL DUAL IDENTITY ENGINE */
 #intro-shield-wrapper {
     position: fixed;
     top: 38%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 250px; /* Large splash screen presentation size */
-    height: 250px;
+    width: 250px; 
+    height: auto; /* Lets text structure calculate itself naturally below */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,8 +82,7 @@ body {
     transition: top 1.4s cubic-bezier(0.25, 1, 0.3, 1),
                 left 1.4s cubic-bezier(0.25, 1, 0.3, 1),
                 transform 1.4s cubic-bezier(0.25, 1, 0.3, 1),
-                width 1.4s cubic-bezier(0.25, 1, 0.3, 1),
-                height 1.4s cubic-bezier(0.25, 1, 0.3, 1);
+                width 1.4s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 @keyframes fanBladeSpin {
@@ -92,15 +91,16 @@ body {
 }
 
 #intro-shield-frame {
-    width: 100%;
-    height: 100%;
+    width: 250px;
+    height: 250px;
     object-fit: contain;
     animation: fanBladeSpin 1.6s linear infinite;
     transform-style: preserve-3d;
     filter: drop-shadow(0 0 20px rgba(212,175,55,0.15));
+    transition: width 1.4s cubic-bezier(0.25, 1, 0.3, 1),
+                height 1.4s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
-/* BRAND TEXT POSITIONED DIRECTLY UNDERNEATH SPINNING CREST */
 #nav-brand-text {
     width: 130px; 
     height: auto;
@@ -116,18 +116,19 @@ body {
     transform: translateY(0) !important;
 }
 
-/* FLIGHT DESTINATION COORDINATES (Bigger Landing Size) */
+/* TERMINAL COEXISTENCE DOCK FOR SPINNING IDENTITY ASSET */
 #intro-shield-wrapper.fly-to-corner {
-    top: 75px !important;    
+    top: 85px !important;    
     left: 95px !important;   
-    width: 90px !important; /* Prominent top left structural footprint */
-    height: 90px !important;
+    width: 140px !important; 
     transform: translate(-50%, -50%) scale(1) !important;
 }
 
-/* ==========================================================================
-   APP CONTAINER HOOKS
-   ========================================================================== */
+#intro-shield-wrapper.fly-to-corner #intro-shield-frame {
+    width: 85px !important;  /* Sharp visibility scale value */
+    height: 85px !important;
+}
+
 #main-content {
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
@@ -139,20 +140,23 @@ body {
     align-items: center;
 }
 
-/* RESPONSIVE DESIGN VIEWPORTS */
+/* SCREEN VIEWPORT BALANCING DECK */
 @media (max-width: 768px) {
     #intro-shield-wrapper {
         width: 180px;
-        height: 180px;
+        height: auto;
         top: 35%;
     }
     #intro-shield-wrapper.fly-to-corner {
-        top: 55px !important;
+        top: 60px !important;
         left: 65px !important;
-        width: 65px !important;
-        height: 65px !important;
+        width: 80px !important;
     }
-    #nav-brand-text { width: 90px; margin-top: 8px; }
+    #intro-shield-wrapper.fly-to-corner #intro-shield-frame {
+        width: 55px !important;
+        height: 55px !important;
+    }
+    #nav-brand-text { width: 85px; margin-top: 6px; }
     #imperium-title { font-size: 2.2rem; }
     #legacy-text { font-size: 1.5rem; }
 }
