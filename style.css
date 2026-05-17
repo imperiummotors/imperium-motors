@@ -1,155 +1,93 @@
-body{
-    margin:0;
-    background:black;
-    overflow:hidden;
-    font-family:'Inter',sans-serif;
+body {
+    margin: 0;
+    background: black;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
 /* INTRO SCREEN */
-
-#intro-screen{
-
-    position:fixed;
-    inset:0;
-
-    background:black;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* SHIELD AREA */
-
-#shield-container{
-
-    position:relative;
-
-    width:320px;
-    height:320px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    perspective:1400px;
+#shield-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Removed 3D perspective since we are doing a flat clock spin */
 }
 
 /* OUTER SHIELD */
-
-#shield-frame{
-
-    position:absolute;
-
-    width:300px;
-
-    animation:luxurySpin 7s ease-in-out infinite;
-
-    transform-style:preserve-3d;
-
+#shield-frame {
+    position: absolute;
+    width: 300px;
+    
+    /* CHANGED: Swapped 'ease-in-out' to 'linear' to eliminate the glitch/stutter */
+    animation: luxuryClockSpin 12s linear infinite; 
+    
     filter:
-        drop-shadow(0 0 15px rgba(255,255,255,0.55))
-        drop-shadow(0 0 30px rgba(255,255,255,0.35))
-        drop-shadow(0 0 60px rgba(255,0,0,0.15));
+        drop-shadow(0 0 15px rgba(255, 255, 255, 0.55))
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.35))
+        drop-shadow(0 0 60px rgba(255, 0, 0, 0.15));
 }
 
 /* CENTER LOGO */
-
-#shield-logo{
-
-    position:absolute;
-
-    width:180px;
-
-    z-index:2;
-
+#shield-logo {
+    position: absolute;
+    width: 180px;
+    z-index: 2;
     filter:
-        drop-shadow(0 0 12px rgba(255,255,255,0.55))
-        drop-shadow(0 0 30px rgba(255,255,255,0.25));
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.55))
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.25));
 }
 
 /* IMPERIUM TITLE */
-
-#imperium-title{
-
-    margin-top:45px;
-
-    font-size:72px;
-
-    font-weight:700;
-
-    letter-spacing:14px;
-
-    text-align:center;
-
-    background:linear-gradient(
+#imperium-title {
+    margin-top: 45px;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 14px;
+    text-align: center;
+    background: linear-gradient(
         90deg,
         #666,
         #ffffff,
         #777
     );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:
-        0 0 15px rgba(255,255,255,0.15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 /* SDG TEXT */
-
-#legacy-text{
-
-    margin-top:20px;
-
-    font-size:48px;
-
-    font-family:'Alex Brush',cursive;
-
-    color:white;
-
+#legacy-text {
+    margin-top: 20px;
+    font-size: 48px;
+    font-family: 'Alex Brush', cursive;
+    color: white;
     text-shadow:
-        0 0 10px rgba(255,255,255,0.4),
-        0 0 25px rgba(255,255,255,0.2);
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 25px rgba(255, 255, 255, 0.2);
 }
 
-/* SPINNING TOP EFFECT */
+/* --- CORRECTED ANIMATION --- */
 
-@keyframes luxurySpin{
-
-    0%{
-        transform:
-            rotateZ(0deg)
-            rotateX(12deg)
-            rotateY(0deg);
+/* Pure, continuous clock-like rotation */
+@keyframes luxuryClockSpin {
+    0% {
+        transform: rotate(0deg);
     }
-
-    25%{
-        transform:
-            rotateZ(90deg)
-            rotateX(12deg)
-            rotateY(8deg);
-    }
-
-    50%{
-        transform:
-            rotateZ(180deg)
-            rotateX(12deg)
-            rotateY(0deg);
-    }
-
-    75%{
-        transform:
-            rotateZ(270deg)
-            rotateX(12deg)
-            rotateY(-8deg);
-    }
-
-    100%{
-        transform:
-            rotateZ(360deg)
-            rotateX(12deg)
-            rotateY(0deg);
+    100% {
+        transform: rotate(360deg);
     }
 }
