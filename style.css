@@ -1,21 +1,16 @@
 /* ==========================================================================
-   IMPERIUM MOTORS — CINEMATIC LUXURY EXPERIENCE
+   IMPERIUM MOTORS CORE DESIGN MATRIX
    ========================================================================== */
 
 :root {
     --gold: #d4af37;
     --black: #030303;
-    --silver: #d9d9d9;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -27,7 +22,6 @@ body {
 
 .serif-font { font-family: 'Playfair Display', serif; }
 .cursive-font { font-family: 'Alex Brush', cursive; }
-.text-gold { color: var(--gold); }
 
 .gold-gradient {
     background: linear-gradient(90deg, #d4af37, #fff2b2, #d4af37);
@@ -36,7 +30,7 @@ body {
 }
 
 /* ==========================================================================
-   INTRO COVER SCREEN
+   INTRO SCREEN PARAMETERS
    ========================================================================== */
 #intro-screen {
     position: fixed;
@@ -51,18 +45,36 @@ body {
     pointer-events: none;
 }
 
+#imperium-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-align: center;
+    color: #ffffff;
+    transition: opacity 0.4s ease;
+}
+
+#legacy-text {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-top: 10px;
+    transition: opacity 0.4s ease;
+}
+
+.fade-out-text { opacity: 0 !important; }
+
 /* ==========================================================================
-   SHIELD WRAPPER ENGINE (Nests the elements together vertically)
+   DYNAMIC FLYING CREST & BRAND MATRIX (Enlarged Top Left Coordinates)
    ========================================================================== */
 #intro-shield-wrapper {
     position: fixed;
     top: 38%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 280px;
-    height: 280px;
+    width: 250px; /* Large splash screen presentation size */
+    height: 250px;
     display: flex;
-    flex-direction: column; /* Stacks layout elements linearly */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     perspective: 1400px;
@@ -83,23 +95,20 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    animation: fanBladeSpin 1.4s linear infinite;
+    animation: fanBladeSpin 1.6s linear infinite;
     transform-style: preserve-3d;
-    filter: drop-shadow(0 0 25px rgba(212,175,55,0.2));
-    transition: all 1.4s cubic-bezier(0.25, 1, 0.3, 1);
+    filter: drop-shadow(0 0 20px rgba(212,175,55,0.15));
 }
 
-/* ==========================================================================
-   THE BRAND TEXT TARGET STYLE (Sits clean directly underneath)
-   ========================================================================== */
+/* BRAND TEXT POSITIONED DIRECTLY UNDERNEATH SPINNING CREST */
 #nav-brand-text {
-    width: 110px;  /* Fits perfectly below the docked layout footprint */
+    width: 130px; 
     height: auto;
-    margin-top: 10px;
+    margin-top: 12px;
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(8px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 #nav-brand-text.show-nav-text {
@@ -107,43 +116,18 @@ body {
     transform: translateY(0) !important;
 }
 
-/* ==========================================================================
-   THE ENHANCED FLIGHT PATH (Top Left Corner Position & Larger Presence)
-   ========================================================================== */
+/* FLIGHT DESTINATION COORDINATES (Bigger Landing Size) */
 #intro-shield-wrapper.fly-to-corner {
-    top: 70px !important;    
+    top: 75px !important;    
     left: 95px !important;   
-    width: 110px !important;  /* Enlarged coordinate frame so it's clearly visible */
-    height: 110px !important;
-    transform: translate(-50%, -50%) scale(1) !important; /* Preserves pixel scale crispness */
+    width: 90px !important; /* Prominent top left structural footprint */
+    height: 90px !important;
+    transform: translate(-50%, -50%) scale(1) !important;
 }
 
 /* ==========================================================================
-   TYPOGRAPHY HEADERS
+   APP CONTAINER HOOKS
    ========================================================================== */
-#imperium-title {
-    font-size: 46px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.25em;
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 40px;
-    background: linear-gradient(180deg, #ffffff, #d9d9d9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: opacity .4s ease;
-}
-
-#legacy-text {
-    margin-top: 12px;
-    font-size: 32px;
-    color: var(--gold);
-    transition: opacity .4s ease;
-}
-
-.fade-out-text { opacity: 0 !important; }
-
 #main-content {
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
@@ -153,30 +137,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 140px;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE ADAPTATION)
-   ========================================================================== */
+/* RESPONSIVE DESIGN VIEWPORTS */
 @media (max-width: 768px) {
     #intro-shield-wrapper {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         top: 35%;
     }
-
     #intro-shield-wrapper.fly-to-corner {
         top: 55px !important;
         left: 65px !important;
         width: 65px !important;
         height: 65px !important;
     }
-
-    #nav-brand-text {
-        width: 65px;
-    }
-
-    #imperium-title { font-size: 32px; letter-spacing: 0.2em; }
-    #legacy-text { font-size: 26px; }
+    #nav-brand-text { width: 90px; margin-top: 8px; }
+    #imperium-title { font-size: 2.2rem; }
+    #legacy-text { font-size: 1.5rem; }
 }
