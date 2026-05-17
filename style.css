@@ -25,34 +25,18 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* ==========================================================================
-   TYPOGRAPHY PROFILES
-   ========================================================================== */
-.serif-font {
-    font-family: 'Playfair Display', serif;
-}
-
-.cursive-font {
-    font-family: 'Alex Brush', cursive;
-}
-
-.text-gold {
-    color: var(--gold);
-}
+.serif-font { font-family: 'Playfair Display', serif; }
+.cursive-font { font-family: 'Alex Brush', cursive; }
+.text-gold { color: var(--gold); }
 
 .gold-gradient {
-    background: linear-gradient(
-        90deg,
-        #d4af37,
-        #fff2b2,
-        #d4af37
-    );
+    background: linear-gradient(90deg, #d4af37, #fff2b2, #d4af37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* ==========================================================================
-   INTRO SCREEN OVERLAY LAYER
+   INTRO COVER SCREEN
    ========================================================================== */
 #intro-screen {
     position: fixed;
@@ -68,24 +52,26 @@ body {
 }
 
 /* ==========================================================================
-   SHIELD ANIMATION VEHICLE MATRIX
+   SHIELD WRAPPER ENGINE (Nests the elements together vertically)
    ========================================================================== */
 #intro-shield-wrapper {
     position: fixed;
-    top: 38%; /* Centers perfectly over the typography layout blocks */
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     display: flex;
+    flex-direction: column; /* Stacks layout elements linearly */
     justify-content: center;
     align-items: center;
     perspective: 1400px;
     z-index: 10000;
-    /* Precise architectural easing for the flight transition path */
     transition: top 1.4s cubic-bezier(0.25, 1, 0.3, 1),
                 left 1.4s cubic-bezier(0.25, 1, 0.3, 1),
-                transform 1.4s cubic-bezier(0.25, 1, 0.3, 1);
+                transform 1.4s cubic-bezier(0.25, 1, 0.3, 1),
+                width 1.4s cubic-bezier(0.25, 1, 0.3, 1),
+                height 1.4s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 @keyframes fanBladeSpin {
@@ -94,92 +80,103 @@ body {
 }
 
 #intro-shield-frame {
-    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    animation: fanBladeSpin 1.4s linear infinite; /* Smooth continuous rotation */
+    animation: fanBladeSpin 1.4s linear infinite;
     transform-style: preserve-3d;
     filter: drop-shadow(0 0 25px rgba(212,175,55,0.2));
+    transition: all 1.4s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 /* ==========================================================================
-   THE CORRECTED TRANSITION FLIGHT TARGET DOCK
+   THE BRAND TEXT TARGET STYLE (Sits clean directly underneath)
    ========================================================================== */
-#intro-shield-wrapper.fly-to-corner {
-    top: 55px !important;    
-    left: 85px !important;   
-    transform: translate(-50%, -50%) scale(0.26) !important; /* Perfect desktop navigation downscale */
-}
-
-/* ==========================================================================
-   NAVBAR BRANDING ARCHITECTURE
-   ========================================================================== */
-.nav-branding-zone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 150px;
-    text-align: center;
-    position: relative;
-}
-
 #nav-brand-text {
-    width: 100%;
-    margin-top: 65px; /* Spaces unshielded typography exactly below docked emblem */
+    width: 110px;  /* Fits perfectly below the docked layout footprint */
+    height: auto;
+    margin-top: 10px;
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
     transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.show-nav-text {
+#nav-brand-text.show-nav-text {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
 
 /* ==========================================================================
-   ELEMENT TRANSITION UTILITIES
+   THE ENHANCED FLIGHT PATH (Top Left Corner Position & Larger Presence)
+   ========================================================================== */
+#intro-shield-wrapper.fly-to-corner {
+    top: 70px !important;    
+    left: 95px !important;   
+    width: 110px !important;  /* Enlarged coordinate frame so it's clearly visible */
+    height: 110px !important;
+    transform: translate(-50%, -50%) scale(1) !important; /* Preserves pixel scale crispness */
+}
+
+/* ==========================================================================
+   TYPOGRAPHY HEADERS
    ========================================================================== */
 #imperium-title {
-    transition: opacity 0.4s ease;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.25em;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 40px;
+    background: linear-gradient(180deg, #ffffff, #d9d9d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity .4s ease;
 }
 
 #legacy-text {
-    transition: opacity 0.4s ease;
+    margin-top: 12px;
+    font-size: 32px;
+    color: var(--gold);
+    transition: opacity .4s ease;
 }
 
-.fade-out-text {
-    opacity: 0 !important;
-}
+.fade-out-text { opacity: 0 !important; }
 
 #main-content {
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
 }
 
+.nav-branding-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+}
+
 /* ==========================================================================
-   RESPONSIVE LAYOUT CONSTRAINTS (MOBILE INTERFACE)
+   RESPONSIVE DESIGN (MOBILE ADAPTATION)
    ========================================================================== */
 @media (max-width: 768px) {
     #intro-shield-wrapper {
-        width: 190px;
-        height: 190px;
+        width: 200px;
+        height: 200px;
         top: 35%;
     }
 
     #intro-shield-wrapper.fly-to-corner {
-        top: 45px !important;
-        left: 55px !important;
-        transform: translate(-50%, -50%) scale(0.22) !important;
-    }
-
-    .nav-branding-zone {
-        width: 100px;
+        top: 55px !important;
+        left: 65px !important;
+        width: 65px !important;
+        height: 65px !important;
     }
 
     #nav-brand-text {
-        margin-top: 45px;
+        width: 65px;
     }
+
+    #imperium-title { font-size: 32px; letter-spacing: 0.2em; }
+    #legacy-text { font-size: 26px; }
 }
