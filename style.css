@@ -24,18 +24,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Restored perspective so the 3D tilt actually renders with depth */
     perspective: 1400px; 
 }
 
-/* OUTER SHIELD */
+/* OUTER SHIELD FRAME */
 #shield-frame {
     position: absolute;
+    /* CHANGED: Absolute positioning anchors */
+    top: 50%;
+    left: 50%;
     width: 300px;
+    
     transform-style: preserve-3d;
+    
+    /* CRITICAL FIX: Forces the browser to calculate the exact geometric center */
+    transform-origin: center center; 
 
-    /* FIXED: Swapped 'ease-in-out' to 'linear' to cure the glitch/stutter */
-    animation: premiumSpinningTop 6s linear infinite; 
+    /* Swapped to a slightly snappier 5s loop for premium energy */
+    animation: premiumSpinningTop 5s linear infinite; 
 
     filter:
         drop-shadow(0 0 15px rgba(255, 255, 255, 0.55))
@@ -43,9 +49,12 @@ body {
         drop-shadow(0 0 60px rgba(255, 0, 0, 0.15));
 }
 
-/* CENTER LOGO */
+/* CENTER LOGO (1 SDG) */
 #shield-logo {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 180px;
     z-index: 2;
     filter:
@@ -71,7 +80,7 @@ body {
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
-/* SDG TEXT */
+/* SDG TEXT BELOW TITLE */
 #legacy-text {
     margin-top: 20px;
     font-size: 48px;
@@ -82,22 +91,22 @@ body {
         0 0 25px rgba(255, 255, 255, 0.2);
 }
 
-/* --- FIXED SPINNING TOP ANIMATION --- */
+/* --- THE REMASTERED SPINNING TOP ANIMATION --- */
 @keyframes premiumSpinningTop {
     0% {
-        transform: rotateZ(0deg) rotateX(14deg) rotateY(0deg);
+        /* translate(-50%, -50%) keeps the asymmetrical frame locked dead-center */
+        transform: translate(-50%, -50%) rotateZ(0deg) rotateX(15deg) rotateY(0deg);
     }
     25% {
-        /* Smoothly shifts the 3D wobble to the Y axis as it passes 90 degrees */
-        transform: rotateZ(90deg) rotateX(0deg) rotateY(14deg);
+        transform: translate(-50%, -50%) rotateZ(90deg) rotateX(0deg) rotateY(15deg);
     }
     50% {
-        transform: rotateZ(180deg) rotateX(-14deg) rotateY(0deg);
+        transform: translate(-50%, -50%) rotateZ(180deg) rotateX(-15deg) rotateY(0deg);
     }
     75% {
-        transform: rotateZ(270deg) rotateX(0deg) rotateY(-14deg);
+        transform: translate(-50%, -50%) rotateZ(270deg) rotateX(0deg) rotateY(-15deg);
     }
     100% {
-        transform: rotateZ(360deg) rotateX(14deg) rotateY(0deg);
+        transform: translate(-50%, -50%) rotateZ(360deg) rotateX(15deg) rotateY(0deg);
     }
 }
