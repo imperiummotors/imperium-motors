@@ -11,7 +11,7 @@
     
     <style>
         /* ==========================================================================
-           CINEMATIC LOGO SEQUENCE PHYSICS (CRITICAL FIXED CODES)
+           CINEMATIC LOGO SEQUENCE PHYSICS
            ========================================================================== */
 
         body {
@@ -30,7 +30,7 @@
             justify-content: center;
             align-items: center;
             transition: opacity 0.6s ease-in-out;
-            pointer-events: none; /* Prevents clicks during transition */
+            pointer-events: none; 
         }
 
         /* 2. THE LOGO WRAPPER LAYER */
@@ -38,22 +38,20 @@
             position: fixed;
             top: 40%;
             left: 50%;
-            /* Use a CSS Custom Property for scaling so it handles transitions perfectly */
             transform: translate(-50%, -50%) scale(1);
-            width: 280px;
-            height: 280px;
+            width: 250px;
+            height: 250px;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10000;
             perspective: 1200px;
-            /* Explicitly state transitions for structural positions */
             transition: top 1.2s cubic-bezier(0.25, 1, 0.3, 1),
                         left 1.2s cubic-bezier(0.25, 1, 0.3, 1),
                         transform 1.2s cubic-bezier(0.25, 1, 0.3, 1);
         }
 
-        /* 3. RAPID 3D FAN SPIN SYSTEM */
+        /* 3. CONTINUOUS 3D FAN SPIN SYSTEM */
         @keyframes shield3DFanSpin {
             0% { transform: rotateY(0deg); }
             100% { transform: rotateY(360deg); }
@@ -64,26 +62,15 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* Forced high-speed 3D fan spin */
             animation: shield3DFanSpin 1.2s linear infinite !important;
             transform-style: preserve-3d;
         }
 
-        /* Inner Monogram - Set bigger to beautifully fill out the frame space */
-        #intro-shield-logo {
-            position: absolute;
-            width: 65% !important;
-            height: 65% !important;
-            object-fit: contain;
-            z-index: 2;
-        }
-
-        /* 4. THE FORCE FLIGHT PATH TARGET (Moves cleanly to top left corner navbar spot) */
+        /* 4. THE FORCE FLIGHT PATH TARGET (Top Left Corner Anchor) */
         #intro-shield-wrapper.fly-to-corner {
             top: 55px !important;    
             left: 85px !important;   
-            /* Downscales the entire container uniformly to prevent asset distortion */
-            transform: translate(-50%, -50%) scale(0.26) !important;
+            transform: translate(-50%, -50%) scale(0.28) !important;
         }
 
         /* 5. NAVBAR BRANDING ZONE ARCHITECTURE */
@@ -97,7 +84,6 @@
             position: relative;
         }
 
-        /* Spaces text asset cleanly and directly below the spinning shield location */
         #nav-brand-text {
             opacity: 0;
             margin-top: 65px; 
@@ -125,8 +111,7 @@
 <body class="text-white">
 
     <div id="intro-shield-wrapper">
-        <img src="SHIELD_ONLY.png" id="intro-shield-frame" alt="Shield Frame">
-        <img src="i_SDG.png" id="intro-shield-logo" alt="Imperium Monogram">
+        <img src="IMAGE_1.png" id="intro-shield-frame" alt="Imperium Sovereign Crest">
     </div>
 
     <div id="intro-screen">
@@ -274,4 +259,127 @@
                     </div>
                     <div class="group overflow-hidden border border-white/5 relative">
                         <img src="BOARDMEETING_ROOM.webp" alt="Sovereign Boardroom Area" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-2xl text-white serif-font">The Sovereign Boardroom</h3>
+                            <p class="text-xs text-gold uppercase tracking-widest mt-1">Portfolio Strategy Suite</p>
+                        </div>
+                    </div>
+                    <div class="group overflow-hidden border border-white/5 relative">
+                        <img src="CAFE_LOUNGE.webp" alt="Cafe Imperium Lounge Environment" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-2xl text-white serif-font">Café Imperium</h3>
+                            <p class="text-xs text-gold uppercase tracking-widest mt-1">Private Guest Lounge</p>
+                        </div>
+                    </div>
+                    <div class="group overflow-hidden border border-white/5 relative">
+                        <img src="CLIENT_MEETINGROOM.webp" alt="Executive Client Signoff Suite" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-2xl text-white serif-font">The Executive Client Suite</h3>
+                            <p class="text-xs text-gold uppercase tracking-widest mt-1">Private Sign-Off Room</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="club" class="py-36 bg-black relative border-t border-white/5">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="ELITE_MEMBERS_CLUB.jpg" alt="Elite Members Lounge Core" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 bg-black/90 z-10"></div>
+            
+            <div class="relative z-20 max-w-4xl mx-auto px-6 text-center space-y-8">
+                <img src="IMAGE_1.png" alt="Sovereign Crest" class="h-20 mx-auto opacity-80 filter drop-shadow(0 0 10px rgba(255,255,255,0.2))">
+                <p class="text-xs uppercase tracking-[0.5em] text-gold font-bold">The Imperium Legacy Circle</p>
+                <h2 class="text-4xl md:text-6xl text-white font-medium tracking-tight">Strictly By Invitation Only</h2>
+                <div class="w-16 h-[1px] bg-gold mx-auto"></div>
+                <p class="text-gray-400 font-light max-w-2xl mx-auto text-base leading-relaxed">
+                    Access to hidden hyper-assets or unlisted off-market collection transfers requires active peer nomination profiles.
+                </p>
+                <div class="pt-6">
+                    <a href="#appointment" class="border border-gold text-gold hover:bg-gold hover:text-black font-semibold uppercase text-xs tracking-[0.3em] px-12 py-4 transition duration-300">Propose Membership</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="appointment" class="py-32 px-6 md:px-16 bg-[#040404]">
+            <div class="max-w-4xl mx-auto border border-white/10 p-8 md:p-16 bg-[#080808]/60 backdrop-blur-md relative">
+                <div class="text-center space-y-4 mb-12">
+                    <p class="text-xs uppercase tracking-[0.4em] text-gold font-semibold">Strictly Protocol</p>
+                    <h2 class="text-3xl md:text-5xl text-white serif-font">Request Private Briefing</h2>
+                    <p class="text-sm text-gray-400 font-light">Visits to physical estate parameters are processed strictly through 48h corporate protocols.</p>
+                </div>
+
+                <form class="space-y-8" onsubmit="event.preventDefault(); alert('Briefing Credentials Securely Transmitted.');">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Full Legal Name</label>
+                            <input type="text" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Secure Digital Coordinates (Email)</label>
+                            <input type="email" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
+                        </div>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="w-full sm:w-auto bg-gold text-black font-bold uppercase text-xs tracking-[0.3em] px-16 py-4 hover:bg-white transition duration-300">
+                            Transmit Credentials
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer class="py-16 px-6 bg-black border-t border-white/5 text-center space-y-6">
+            <div class="cursive-font text-4xl text-gold">Soli Deo Gloria</div>
+            <div class="w-12 h-[1px] bg-white/20 mx-auto"></div>
+            <p class="text-[10px] uppercase tracking-[0.4em] text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Chennai HQ (OMR) &bull; London Procurement Hub &bull; Strictly Confidential <br>
+                &copy; 2026 IMPERIUM MOTORS. All Legacy Rights Reserved.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        function runCinematicIntro() {
+            const logoWrapper = document.getElementById('intro-shield-wrapper');
+            const introTextTitle = document.getElementById('imperium-title');
+            const introTextSub = document.getElementById('legacy-text');
+            const introOverlay = document.getElementById('intro-screen');
+            const mainContent = document.getElementById('main-content');
+            const navText = document.getElementById('nav-brand-text');
+
+            // 1. Instantly fade overlay text titles away smoothly
+            introTextTitle.classList.add('fade-out-text');
+            introTextSub.classList.add('fade-out-text');
+
+            // 2. Fly the spinning wrapper to top left corner safely
+            setTimeout(() => {
+                logoWrapper.classList.add('fly-to-corner');
+                
+                // Unveil platform content layer
+                introOverlay.style.opacity = '0';
+                mainContent.style.opacity = '1';
+                
+                setTimeout(() => {
+                    introOverlay.style.display = 'none';
+                }, 600);
+            }, 300);
+
+            // 3. Reveal branding typography right beneath the docked shield asset
+            setTimeout(() => {
+                navText.classList.add('show-nav-text');
+            }, 1000);
+        }
+
+        // Initialize sequencing parameters immediately upon asset download execution
+        window.addEventListener('load', () => {
+            setTimeout(runCinematicIntro, 1500); 
+        });
+    </script>
+</body>
+</html>
