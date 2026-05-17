@@ -71,13 +71,12 @@ body {
     top: 38%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 250px; 
-    height: auto; /* Lets text structure calculate itself naturally below */
+    width: 250px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    perspective: 1400px;
     z-index: 10000;
     transition: top 1.4s cubic-bezier(0.25, 1, 0.3, 1),
                 left 1.4s cubic-bezier(0.25, 1, 0.3, 1),
@@ -85,29 +84,58 @@ body {
                 width 1.4s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
-@keyframes fanBladeSpin {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
+/* Keeps i_SDG and SHIELD_ONLY locked to the same exact centre point. */
+#intro-logo-stack {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    flex: 0 0 250px;
+    perspective: 1000px;
+    transition: width 1.4s cubic-bezier(0.25, 1, 0.3, 1),
+                height 1.4s cubic-bezier(0.25, 1, 0.3, 1),
+                flex-basis 1.4s cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+@keyframes shieldYAxisSpin {
+    0% { transform: translate(-50%, -50%) rotateY(0deg); }
+    100% { transform: translate(-50%, -50%) rotateY(360deg); }
+}
+
+#intro-logo-center,
+#intro-shield-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    object-fit: contain;
+    transform-origin: 50% 50%;
+}
+
+#intro-logo-center {
+    width: 58%;
+    height: 58%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    filter: drop-shadow(0 0 18px rgba(212,175,55,0.18));
 }
 
 #intro-shield-frame {
-    width: 250px;
-    height: 250px;
-    object-fit: contain;
-    animation: fanBladeSpin 1.6s linear infinite;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    animation: shieldYAxisSpin 3.2s linear infinite;
     transform-style: preserve-3d;
+    backface-visibility: visible;
     filter: drop-shadow(0 0 20px rgba(212,175,55,0.15));
-    transition: width 1.4s cubic-bezier(0.25, 1, 0.3, 1),
-                height 1.4s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 #nav-brand-text {
-    width: 130px; 
+    width: 130px;
     height: auto;
     margin-top: 12px;
     opacity: 0;
     transform: translateY(8px);
-    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
                 transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -118,15 +146,16 @@ body {
 
 /* TERMINAL COEXISTENCE DOCK FOR SPINNING IDENTITY ASSET */
 #intro-shield-wrapper.fly-to-corner {
-    top: 85px !important;    
-    left: 95px !important;   
-    width: 140px !important; 
+    top: 85px !important;
+    left: 95px !important;
+    width: 140px !important;
     transform: translate(-50%, -50%) scale(1) !important;
 }
 
-#intro-shield-wrapper.fly-to-corner #intro-shield-frame {
-    width: 85px !important;  /* Sharp visibility scale value */
+#intro-shield-wrapper.fly-to-corner #intro-logo-stack {
+    width: 85px !important;
     height: 85px !important;
+    flex-basis: 85px !important;
 }
 
 #main-content {
@@ -147,16 +176,28 @@ body {
         height: auto;
         top: 35%;
     }
+    #intro-logo-stack {
+        width: 180px;
+        height: 180px;
+        flex-basis: 180px;
+    }
     #intro-shield-wrapper.fly-to-corner {
         top: 60px !important;
         left: 65px !important;
         width: 80px !important;
     }
-    #intro-shield-wrapper.fly-to-corner #intro-shield-frame {
+    #intro-shield-wrapper.fly-to-corner #intro-logo-stack {
         width: 55px !important;
         height: 55px !important;
+        flex-basis: 55px !important;
     }
     #nav-brand-text { width: 85px; margin-top: 6px; }
     #imperium-title { font-size: 2.2rem; }
     #legacy-text { font-size: 1.5rem; }
+}
+
+
+/* Logo glow used for the club crest image. */
+.crest-glow {
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
 }

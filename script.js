@@ -1,37 +1,29 @@
-const tl = gsap.timeline();
+function runCinematicIntro() {
+    const logoWrapper = document.getElementById('intro-shield-wrapper');
+    const introTextTitle = document.getElementById('imperium-title');
+    const introTextSub = document.getElementById('legacy-text');
+    const introOverlay = document.getElementById('intro-screen');
+    const mainContent = document.getElementById('main-content');
+    const navText = document.getElementById('nav-brand-text');
 
-tl.to("#shield-center",{
+    if (introTextTitle) introTextTitle.classList.add('fade-out-text');
+    if (introTextSub) introTextSub.classList.add('fade-out-text');
 
-    opacity:1,
-    scale:1.05,
-    duration:2
+    setTimeout(() => {
+        if (logoWrapper) logoWrapper.classList.add('fly-to-corner');
+        if (introOverlay) introOverlay.style.opacity = '0';
+        if (mainContent) mainContent.style.opacity = '1';
 
-})
+        setTimeout(() => {
+            if (introOverlay) introOverlay.style.display = 'none';
+        }, 800);
+    }, 300);
 
-.to("#shield-ring",{
+    setTimeout(() => {
+        if (navText) navText.classList.add('show-nav-text');
+    }, 1400);
+}
 
-    rotateY:360,
-    rotateX:15,
-
-    duration:4,
-
-    repeat:-1,
-
-    ease:"linear"
-
-},0)
-
-.to("#imperium-title",{
-
-    opacity:1,
-    y:-10,
-    duration:1.5
-
-})
-
-.to("#legacy-text",{
-
-    opacity:1,
-    duration:2
-
+window.addEventListener('load', () => {
+    setTimeout(runCinematicIntro, 1200);
 });
