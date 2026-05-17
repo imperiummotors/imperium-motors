@@ -48,11 +48,11 @@ body {
 }
 
 #imperium-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-align: center;
-    color: #ffffff;
+    width: min(620px, 82vw);
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.18));
     transition: opacity 0.4s ease;
 }
 
@@ -192,7 +192,7 @@ body {
         flex-basis: 55px !important;
     }
     #nav-brand-text { width: 85px; margin-top: 6px; }
-    #imperium-title { font-size: 2.2rem; }
+    #imperium-title { width: min(360px, 82vw); }
     #legacy-text { font-size: 1.5rem; }
 }
 
