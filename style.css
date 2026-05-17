@@ -53,16 +53,18 @@ body {
 /* CENTER LOGO (1 SDG) */
 #shield-logo {
     position: absolute;
-    top: 50%;
+    top: 46%;              /* CHANGED: Moved up slightly from 50% to center it vertically in the shield's headspace */
     left: 50%;
+    
     transform: translate(-50%, -50%);
-    width: 180px;
+    
+    width: 210px;          /* CHANGED: Increased size to fill the frame beautifully */
     z-index: 2;
+    
     filter:
         drop-shadow(0 0 12px rgba(255, 255, 255, 0.55))
         drop-shadow(0 0 30px rgba(255, 255, 255, 0.25));
 }
-
 /* IMPERIUM TITLE */
 #imperium-title {
     margin-top: 45px;
