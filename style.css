@@ -24,17 +24,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Removed 3D perspective since we are doing a flat clock spin */
+    /* Restored perspective so the 3D tilt actually renders with depth */
+    perspective: 1400px; 
 }
 
 /* OUTER SHIELD */
 #shield-frame {
     position: absolute;
     width: 300px;
-    
-    /* CHANGED: Swapped 'ease-in-out' to 'linear' to eliminate the glitch/stutter */
-    animation: luxuryClockSpin 12s linear infinite; 
-    
+    transform-style: preserve-3d;
+
+    /* FIXED: Swapped 'ease-in-out' to 'linear' to cure the glitch/stutter */
+    animation: premiumSpinningTop 6s linear infinite; 
+
     filter:
         drop-shadow(0 0 15px rgba(255, 255, 255, 0.55))
         drop-shadow(0 0 30px rgba(255, 255, 255, 0.35))
@@ -80,14 +82,22 @@ body {
         0 0 25px rgba(255, 255, 255, 0.2);
 }
 
-/* --- CORRECTED ANIMATION --- */
-
-/* Pure, continuous clock-like rotation */
-@keyframes luxuryClockSpin {
+/* --- FIXED SPINNING TOP ANIMATION --- */
+@keyframes premiumSpinningTop {
     0% {
-        transform: rotate(0deg);
+        transform: rotateZ(0deg) rotateX(14deg) rotateY(0deg);
+    }
+    25% {
+        /* Smoothly shifts the 3D wobble to the Y axis as it passes 90 degrees */
+        transform: rotateZ(90deg) rotateX(0deg) rotateY(14deg);
+    }
+    50% {
+        transform: rotateZ(180deg) rotateX(-14deg) rotateY(0deg);
+    }
+    75% {
+        transform: rotateZ(270deg) rotateX(0deg) rotateY(-14deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotateZ(360deg) rotateX(14deg) rotateY(0deg);
     }
 }
