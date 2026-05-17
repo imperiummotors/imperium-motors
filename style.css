@@ -30,34 +30,38 @@ body{
     perspective:1200px;
 }
 
-#shield-ring{
 
-    position:absolute;
+#shield-center {
+    width: 220px;
+    filter:
+        drop-shadow(0 0 25px rgba(255,255,255,0.35))
+        drop-shadow(0 0 50px rgba(255,0,0,0.25));
 
-    width:260px;
-    height:260px;
+    animation: shieldSpin 5s ease-in-out infinite;
 
-    border-radius:50%;
-
-    border-left:2px solid rgba(255,255,255,0.15);
-    border-right:2px solid rgba(255,255,255,0.55);
-
-    box-shadow:
-    0 0 30px rgba(255,0,0,0.18);
-
-    transform-style:preserve-3d;
-
-    opacity:.35;
+    transform-style: preserve-3d;
 }
-#shield-center{
+@keyframes shieldSpin {
 
-    width:180px;
+    0% {
+        transform: rotateY(0deg);
+    }
 
-    z-index:2;
+    25% {
+        transform: rotateY(180deg);
+    }
 
-    filter:drop-shadow(0 0 25px rgba(255,0,0,0.35));
+    50% {
+        transform: rotateY(360deg);
+    }
 
-    opacity:0;
+    75% {
+        transform: rotateY(180deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
 }
 #imperium-title{
 
