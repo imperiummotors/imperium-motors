@@ -11,6 +11,7 @@ tl.to("#shield-center",{
 .to("#shield-ring",{
 
     rotateY:360,
+    rotateX:15,
 
     duration:4,
 
