@@ -1,19 +1,24 @@
 const tl = gsap.timeline();
 
-tl.to("#shield-logo",{
+tl.to("#shield-center",{
 
     opacity:1,
-    duration:2,
-    scale:1.1
-
-})
-
-.to("#shield-logo",{
-
-    rotation:360,
+    scale:1.05,
     duration:2
 
 })
+
+.to("#shield-ring",{
+
+    rotateY:360,
+
+    duration:4,
+
+    repeat:-1,
+
+    ease:"linear"
+
+},0)
 
 .to("#imperium-title",{
 
