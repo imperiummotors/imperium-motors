@@ -8,12 +8,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
     
     <style>
+        /* --- CORE INITIAL SYSTEM STABILITY --- */
+        html, body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #030303;
             color: #ffffff;
             scroll-behavior: smooth;
         }
+
+        /* Prevent any style flashes before completion hook triggers */
+        body:not(.engine-ready) #intro-stage,
+        body:not(.engine-ready) #main-content {
+            opacity: 0;
+            visibility: hidden;
+        }
+
         h1, h2, h3, .serif-font {
             font-family: 'Playfair Display', serif;
         }
@@ -29,47 +46,59 @@
         .bg-gold { background-color: #bfa15f; }
         .text-gold { color: #bfa15f; }
 
-        /* --- INTRO SCREEN STYLE --- */
-        #intro-screen {
+        /* --- THE INTRO STAGE WRAPPER --- */
+        #intro-stage {
             position: fixed;
             inset: 0;
             background: #000000;
+            z-index: 999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 999;
-            transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            pointer-events: none;
+            opacity: 1;
+            visibility: visible;
+            transition: background 1.2s cubic-bezier(0.25, 1, 0.5, 1) 4.2s;
         }
 
-        #shield-container {
+        #intro-shield-wrapper {
             position: relative;
-            width: 350px;
-            height: 350px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 320px;
+            height: 320px;
             perspective: 1400px;
+            transition: all 1.4s cubic-bezier(0.25, 1, 0.5, 1) 3.5s;
+            z-index: 1000;
         }
 
-        /* Y-Axis Luxury Door Rotation */
-        #shield-frame {
+        /* 3D Vertical Axis Rotation Engine */
+        #intro-shield-frame {
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: contain;
             transform-style: preserve-3d;
-            animation: luxuryRevolvingDoor 4s linear infinite;
+            transform-origin: center center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        #shield-logo {
+        .engine-ready #intro-shield-frame {
+            opacity: 1;
+            animation: luxuryRevolvingDoor 3.8s linear infinite;
+        }
+
+        #intro-shield-logo {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 220px; /* Big center impact scale */
-            z-index: 2;
-            pointer-events: none;
+            width: 210px;
+            z-index: 1001;
+        }
+
+        #intro-text-element {
+            transition: opacity 0.6s ease-in-out 3.2s, transform 0.6s ease-in-out 3.2s;
         }
 
         @keyframes luxuryRevolvingDoor {
@@ -77,43 +106,67 @@
             100% { transform: rotateY(360deg); }
         }
 
-        /* --- STATE UTILITIES CONTROLLED BY JS --- */
-        .intro-hidden {
-            opacity: 0 !important;
+        /* --- STAGE COMPLETED STATE ANIMATIONS --- */
+        .stage-completed {
+            background: transparent !important;
             pointer-events: none !important;
-            visibility: hidden !important;
         }
 
+        /* Fly directly into the navbar area coordinates */
+        .shield-fly-to-corner {
+            width: 64px !important;
+            height: 64px !important;
+            position: fixed !important;
+            top: 16px !important;
+            left: 40px !important;
+            transform: translate(0, 0) !important;
+        }
+        
+        .shield-fly-to-corner #intro-shield-frame {
+            animation-play-state: paused !important;
+            transform: rotateY(0deg) !important;
+        }
+
+        .shield-fly-to-corner #intro-shield-logo {
+            width: 42px !important;
+        }
+
+        .text-fade-out {
+            opacity: 0 !important;
+            transform: translateY(20px);
+        }
+
+        /* --- MAIN APP SYSTEM --- */
         #main-content {
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            visibility: hidden;
+            transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1) 3.8s;
         }
 
-        .main-revealed {
+        .main-visible {
             opacity: 1 !important;
+            visibility: visible !important;
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <div id="intro-screen" onclick="revealSite()">
-        <div id="shield-container">
-            <img src="IMAGE_1.png" id="shield-frame" alt="Shield Frame">
-            <img src="i_SDG.png" id="shield-logo" alt="1 SDG Center">
+    <div id="intro-stage">
+        <div id="intro-shield-wrapper">
+            <img src="IMAGE_1.png" id="intro-shield-frame" alt="Shield Frame">
+            <img src="i_SDG.png" id="intro-shield-logo" alt="1 SDG Center">
         </div>
-        <div id="intro-titles" class="mt-12 text-center">
+        <div id="intro-text-element" class="mt-12 text-center">
             <h1 class="text-3xl md:text-5xl font-bold tracking-[0.3em] text-white">IMPERIUM MOTORS</h1>
             <p class="cursive-font text-3xl text-gold mt-2">Soli Deo Gloria</p>
-            <p class="text-[10px] tracking-widest text-gray-500 uppercase mt-4 opacity-60">Click anywhere to enter vault</p>
         </div>
     </div>
 
     <div id="main-content">
         
         <nav class="flex justify-between items-center px-6 md:px-16 py-6 absolute w-full z-50 bg-gradient-to-b from-black/80 to-transparent">
-            <div class="flex items-center">
-                <img src="IMPERIUM_MOTORS.png" alt="Imperium Motors Crest" class="h-16 object-contain">
-            </div>
+            <div class="w-24 h-16"></div> 
+            
             <div class="hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
                 <a href="#about" class="text-gray-300 hover:text-white transition">Our Identity</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-white transition">The Vault</a>
@@ -125,7 +178,7 @@
 
         <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden">
             <div class="absolute inset-0 z-0 opacity-40">
-                <img src="FUTURE_DESIGN.jpg" alt="Imperium Showroom Night" class="w-full h-full object-cover">
+                <img src="FUTURE_DESIGN.jpg" alt="Showroom View" class="w-full h-full object-cover">
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-black/40 to-black/80 z-10"></div>
             
@@ -137,7 +190,7 @@
                 </h2>
                 <div class="w-24 h-[1px] bg-gold/50 mx-auto mb-8"></div>
                 <p class="text-base md:text-xl max-w-2xl mx-auto font-light text-gray-300 tracking-wide leading-relaxed mb-12">
-                    Connecting discerning global visionaries through the procurement of the world's rarest automotive investments. Built on absolute privacy. Driven by prestige.
+                    Connecting discerning global visionaries through the procurement of the world's rarest automotive investments. Built on absolute privacy.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
                     <a href="#appointment" class="bg-gold text-black px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">Secure Entry</a>
@@ -149,29 +202,32 @@
         <section id="about" class="py-32 px-6 md:px-16 bg-[#060606] relative">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
                 <div class="lg:col-span-7 space-y-8">
-                    <p class="text-xs uppercase tracking-[0.4em] text-gold font-semibold">Corporate Directive</p>
-                    <h2 class="text-4xl md:text-6xl text-white tracking-tight">What We Do. <br><span class="italic text-gray-400 font-light">What We Protect.</span></h2>
+                    <p class="text-xs uppercase tracking-[0.4em] text-gold font-semibold">The Vow</p>
+                    <h2 class="text-4xl md:text-6xl text-white tracking-tight">Born in Nellai.<br><span class="italic text-gray-400 font-light">Refined in London.</span></h2>
                     <div class="w-20 h-[2px] bg-gold"></div>
                     <p class="text-gray-300 font-light leading-relaxed text-lg">
-                        Imperium Motors operates as an elite boutique brokerage house specializing in ultra-rare hyper-assets and automotive design engineering masterpieces. We bridge premier international hypercar networks with selected high-net-worth patrons.
+                        From childhood automotive dreams sparked in Tamil Nadu to navigating high-stakes hypercar acquisition networks across Europe, Imperium Motors represents an unbroken timeline of absolute personal integrity and relationship curation.
+                    </p>
+                    <p class="text-gray-400 font-light leading-relaxed text-sm">
+                        Today, we manage end-to-end global asset logistics—moving unparalleled engineering milestones through international channels securely into our dedicated bonded configurations.
                     </p>
                     <div class="grid md:grid-cols-2 gap-8 pt-4">
                         <div class="border-l-2 border-gold/40 pl-4 space-y-2">
                             <h4 class="text-white font-medium tracking-wide">Our Strategic Goal</h4>
-                            <p class="text-sm text-gray-400 font-light">To secure legacy retention portfolios by matching engineering landmarks with elite global collectors across secured private channels.</p>
+                            <p class="text-sm text-gray-400 font-light">To protect and enhance generational vehicular collections across dynamic private channels.</p>
                         </div>
                         <div class="border-l-2 border-gold/40 pl-4 space-y-2">
-                            <h4 class="text-white font-medium tracking-wide">Global Sourcing Matrix</h4>
-                            <p class="text-sm text-gray-400 font-light">Direct operational pathways running seamlessly from our dedicated London Procurement Hub into our premium Bonded Vault spaces.</p>
+                            <h4 class="text-white font-medium tracking-wide">The Chennai Hub Matrix</h4>
+                            <p class="text-sm text-gray-400 font-light">Direct custom logistic clearing management handling execution parameters flawlessly.</p>
                         </div>
                     </div>
                 </div>
                 <div class="lg:col-span-5">
                     <div class="relative group overflow-hidden border border-white/10">
-                        <img src="FRONT_OFFICE.jpg" alt="Imperium Front Office Lounge" class="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105">
+                        <img src="FRONT_OFFICE.jpg" alt="Front Office Lounge" class="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-6 right-6 text-left">
-                            <p class="text-xs uppercase tracking-[0.3em] text-gold mb-1">HQ Entrance</p>
+                        <div class="absolute bottom-6 left-6 text-left">
+                            <p class="text-xs uppercase tracking-[0.3em] text-gold mb-1">Enclave Headquarters</p>
                             <h3 class="text-xl text-white">The Front Office Lounge</h3>
                         </div>
                     </div>
@@ -228,7 +284,7 @@
                         <h2 class="text-4xl md:text-6xl text-white tracking-tight">The Imperium Estates</h2>
                     </div>
                     <p class="text-gray-400 font-light max-w-md mt-4 md:mt-0 text-sm leading-relaxed">
-                        Every transaction room, gallery lounge, and vault sanctuary is architectural proof of our primary commitment: absolute prestige.
+                        Every transaction room, gallery lounge, and vault sanctuary is architectural proof of absolute prestige.
                     </p>
                 </div>
 
@@ -271,71 +327,4 @@
 
         <section id="club" class="py-36 bg-black relative border-t border-white/5">
             <div class="absolute inset-0 z-0 opacity-20">
-                <img src="ELITE_MEMBERS_CLUB.jpg" alt="Elite Members Lounge" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute inset-0 bg-black/90 z-10"></div>
-            
-            <div class="relative z-20 max-w-4xl mx-auto px-6 text-center space-y-8">
-                <img src="i_SDG.png" alt="1 SDG Emblem" class="h-20 mx-auto opacity-80 filter drop-shadow(0 0 10px rgba(255,255,255,0.2))">
-                <p class="text-xs uppercase tracking-[0.5em] text-gold font-bold">The Imperium Legacy Circle</p>
-                <h2 class="text-4xl md:text-6xl text-white font-medium tracking-tight">Strictly By Invitation Only</h2>
-                <div class="w-16 h-[1px] bg-gold mx-auto"></div>
-                <p class="text-gray-400 font-light max-w-2xl mx-auto text-base leading-relaxed">
-                    Membership granting access to unlisted assets, offshore private viewings, and global VIP convoy allocations requires peer nomination.
-                </p>
-                <div class="pt-6">
-                    <a href="#appointment" class="border border-gold text-gold hover:bg-gold hover:text-black font-semibold uppercase text-xs tracking-[0.3em] px-12 py-4 transition duration-300">Propose Membership</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="appointment" class="py-32 px-6 md:px-16 bg-[#040404]">
-            <div class="max-w-4xl mx-auto border border-white/10 p-8 md:p-16 bg-[#080808]/60 backdrop-blur-md relative">
-                <div class="text-center space-y-4 mb-12">
-                    <p class="text-xs uppercase tracking-[0.4em] text-gold font-semibold">Strictly Protocol</p>
-                    <h2 class="text-3xl md:text-5xl text-white">Request Private Briefing</h2>
-                    <p class="text-sm text-gray-400 font-light">All visits to our bonded showrooms or private estates require 48h advance vetting.</p>
-                </div>
-
-                <form class="space-y-8" onsubmit="event.preventDefault(); alert('Briefing Request Logged Securely.');">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Full Legal Name</label>
-                            <input type="text" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Secure Digital Coordinates (Email)</label>
-                            <input type="email" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
-                        </div>
-                    </div>
-                    <div class="text-center pt-4">
-                        <button type="submit" class="w-full sm:w-auto bg-gold text-black font-bold uppercase text-xs tracking-[0.3em] px-16 py-4 hover:bg-white transition duration-300">
-                            Transmit Credentials
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <footer class="py-16 px-6 bg-black border-t border-white/5 text-center space-y-6">
-            <div class="cursive-font text-4xl text-gold">Soli Deo Gloria</div>
-            <div class="w-12 h-[1px] bg-white/20 mx-auto"></div>
-            <p class="text-[10px] uppercase tracking-[0.4em] text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Chennai HQ (OMR) &bull; London Procurement Hub &bull; Strictly Confidential <br>
-                &copy; 2026 IMPERIUM MOTORS. All Legacy Rights Reserved.
-            </p>
-        </footer>
-
-    </div>
-
-    <script>
-        function revealSite() {
-            document.getElementById('intro-screen').classList.add('intro-hidden');
-            document.getElementById('main-content').classList.add('main-revealed');
-        }
-
-        // Automatic fail-safe fallback trigger if user doesn't click
-        setTimeout(revealSite, 4200);
-    </script>
-</body>
-</html>
+                <img src="ELITE_MEMBERS_CLUB.jpg" alt="Elite
