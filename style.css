@@ -217,6 +217,11 @@ body.intro-active {
     height: 62px !important;
 }
 
+#intro-shield-wrapper.fly-to-corner #nav-brand-text {
+    margin-top: 0 !important;
+    transform: translateY(-15%) !important;
+}
+
 .nav-branding-zone {
     display: flex;
     flex-direction: column;
