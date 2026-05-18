@@ -215,6 +215,41 @@ body.intro-active {
     justify-content: space-between;
 }
 
+.portfolio-media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    min-height: 220px;
+    background: #060606;
+}
+
+.portfolio-media img,
+.portfolio-media video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-media video {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.portfolio-media:hover video {
+    opacity: 1;
+}
+
+.portfolio-media:hover img {
+    opacity: 0;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-4px);
+}
+
 /* CINEMATIC LAYER CODES */
 #intro-screen {
     position: fixed;

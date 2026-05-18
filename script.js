@@ -70,9 +70,26 @@ function initScrollReveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
+function initPortfolioHoverVideos() {
+    const mediaItems = document.querySelectorAll('.portfolio-media');
+    mediaItems.forEach(item => {
+        const video = item.querySelector('video');
+        if (!video) return;
+        item.addEventListener('mouseenter', () => {
+            video.muted = true;
+            video.play().catch(() => {});
+        });
+        item.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
+}
+
 window.addEventListener('load', () => {
     document.body.classList.add('intro-active');
     setTimeout(runCinematicIntro, 800);
     initMobileNav();
     initScrollReveal();
+    initPortfolioHoverVideos();
 });
