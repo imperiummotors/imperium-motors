@@ -25,7 +25,54 @@ function runCinematicIntro() {
     }, 1400);
 }
 
+function initMobileNav() {
+    const toggle = document.getElementById('mobile-nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!toggle || !mobileMenu) return;
+
+    const closeMenu = () => {
+        mobileMenu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    toggle.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        const expanded = (!mobileMenu.classList.contains('hidden')).toString();
+        toggle.setAttribute('aria-expanded', expanded);
+        toggle.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden';
+    });
+
+    mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) closeMenu();
+    });
+}
+
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reveals.length) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.18 });
+
+    reveals.forEach(el => observer.observe(el));
+}
+
 window.addEventListener('load', () => {
     document.body.classList.add('intro-active');
     setTimeout(runCinematicIntro, 800);
+    initMobileNav();
+    initScrollReveal();
 });
