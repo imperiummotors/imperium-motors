@@ -207,9 +207,9 @@ body.intro-active {
 }
 
 #intro-shield-wrapper.fly-to-corner #intro-logo-stack {
-    width: 110px !important;
-    height: 110px !important;
-    flex-basis: 110px !important;
+    width: 105px !important;
+    height: 105px !important;
+    flex-basis: 105px !important;
 }
 
 #intro-shield-wrapper.fly-to-corner #intro-logo-center {
