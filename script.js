@@ -25,5 +25,5 @@ function runCinematicIntro() {
 }
 
 window.addEventListener('load', () => {
-    setTimeout(runCinematicIntro, 1200);
+    setTimeout(runCinematicIntro, 800);
 });

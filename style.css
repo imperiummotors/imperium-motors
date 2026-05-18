@@ -18,6 +18,9 @@ body {
     color: white;
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
 }
 
 .serif-font { font-family: 'Playfair Display', serif; }
@@ -29,8 +32,19 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    padding-bottom: 0.15em;
-    margin-bottom: -0.15em;
+    padding-bottom: 0.12em;
+    line-height: 1;
+    margin-bottom: 0;
+    will-change: transform, opacity;
+}
+
+.hero-heading {
+    line-height: 1.05;
+}
+
+.group img {
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 /* CINEMATIC LAYER CODES */
