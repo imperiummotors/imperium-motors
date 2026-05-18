@@ -12,10 +12,11 @@ function runCinematicIntro() {
     setTimeout(() => {
         if (logoWrapper) logoWrapper.classList.add('fly-to-corner');
         if (introOverlay) introOverlay.style.opacity = '0';
-        if (mainContent) mainContent.style.opacity = '1';
+        if (mainContent) mainContent.classList.add('visible');
 
         setTimeout(() => {
             if (introOverlay) introOverlay.style.display = 'none';
+            document.body.classList.remove('intro-active');
         }, 800);
     }, 300);
 
@@ -25,5 +26,6 @@ function runCinematicIntro() {
 }
 
 window.addEventListener('load', () => {
+    document.body.classList.add('intro-active');
     setTimeout(runCinematicIntro, 800);
 });

@@ -23,6 +23,10 @@ body {
     scroll-behavior: smooth;
 }
 
+body.intro-active {
+    overflow: hidden;
+}
+
 .serif-font { font-family: 'Playfair Display', serif; }
 .cursive-font { font-family: 'Alex Brush', cursive; }
 
@@ -31,15 +35,25 @@ body {
     background: linear-gradient(90deg, #d4af37, #fff2b2, #d4af37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
-    padding-bottom: 0.12em;
-    line-height: 1;
-    margin-bottom: 0;
+    display: inline;
+    line-height: 1.1;
+    vertical-align: middle;
     will-change: transform, opacity;
 }
 
 .hero-heading {
     line-height: 1.05;
+}
+
+#main-content {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+#main-content.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .group img {
@@ -126,8 +140,8 @@ body {
 }
 
 #intro-logo-center {
-    width: 58%;
-    height: 58%;
+    width: 62%;
+    height: 62%;
     transform: translate(-50%, -50%);
     z-index: 2;
     filter: drop-shadow(0 0 18px rgba(212,175,55,0.18));
@@ -160,21 +174,16 @@ body {
 
 /* TERMINAL COEXISTENCE DOCK FOR SPINNING IDENTITY ASSET */
 #intro-shield-wrapper.fly-to-corner {
-    top: 85px !important;
-    left: 95px !important;
-    width: 140px !important;
+    top: 90px !important;
+    left: 92px !important;
+    width: 160px !important;
     transform: translate(-50%, -50%) scale(1) !important;
 }
 
 #intro-shield-wrapper.fly-to-corner #intro-logo-stack {
-    width: 85px !important;
-    height: 85px !important;
-    flex-basis: 85px !important;
-}
-
-#main-content {
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    width: 110px !important;
+    height: 110px !important;
+    flex-basis: 110px !important;
 }
 
 .nav-branding-zone {
