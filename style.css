@@ -186,6 +186,11 @@ body.intro-active {
     flex-basis: 110px !important;
 }
 
+#intro-shield-wrapper.fly-to-corner #intro-logo-center {
+    width: 80px !important;
+    height: 80px !important;
+}
+
 .nav-branding-zone {
     display: flex;
     flex-direction: column;
