@@ -207,14 +207,14 @@ body.intro-active {
 }
 
 #intro-shield-wrapper.fly-to-corner #intro-logo-stack {
-    width: 105px !important;
-    height: 105px !important;
-    flex-basis: 105px !important;
+    width: 100px !important;
+    height: 100px !important;
+    flex-basis: 100px !important;
 }
 
 #intro-shield-wrapper.fly-to-corner #intro-logo-center {
-    width: 80px !important;
-    height: 80px !important;
+    width: 76px !important;
+    height: 76px !important;
 }
 
 .nav-branding-zone {
@@ -244,6 +244,10 @@ body.intro-active {
         width: 55px !important;
         height: 55px !important;
         flex-basis: 55px !important;
+    }
+    #intro-shield-wrapper.fly-to-corner #intro-logo-center {
+        width: 42px !important;
+        height: 42px !important;
     }
     #nav-brand-text { width: 85px; margin-top: 6px; }
     #imperium-title { width: min(360px, 82vw); }
