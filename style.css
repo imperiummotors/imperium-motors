@@ -53,10 +53,14 @@ body.intro-active {
 }
 
 .hero-heading {
-    line-height: 1.08;
+    line-height: 1.15;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: none;
+}
+
+.hero-heading .gold-gradient {
+    display: inline;
 }
 
 #main-content {
