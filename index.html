@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Imperium Motors — Exclusive hypercar acquisition, rare automotive investments and bespoke concierge services for discerning global collectors.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>IMPERIUM MOTORS | Where Luxury Meets Legacy</title>
@@ -49,6 +50,10 @@
                     </div>
                 </div>
 
+                <button class="nav-toggle lg:hidden" id="mobile-nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+
                 <div class="nav-links hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
                     <a href="#about" class="text-gray-300 hover:text-white transition">Our Identity</a>
                     <a href="#services" class="text-gray-300 hover:text-white transition">Services</a>
@@ -59,6 +64,17 @@
                 </div>
             </div>
         </nav>
+
+        <div class="mobile-menu hidden" id="mobile-menu">
+            <div class="mobile-menu-inner">
+                <a href="#about" class="mobile-nav-link">Our Identity</a>
+                <a href="#services" class="mobile-nav-link">Services</a>
+                <a href="#portfolio" class="mobile-nav-link">The Vault</a>
+                <a href="#spaces" class="mobile-nav-link">The Estates</a>
+                <a href="#club" class="mobile-nav-link">Elite Circle</a>
+                <a href="#appointment" class="mobile-menu-cta">Private Briefing</a>
+            </div>
+        </div>
 
         <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-visible">
             <div class="absolute inset-0 z-0 opacity-40 overflow-hidden">
@@ -321,7 +337,7 @@
                     <p class="text-sm text-gray-400 font-light">Visits to physical estate parameters are processed strictly through 48h corporate protocols.</p>
                 </div>
 
-                <form class="space-y-8" onsubmit="event.preventDefault(); alert('Briefing Credentials Securely Transmitted.');">
+                <form action="https://formspree.io/f/YOUR_ID" method="POST" class="space-y-8">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Full Legal Name</label>

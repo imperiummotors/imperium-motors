@@ -4,7 +4,13 @@
 
 :root {
     --gold: #d4af37;
+    --gold-light: #fff2b2;
     --black: #030303;
+    --white-06: rgba(255,255,255,0.06);
+    --white-14: rgba(255,255,255,0.14);
+    --text-muted: #d1d5db;
+    --radius-card: 24px;
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -14,7 +20,7 @@
 }
 
 body {
-    background: #030303;
+    background: var(--black);
     color: white;
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
@@ -91,7 +97,7 @@ body.intro-active {
 .site-nav {
     background: rgba(3, 3, 3, 0.72);
     backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--white-06);
 }
 
 .nav-inner {
@@ -106,7 +112,7 @@ body.intro-active {
     width: 36px;
     height: 36px;
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.14);
+    border: 1px solid var(--white-14);
     border-radius: 14px;
     padding: 8px;
     align-items: center;
@@ -129,7 +135,7 @@ body.intro-active {
 
 .nav-links a,
 .mobile-nav-link {
-    color: #d1d5db;
+    color: var(--text-muted);
     transition: color 0.25s ease, transform 0.25s ease;
 }
 
@@ -168,8 +174,8 @@ body.intro-active {
 .mobile-menu-cta {
     display: inline-flex;
     padding: 16px 20px;
-    border: 1px solid #d4af37;
-    color: #d4af37;
+    border: 1px solid var(--gold);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 0.22em;
     font-weight: 700;
@@ -177,8 +183,8 @@ body.intro-active {
 }
 
 .mobile-menu-cta:hover {
-    background: #d4af37;
-    color: #030303;
+    background: var(--gold);
+    color: var(--black);
 }
 
 .reveal {
@@ -196,13 +202,13 @@ body.intro-active {
 .service-card,
 .testimonial-card {
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--white-06);
     padding: 2rem;
-    border-radius: 24px;
+    border-radius: var(--radius-card);
     min-height: 260px;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                background 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.45s var(--transition-smooth),
+                border-color 0.45s var(--transition-smooth),
+                background 0.45s var(--transition-smooth);
     will-change: transform;
 }
 
@@ -229,7 +235,7 @@ body.intro-active {
 .portfolio-media {
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: var(--radius-card);
     min-height: 220px;
     background: #060606;
 }
@@ -272,14 +278,14 @@ body.intro-active {
 #intro-screen {
     position: fixed;
     inset: 0;
-    background: #030303;
+    background: var(--black);
     z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     will-change: opacity;
-    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.85s var(--transition-smooth);
     pointer-events: none;
 }
 
