@@ -49,6 +49,64 @@ body.intro-active {
     gap: 1rem;
 }
 
+.scroll-indicator {
+    position: absolute;
+    right: 60px;
+    bottom: 80px;
+    z-index: 21;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(0.6); }
+}
+
+.hero-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(3,3,3,0.65);
+    backdrop-filter: blur(14px);
+    display: flex;
+}
+
+.stat-item {
+    flex: 1;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-muted);
+}
+
+.stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--gold);
+}
+
+.stat-label {
+    font-size: 8px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
 .serif-font { font-family: 'Playfair Display', serif; }
 .cursive-font { font-family: 'Alex Brush', cursive; }
 
@@ -267,6 +325,30 @@ body.intro-active {
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
+}
+
+.brand-filters {
+    justify-content: center;
+}
+
+.brand-btn {
+    border: 1px solid var(--white-14);
+    background: transparent;
+    color: var(--text-muted);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.brand-btn:hover,
+.brand-btn.active {
+    background: rgba(212, 168, 76, 0.1);
+    color: var(--gold);
+    border-color: var(--gold);
 }
 
 .portfolio-card:hover {

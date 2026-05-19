@@ -86,10 +86,30 @@ function initPortfolioHoverVideos() {
     });
 }
 
+function initPortfolioFilter() {
+    window.filterBrand = function(filter, button) {
+        const cards = document.querySelectorAll('.portfolio-card');
+        const buttons = document.querySelectorAll('.brand-btn');
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        if (button) button.classList.add('active');
+
+        cards.forEach(card => {
+            const brand = card.dataset.brand;
+            if (filter === 'all' || brand === filter) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    };
+}
+
 window.addEventListener('load', () => {
     document.body.classList.add('intro-active');
     setTimeout(runCinematicIntro, 800);
     initMobileNav();
     initScrollReveal();
     initPortfolioHoverVideos();
+    initPortfolioFilter();
 });

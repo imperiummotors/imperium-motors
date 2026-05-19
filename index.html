@@ -78,7 +78,7 @@
 
         <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-visible">
             <div class="absolute inset-0 z-0 opacity-40 overflow-hidden">
-                <img src="assets/images/FUTURE_DESIGN.png" alt="Showroom Infrastructure" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1800&q=80" alt="Showroom Infrastructure" class="w-full h-full object-cover">
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-black/30 to-black/80 z-10"></div>
             
@@ -97,6 +97,28 @@
                 <div class="hero-actions">
                     <a href="#appointment" class="bg-gold text-black px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">Secure Entry</a>
                     <a href="#portfolio" class="border border-white/20 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:border-gold transition-all duration-300">View Vault</a>
+                </div>
+            </div>
+            <div class="scroll-indicator hidden md:flex items-center gap-2">
+                <div class="scroll-line"></div>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-gray-300">Scroll</span>
+            </div>
+            <div class="hero-stats hidden lg:flex absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/50 backdrop-blur-xl">
+                <div class="stat-item flex-1 px-8 py-6">
+                    <div class="stat-num">340+</div>
+                    <div class="stat-label">Cars Sold</div>
+                </div>
+                <div class="stat-item flex-1 px-8 py-6 border-l border-white/10">
+                    <div class="stat-num">£28M+</div>
+                    <div class="stat-label">Transaction Volume</div>
+                </div>
+                <div class="stat-item flex-1 px-8 py-6 border-l border-white/10">
+                    <div class="stat-num">14</div>
+                    <div class="stat-label">Years of Trust</div>
+                </div>
+                <div class="stat-item flex-1 px-8 py-6 border-l border-white/10">
+                    <div class="stat-num">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
                 </div>
             </div>
         </section>
@@ -167,8 +189,18 @@
                 <h2 class="text-4xl md:text-6xl text-white font-medium mb-4">The Curated Icons</h2>
                 <p class="text-gray-400 font-light max-w-xl mx-auto mb-20 text-sm md:text-base">An overview of hypercars engineered by visionaries, procured exclusively through Imperium channels.</p>
                 
+                <div class="brand-filters flex flex-wrap justify-center gap-3 mb-12">
+                    <button type="button" class="brand-btn active" onclick="filterBrand('all', this)">All</button>
+                    <button type="button" class="brand-btn" onclick="filterBrand('koenigsegg', this)">Koenigsegg</button>
+                    <button type="button" class="brand-btn" onclick="filterBrand('pagani', this)">Pagani</button>
+                    <button type="button" class="brand-btn" onclick="filterBrand('mansory', this)">Mansory</button>
+                    <button type="button" class="brand-btn" onclick="filterBrand('ferrari', this)">Ferrari</button>
+                    <button type="button" class="brand-btn" onclick="filterBrand('aston-martin', this)">Aston Martin</button>
+                    <button type="button" class="brand-btn" onclick="filterBrand('rolls-royce', this)">Rolls-Royce</button>
+                </div>
+
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal">
+                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="koenigsegg">
                         <div class="portfolio-media">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Koenigsegg_Agera_RS_Snap_Grand_2.jpg/1200px-Koenigsegg_Agera_RS_Snap_Grand_2.jpg" alt="Koenigsegg Agera RS">
                             <video muted loop playsinline preload="metadata">
@@ -179,7 +211,7 @@
                         <h3 class="text-2xl text-white group-hover:text-gold transition">Koenigsegg</h3>
                         <p class="text-sm text-gray-400 font-light leading-relaxed">Pioneering speed barriers with revolutionary carbon-weave architecture and custom megawatt engineering.</p>
                     </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal">
+                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="pagani">
                         <div class="portfolio-media">
                             <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=1200&q=80" alt="Pagani sports car">
                             <video muted loop playsinline preload="metadata">
@@ -190,7 +222,7 @@
                         <h3 class="text-2xl text-white group-hover:text-gold transition">Pagani</h3>
                         <p class="text-sm text-gray-400 font-light leading-relaxed">Where fine Renaissance art blends flawlessly with raw Mercedes-AMG V12 track dominance.</p>
                     </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal">
+                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="mansory">
                         <div class="portfolio-media">
                             <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" alt="Mansory custom car">
                             <video muted loop playsinline preload="metadata">
@@ -201,7 +233,7 @@
                         <h3 class="text-2xl text-white group-hover:text-gold transition">Mansory</h3>
                         <p class="text-sm text-gray-400 font-light leading-relaxed">Bespoke carbon modifications redefining visual impact and presence on structural super-assets.</p>
                     </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal">
+                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="ferrari">
                         <div class="portfolio-media">
                             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Ferrari heritage car">
                             <video muted loop playsinline preload="metadata">
@@ -212,7 +244,7 @@
                         <h3 class="text-2xl text-white group-hover:text-gold transition">Ferrari</h3>
                         <p class="text-sm text-gray-400 font-light leading-relaxed">The undisputed baseline of legacy speed investments, spanning classic legends to modern icons.</p>
                     </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal">
+                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="aston-martin">
                         <div class="portfolio-media">
                             <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=80" alt="Aston Martin car">
                             <video muted loop playsinline preload="metadata">
@@ -223,7 +255,7 @@
                         <h3 class="text-2xl text-white group-hover:text-gold transition">Aston Martin</h3>
                         <p class="text-sm text-gray-400 font-light leading-relaxed">Exquisite tailored aesthetic balance meeting computational performance dynamics.</p>
                     </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal">
+                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="rolls-royce">
                         <div class="portfolio-media">
                             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Rolls-Royce luxury car">
                             <video muted loop playsinline preload="metadata">
