@@ -105,6 +105,51 @@ function initPortfolioFilter() {
     };
 }
 
+function initCustomCursor() {
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    if (!cursor || !ring) return;
+
+    const updatePosition = (event) => {
+        const x = event.clientX;
+        const y = event.clientY;
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
+        ring.style.left = `${x}px`;
+        ring.style.top = `${y}px`;
+        cursor.style.opacity = '1';
+        ring.style.opacity = '1';
+    };
+
+    const hideCursor = () => {
+        cursor.style.opacity = '0';
+        ring.style.opacity = '0';
+    };
+
+    const addHoverState = () => {
+        cursor.classList.add('cursor-hover');
+        ring.classList.add('cursor-hover');
+    };
+
+    const removeHoverState = () => {
+        cursor.classList.remove('cursor-hover');
+        ring.classList.remove('cursor-hover');
+    };
+
+    document.addEventListener('mousemove', updatePosition);
+    document.addEventListener('mouseleave', hideCursor);
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        ring.style.opacity = '1';
+    });
+
+    const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, .brand-btn, .nav-toggle, .mobile-nav-link');
+    interactiveElements.forEach((element) => {
+        element.addEventListener('mouseenter', addHoverState);
+        element.addEventListener('mouseleave', removeHoverState);
+    });
+}
+
 window.addEventListener('load', () => {
     document.body.classList.add('intro-active');
     setTimeout(runCinematicIntro, 800);
@@ -112,4 +157,5 @@ window.addEventListener('load', () => {
     initScrollReveal();
     initPortfolioHoverVideos();
     initPortfolioFilter();
+    initCustomCursor();
 });
