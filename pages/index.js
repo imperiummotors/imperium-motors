@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
@@ -110,7 +112,35 @@ const brandFilters = [
   { id: 'rolls-royce', label: 'Rolls-Royce' },
 ];
 
-export default function Home() {
+export async function getStaticProps() {
+  const imagesRoot = path.join(process.cwd(), 'public', 'assets', 'images', 'hypercars');
+  const portfolioImages = {};
+
+  try {
+    const brandDirs = await fs.promises.readdir(imagesRoot, { withFileTypes: true });
+    for (const dirent of brandDirs) {
+      if (!dirent.isDirectory()) continue;
+      const brandFolder = path.join(imagesRoot, dirent.name);
+      const files = await fs.promises.readdir(brandFolder);
+      const imageFile = files
+        .filter(file => !file.startsWith('.'))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))[0];
+      if (imageFile) {
+        portfolioImages[dirent.name] = `/assets/images/hypercars/${dirent.name}/${imageFile}`;
+      }
+    }
+  } catch (error) {
+    console.error('Failed to load hypercar images:', error);
+  }
+
+  return {
+    props: {
+      portfolioImages,
+    },
+  };
+}
+
+export default function Home({ portfolioImages }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeBrand, setActiveBrand] = useState('all');
   const [inventory, setInventory] = useState([]);
@@ -531,7 +561,7 @@ export default function Home() {
                   data-brand={card.brand}
                 >
                   <div className="portfolio-media">
-                    <img src={card.image} alt={card.alt} />
+                    <img src={portfolioImages[card.brand] || card.image} alt={card.alt} />
                     <video muted loop playsInline preload="metadata">
                       <source src={card.video} type="video/mp4" />
                     </video>
