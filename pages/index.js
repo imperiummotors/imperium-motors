@@ -120,6 +120,9 @@ export async function getStaticProps() {
     const brandDirs = await fs.promises.readdir(imagesRoot, { withFileTypes: true });
     const rotationIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 2));
 
+    const hashBrand = brand =>
+      [...brand].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+
     for (const dirent of brandDirs) {
       if (!dirent.isDirectory()) continue;
       const brandFolder = path.join(imagesRoot, dirent.name);
@@ -129,7 +132,8 @@ export async function getStaticProps() {
         .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
 
       if (validFiles.length > 0) {
-        const imageFile = validFiles[rotationIndex % validFiles.length];
+        const offset = hashBrand(dirent.name);
+        const imageFile = validFiles[(rotationIndex + offset) % validFiles.length];
         portfolioImages[dirent.name] = `/assets/images/hypercars/${dirent.name}/${imageFile}`;
       }
     }
