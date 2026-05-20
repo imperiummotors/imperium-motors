@@ -118,14 +118,18 @@ export async function getStaticProps() {
 
   try {
     const brandDirs = await fs.promises.readdir(imagesRoot, { withFileTypes: true });
+    const rotationIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 2));
+
     for (const dirent of brandDirs) {
       if (!dirent.isDirectory()) continue;
       const brandFolder = path.join(imagesRoot, dirent.name);
       const files = await fs.promises.readdir(brandFolder);
-      const imageFile = files
-        .filter(file => !file.startsWith('.'))
-        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))[0];
-      if (imageFile) {
+      const validFiles = files
+        .filter(file => !file.startsWith('.') && !file.startsWith('thumb'))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
+      if (validFiles.length > 0) {
+        const imageFile = validFiles[rotationIndex % validFiles.length];
         portfolioImages[dirent.name] = `/assets/images/hypercars/${dirent.name}/${imageFile}`;
       }
     }
@@ -137,6 +141,7 @@ export async function getStaticProps() {
     props: {
       portfolioImages,
     },
+    revalidate: 172800, // Rebuild the page every 2 days to refresh rotated images.
   };
 }
 
