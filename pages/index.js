@@ -58,7 +58,7 @@ const portfolioCards = [
     label: '05 / British Grand Tour',
     title: 'Aston Martin',
     description: 'Exquisite tailored aesthetic balance meeting computational performance dynamics.',
-    image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/images/hypercars/aston-martin/aston-vantage.webp',
     video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     alt: 'Aston Martin car',
   },
