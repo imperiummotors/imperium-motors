@@ -3,6 +3,19 @@ import Script from 'next/script';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+async function getInventoryData() {
+  try {
+    const response = await fetch('/api/inventory');
+    if (!response.ok) {
+      throw new Error(`Inventory fetch failed: ${response.status} ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to load inventory:', error);
+    return [];
+  }
+}
+
 const portfolioCards = [
   {
     brand: 'koenigsegg',
@@ -100,6 +113,26 @@ const brandFilters = [
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeBrand, setActiveBrand] = useState('all');
+  const [inventory, setInventory] = useState([]);
+  const [inventoryLoading, setInventoryLoading] = useState(true);
+  const [inventoryError, setInventoryError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    getInventoryData().then(data => {
+      if (!mounted) return;
+      setInventory(data);
+      setInventoryLoading(false);
+      if (!data || data.length === 0) {
+        setInventoryError('Inventory is temporarily unavailable.');
+      }
+    });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     const logoWrapper = document.getElementById('intro-shield-wrapper');
@@ -440,6 +473,34 @@ export default function Home() {
                 </a>
               </div>
             </article>
+          </div>
+        </section>
+
+        <section id="inventory" className="py-32 px-6 md:px-16 bg-[#0d0d0d] reveal">
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 font-semibold">Live Inventory</p>
+            <h2 className="text-4xl md:text-6xl text-white font-medium mb-4">Current Showcase</h2>
+            <p className="text-gray-400 font-light max-w-2xl mx-auto mb-12 text-sm md:text-base">
+              Real-time inventory updates through our edge-powered inventory API.
+            </p>
+
+            {inventoryLoading ? (
+              <p className="text-gray-400">Loading inventory...</p>
+            ) : inventory.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {inventory.map((item, index) => (
+                  <article key={index} className="service-card text-left">
+                    <p className="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-3">{item.brand || 'Imperium Collection'}</p>
+                    <h3 className="text-2xl text-white font-semibold mb-3">{item.model || item.name || 'Signature Vehicle'}</h3>
+                    <p className="text-gray-400 leading-relaxed text-sm">{item.description || item.summary || 'A rare automotive showcase asset available for discreet inquiry.'}</p>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="text-gray-400">
+                {inventoryError || 'No inventory data is available at this time.'}
+              </div>
+            )}
           </div>
         </section>
 
