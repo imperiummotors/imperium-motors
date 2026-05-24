@@ -695,12 +695,12 @@ export default function Home({ portfolioImages }) {
             <div className="space-y-5">
               <p className="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Contact</p>
               <ul className="space-y-3">
-                <li><a href="mailto:enquiries@imperiummotors.co.uk" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">enquiries@imperiummotors.co.uk</a></li>
-                <li><a href="mailto:investors@imperiummotors.co.uk" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">investors@imperiummotors.co.uk</a></li>
-                <li><a href="mailto:concierge@imperiummotors.co.uk" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">concierge@imperiummotors.co.uk</a></li>
+                <li><a href="mailto:info@imperiummotors.co.uk" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">info@imperiummotors.co.uk</a></li>
+                <li class="pt-2"><a href="tel:+919940923510" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇮🇳 +91 99409 23510</a></li>
+                <li><a href="tel:+447727298836" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇬🇧 +44 7727 298836</a></li>
               </ul>
               <div className="pt-2 space-y-1">
-                <p className="text-xs text-gray-600">Chennai HQ (OMR)</p>
+                <p className="text-xs text-gray-600">Chennai HQ</p>
                 <p className="text-xs text-gray-600">London Procurement Hub</p>
                 <p className="text-xs text-gray-600">Strictly Confidential</p>
               </div>
