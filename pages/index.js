@@ -418,7 +418,7 @@ export default function Home({ portfolioImages }) {
         <section className="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-visible">
           <div className="absolute inset-0 z-0 opacity-40 overflow-hidden">
             <Image
-              src="/assets/images/Koenigsegg_Gamera.png"
+              src="/assets/images/gear_pagani.webp"
               alt="Showroom Infrastructure"
               fill
               style={{ objectFit: 'cover' }}
