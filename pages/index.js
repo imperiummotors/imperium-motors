@@ -416,13 +416,13 @@ export default function Home({ portfolioImages }) {
         </div>
 
         <section className="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-visible">
-  <div className="absolute inset-0 z-0 opacity-40 overflow-hidden">
-    <Image
-      src="/assets/images/gear_pagani.webp"
-      alt="Showroom Infrastructure"
-      fill
-      className="object-cover object-top"
-      priority
+          <div className="absolute inset-0 z-0 opacity-40 overflow-hidden">
+            <Image
+              src="/assets/images/gear_pagani.webp"
+              alt="Showroom Infrastructure"
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-black/30 to-black/80 z-10" />
