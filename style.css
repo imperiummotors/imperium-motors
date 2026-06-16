@@ -548,6 +548,60 @@ body {
 }
 
 .nav-branding-zone {
+}
+
+/* ==========================================================================
+   FLOATING CONTACT ICON
+   ========================================================================== */
+
+.floating-contact-icon {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37 0%, #fff2b2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    text-decoration: none;
+    border: none;
+}
+
+.floating-contact-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+}
+
+.floating-contact-icon:active {
+    transform: scale(0.95);
+}
+
+.floating-icon-svg {
+    width: 28px;
+    height: 28px;
+    color: #030303;
+    stroke: #030303;
+}
+
+@media (max-width: 768px) {
+    .floating-contact-icon {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-icon-svg {
+        width: 24px;
+        height: 24px;
+    }
+}
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -73,6 +73,42 @@ const portfolioCards = [
     video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
     alt: 'Rolls-Royce Spirit of Ecstasy',
   },
+  {
+    brand: 'bugatti',
+    label: '07 / Supreme Power',
+    title: 'Bugatti',
+    description: 'Uncompromising hypercar excellence defined by raw quad-turbocharged dominance and sculptural perfection.',
+    image: '/assets/images/hypercars/bugatti/bugatti-chiron.webp',
+    video: '/assets/video/bugatti-brouillard.mp4',
+    alt: 'Bugatti Hypercar',
+  },
+  {
+    brand: 'lamborghini',
+    label: '08 / Italian Precision',
+    title: 'Lamborghini',
+    description: 'Aggressive design language paired with mid-engine performance and cutting-edge superlative engineering.',
+    image: '/assets/images/hypercars/lamborghini/lamborghini-revuelto.webp',
+    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    alt: 'Lamborghini Revuelto',
+  },
+  {
+    brand: 'maserati',
+    label: '09 / Tridemte Legacy',
+    title: 'Maserati',
+    description: 'Where Italian motorsport heritage meets refined luxury and timeless design sophistication.',
+    image: '/assets/images/hypercars/maserati/maserati-mc20.webp',
+    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    alt: 'Maserati MC20',
+  },
+  {
+    brand: 'bentley',
+    label: '10 / British Heritage',
+    title: 'Bentley',
+    description: 'Continental elegance fused with blistering acceleration and ultra-luxury craftsmanship.',
+    image: '/assets/images/hypercars/bentley/bentley-continental.webp',
+    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    alt: 'Bentley Continental',
+  },
 ];
 
 const spaces = [
@@ -110,6 +146,10 @@ const brandFilters = [
   { id: 'ferrari', label: 'Ferrari' },
   { id: 'aston-martin', label: 'Aston Martin' },
   { id: 'rolls-royce', label: 'Rolls-Royce' },
+  { id: 'bugatti', label: 'Bugatti' },
+  { id: 'lamborghini', label: 'Lamborghini' },
+  { id: 'maserati', label: 'Maserati' },
+  { id: 'bentley', label: 'Bentley' },
 ];
 
 export async function getStaticProps() {
@@ -725,6 +765,27 @@ export default function Home({ portfolioImages }) {
 
       <div className="cursor" id="cursor" />
       <div className="cursor-ring" id="cursorRing" />
+
+      {/* Floating Contact Icon */}
+      <a
+        href="#appointment"
+        className="floating-contact-icon"
+        title="Request Private Briefing"
+        aria-label="Contact Button"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="floating-icon-svg"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </a>
     </>
   );
 }
