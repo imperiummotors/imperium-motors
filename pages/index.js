@@ -605,7 +605,7 @@ export default function Home({ portfolioImages }) {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioCards.map(card => (
                 <div
-                  key={card.title}
+                  key={card.brand}
                   className={`group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal ${activeBrand === 'all' || activeBrand === card.brand ? '' : 'hidden'}`}
                   data-brand={card.brand}
                 >
@@ -736,8 +736,8 @@ export default function Home({ portfolioImages }) {
               <p className="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Contact</p>
               <ul className="space-y-3">
                 <li><a href="mailto:info@imperiummotors.co.uk" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">info@imperiummotors.co.uk</a></li>
-                <li class="pt-2"><a href="tel:+919940923510" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇮🇳 +91 99409 23510</a></li>
-                <li><a href="tel:+447727298836" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇬🇧 +44 7727 298836</a></li>
+                <li className="pt-2"><a href="tel:+919940923510" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇮🇳 +91 99409 23510</a></li>
+                <li><a href="tel:+447727298836" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇬🇧 +44 7727 298836</a></li>
               </ul>
               <div className="pt-2 space-y-1">
                 <p className="text-xs text-gray-600">Chennai HQ</p>
