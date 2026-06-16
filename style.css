@@ -589,3 +589,44 @@ body {
 .crest-glow {
     filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
 }
+
+/* ==========================================================================
+   VIDEO BACKGROUND & FLOATING BRAND OVERLAY
+   ========================================================================== */
+
+/* Video background styling */
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Floating brand overlay with 60% opacity */
+.floating-brand {
+    animation: floatingBrand 6s ease-in-out infinite;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+@keyframes floatingBrand {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+        opacity: 0.25;
+    }
+}
+
+/* Ensure video plays smoothly on all devices */
+video[autoplay] {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-brand {
+        animation: none;
+    }
+}
