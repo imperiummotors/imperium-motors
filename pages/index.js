@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+cat > /mnt/user-data/outputs/index.js << 'ENDOFFILE'
 import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
@@ -153,6 +152,9 @@ const brandFilters = [
 ];
 
 export async function getStaticProps() {
+  const fs = (await import('fs')).default;
+  const path = (await import('path')).default;
+
   const imagesRoot = path.join(process.cwd(), 'public', 'assets', 'images', 'hypercars');
   const portfolioImages = {};
 
@@ -185,7 +187,7 @@ export async function getStaticProps() {
     props: {
       portfolioImages,
     },
-    revalidate: 172800, // Rebuild the page every 2 days to refresh rotated images.
+    revalidate: 172800,
   };
 }
 
@@ -385,7 +387,7 @@ export default function Home({ portfolioImages }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600;700&family=Alex+Brush&display=swap"
           rel="stylesheet"
@@ -605,7 +607,7 @@ export default function Home({ portfolioImages }) {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioCards.map(card => (
                 <div
-                  key={card.title}
+                  key={card.brand}
                   className={`group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal ${activeBrand === 'all' || activeBrand === card.brand ? '' : 'hidden'}`}
                   data-brand={card.brand}
                 >
@@ -736,8 +738,8 @@ export default function Home({ portfolioImages }) {
               <p className="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Contact</p>
               <ul className="space-y-3">
                 <li><a href="mailto:info@imperiummotors.co.uk" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">info@imperiummotors.co.uk</a></li>
-                <li class="pt-2"><a href="tel:+919940923510" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇮🇳 +91 99409 23510</a></li>
-                <li><a href="tel:+447727298836" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇬🇧 +44 7727 298836</a></li>
+                <li className="pt-2"><a href="tel:+919940923510" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇮🇳 +91 99409 23510</a></li>
+                <li><a href="tel:+447727298836" className="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇬🇧 +44 7727 298836</a></li>
               </ul>
               <div className="pt-2 space-y-1">
                 <p className="text-xs text-gray-600">Chennai HQ</p>
@@ -766,7 +768,6 @@ export default function Home({ portfolioImages }) {
       <div className="cursor" id="cursor" />
       <div className="cursor-ring" id="cursorRing" />
 
-      {/* Floating Contact Icon */}
       <a
         href="#appointment"
         className="floating-contact-icon"
@@ -789,3 +790,4 @@ export default function Home({ portfolioImages }) {
     </>
   );
 }
+ENDOFFILE
