@@ -602,10 +602,6 @@ body {
         height: 24px;
     }
 }
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 /* SCREEN VIEWPORT BALANCING DECK */
 @media (max-width: 768px) {
@@ -637,7 +633,6 @@ body {
     #imperium-title { width: min(360px, 82vw); }
     #legacy-text { font-size: 1.5rem; }
 }
-
 
 /* Logo glow used for the club crest image. */
 .crest-glow {
