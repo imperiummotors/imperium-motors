@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Imperium Motors — Exclusive hypercar acquisition, rare automotive investments and bespoke concierge services for discerning global collectors.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>IMPERIUM MOTORS | Where Luxury Meets Legacy</title>
-
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         window.tailwind = window.tailwind || {};
         window.tailwind.config = {
@@ -20,448 +18,411 @@
             }
         };
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
 </head>
-<body class="text-white bg-[#030303]">
-
-    <div id="intro-shield-wrapper">
-        <div id="intro-logo-stack" aria-label="Imperium Motors crest">
-            <img src="public/assets/logo/i_SDG.png" id="intro-logo-center" alt="Soli Deo Gloria mark">
-            <img src="public/assets/logo/SHIELD_ONLY.png" id="intro-shield-frame" alt="Imperium Sovereign Crest">
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav fixed w-full top-0 z-50">
+        <div class="nav-inner px-6 py-4 flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-gold font-bold text-xl">IMPERIUM</h1>
+            </div>
+            <div class="nav-links hidden md:flex gap-8">
+                <a href="#identity" class="text-gray-400 hover:text-white transition">Our Identity</a>
+                <a href="#services" class="text-gray-400 hover:text-white transition">Services</a>
+                <a href="#vault" class="text-gray-400 hover:text-white transition">The Vault</a>
+                <a href="#estates" class="text-gray-400 hover:text-white transition">The Estates</a>
+                <a href="#elite" class="text-gray-400 hover:text-white transition">Elite Circle</a>
+                <a href="#briefing" class="text-gray-400 hover:text-white transition">Private Briefing</a>
+            </div>
+            <button class="nav-toggle md:hidden">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <img src="public/assets/logo/IMPERIUM_MOTORS_NOSHIELD.png" id="nav-brand-text" alt="IMPERIUM MOTORS">
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden fixed inset-0 z-40 pt-32 px-6">
+        <div class="mobile-menu-inner flex flex-col gap-6">
+            <a href="#identity" class="mobile-nav-link">Our Identity</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#vault" class="mobile-nav-link">The Vault</a>
+            <a href="#estates" class="mobile-nav-link">The Estates</a>
+            <a href="#elite" class="mobile-nav-link">Elite Circle</a>
+            <a href="#briefing" class="mobile-nav-link">Private Briefing</a>
+            <button class="mobile-menu-cta mt-4">Secure Entry</button>
+        </div>
     </div>
 
-    <div id="intro-screen">
-        <div class="h-32 md:h-48"></div>
-        <img src="public/assets/logo/IMPERIUM_MOTORS_NOSHIELD.png" id="imperium-title" alt="IMPERIUM MOTORS">
-        <div id="legacy-text" class="cursive-font">Soli Deo Gloria</div>
-    </div>
+    <!-- Hero Section with Background Video -->
+    <section class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="/assets/video/bugatti-intro-page.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-    <div id="main-content">
-        
-        <nav class="site-nav fixed w-full z-50 top-0 left-0">
-            <div class="nav-inner flex items-center justify-between px-6 md:px-16 py-4">
-                <div class="flex items-center gap-4">
-                    <div class="nav-branding-zone">
-                        <div class="w-[160px] h-[160px] bg-transparent flex-shrink-0"></div>
-                    </div>
-                </div>
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
 
-                <button class="nav-toggle lg:hidden" id="mobile-nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-                    <span></span><span></span><span></span>
+        <!-- Hero Content -->
+        <div class="relative z-20 text-center max-w-4xl px-6">
+            <p class="text-gold text-sm tracking-widest mb-6">Soli Deo Gloria</p>
+            <h1 class="hero-heading text-5xl md:text-7xl font-light mb-8 text-white">
+                Where Luxury Meets
+                <span class="gold-gradient">Legacy</span>
+            </h1>
+            <p class="hero-copy text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                Connecting discerning global visionaries through the procurement of the world's rarest automotive investments. Built on absolute privacy.
+            </p>
+            <div class="hero-actions">
+                <button class="px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-black transition">
+                    Secure Entry
                 </button>
-
-                <div class="nav-links hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
-                    <a href="#about" class="text-gray-300 hover:text-white transition">Our Identity</a>
-                    <a href="#services" class="text-gray-300 hover:text-white transition">Services</a>
-                    <a href="#portfolio" class="text-gray-300 hover:text-white transition">The Vault</a>
-                    <a href="#spaces" class="text-gray-300 hover:text-white transition">The Estates</a>
-                    <a href="#club" class="text-gray-300 hover:text-white transition">Elite Circle</a>
-                    <a href="#appointment" class="px-5 py-2.5 border border-gold text-white hover:bg-gold hover:text-black transition duration-300">Private Briefing</a>
-                </div>
-            </div>
-        </nav>
-
-        <div class="mobile-menu hidden" id="mobile-menu">
-            <div class="mobile-menu-inner">
-                <a href="#about" class="mobile-nav-link">Our Identity</a>
-                <a href="#services" class="mobile-nav-link">Services</a>
-                <a href="#portfolio" class="mobile-nav-link">The Vault</a>
-                <a href="#spaces" class="mobile-nav-link">The Estates</a>
-                <a href="#club" class="mobile-nav-link">Elite Circle</a>
-                <a href="#appointment" class="mobile-menu-cta">Private Briefing</a>
+                <button class="px-8 py-3 bg-gold text-black font-semibold hover:bg-yellow-300 transition">
+                    View Vault
+                </button>
             </div>
         </div>
 
-        <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-visible">
-            <div class="absolute inset-0 z-0 overflow-hidden">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="public/assets/video/bugatti-brouillard.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-black/30 to-black/80 z-10"></div>
-            
-            <!-- Semi-transparent brand overlay at 60% opacity -->
-            <div class="absolute inset-0 z-5 flex items-center justify-center opacity-60 pointer-events-none">
-                <img src="public/assets/logo/IMPERIUM_MOTORS_NOSHIELD.png" alt="IMPERIUM MOTORS" class="floating-brand max-w-xs md:max-w-md lg:max-w-lg opacity-20">
-            </div>
-            
-            <div class="relative z-20 max-w-4xl mx-auto px-4 mt-16 hero-copy">
-                <p class="uppercase tracking-[0.6em] text-xs md:text-sm mb-4 text-gold font-semibold">Soli Deo Gloria</p>
-                
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 pb-2 text-white tracking-tight hero-heading">
-                    Where <span class="italic font-light gold-gradient">Luxury</span> Meets <br class="hidden md:block">
-                    <span class="italic font-light gold-gradient">Legacy</span>
-                </h2>
-                
-                <div class="w-16 h-[1px] bg-gold/50 mx-auto mb-6"></div>
-                <p class="text-sm md:text-base max-w-xl mx-auto font-light text-gray-300 tracking-wide leading-relaxed mb-8">
-                    Connecting discerning global visionaries through the procurement of the world's rarest automotive investments. Built on absolute privacy.
-                </p>
-                <div class="hero-actions">
-                    <a href="#appointment" class="bg-gold text-black px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">Secure Entry</a>
-                    <a href="#portfolio" class="border border-white/20 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:border-gold transition-all duration-300">View Vault</a>
-                </div>
-            </div>
-        </section>
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <p class="text-gray-400 text-xs">Scroll</p>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
 
-        <section id="about" class="py-32 px-6 md:px-16 bg-[#060606] relative">
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
-                <div class="lg:col-span-7 space-y-8">
-                    <p class="text-xs uppercase tracking-[0.4em] text-gold font-semibold">The Core Journey</p>
-                    <h2 class="text-4xl md:text-6xl text-white tracking-tight">Born in Nellai.<br><span class="italic text-gray-400 font-light">Refined in London.</span></h2>
-                    <div class="w-20 h-[2px] bg-gold"></div>
-                    <p class="text-gray-300 font-light leading-relaxed text-lg">
+    <!-- Core Journey Section -->
+    <section id="identity" class="py-20 px-6 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">The Core Journey</h2>
+            <p class="text-gold mb-12">Born in Nellai. Refined in London.</p>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="reveal">
+                    <p class="text-gray-300 leading-relaxed mb-6">
                         From childhood automotive dreams sparked in Tamil Nadu to navigating high-stakes hypercar acquisition networks across Europe, Imperium Motors represents an unbroken timeline of absolute personal integrity and relationship curation.
                     </p>
-                    <div class="grid md:grid-cols-2 gap-8 pt-4">
-                        <div class="border-l-2 border-gold/40 pl-4 space-y-2">
-                            <h4 class="text-white font-medium tracking-wide">Our Strategic Goal</h4>
-                            <p class="text-sm text-gray-400 font-light">To protect and enhance generational vehicular assets across specialized private transaction layers.</p>
-                        </div>
-                        <div class="border-l-2 border-gold/40 pl-4 space-y-2">
-                            <h4 class="text-white font-medium tracking-wide">The Chennai Hub Matrix</h4>
-                            <p class="text-sm text-gray-400 font-light">Direct custom logistic clearing infrastructure executing placement tasks accurately from OMR coordinates.</p>
+                </div>
+                <div class="reveal">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                        <h3 class="text-xl font-semibold text-gold mb-4">Our Strategic Goal</h3>
+                        <p class="text-gray-300">
+                            To protect and enhance generational vehicular assets across specialized private transaction layers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                        <h3 class="text-xl font-semibold text-gold mb-4">The Chennai Hub Matrix</h3>
+                        <p class="text-gray-300">
+                            Direct custom logistic clearing infrastructure executing placement tasks accurately from OMR coordinates.
+                        </p>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="aspect-video bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                        <p class="text-gray-400">Enclave Headquarters</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Logistics Section -->
+    <section id="services" class="py-20 px-6 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">Global White-Glove Logistics</h2>
+            <p class="text-gold mb-12">Worldwide delivery. Zero compromise.</p>
+
+            <p class="text-gray-300 text-lg mb-12 leading-relaxed max-w-3xl">
+                Every hypercar is transported with the same reverence it deserves. Imperium Motors partners exclusively with Emirates SkyCargo — the world's largest international cargo airline — for all international movements. Enclosed air freight, climate-controlled holds, full insurance, and door-to-door white-glove handling. Your asset never touches a trailer unless it's ours.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="service-card">
+                    <h3 class="text-gold font-semibold mb-2">Business Partner</h3>
+                    <p class="text-gray-300">Emirates SkyCargo</p>
+                    <p class="text-sm text-gray-400">World's Best Air Cargo Carrier</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="text-gold font-semibold mb-2">Coverage</h3>
+                    <p class="text-gray-300">155+ Countries</p>
+                    <p class="text-sm text-gray-400">Fully insured, end-to-end</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="text-gold font-semibold mb-2">Standard</h3>
+                    <p class="text-gray-300">White-Glove Protocol</p>
+                    <p class="text-sm text-gray-400">Zero-contact vehicle handling</p>
+                </div>
+            </div>
+
+            <div class="aspect-video bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover rounded-3xl">
+                    <source src="/assets/video/bugatti-intro-page.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="text-center text-gold text-sm mt-4">Watch: Emirates SkyCargo →</p>
+        </div>
+    </section>
+
+    <!-- Asset Portfolio Section -->
+    <section id="vault" class="py-20 px-6 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">The Asset Portfolio</h2>
+            <p class="text-gold mb-12">The Curated Icons</p>
+            <p class="text-gray-300 mb-12">An overview of hypercars engineered by visionaries, procured exclusively through Imperium channels.</p>
+
+            <div class="flex flex-wrap gap-4 mb-16">
+                <button class="brand-btn active">All</button>
+                <button class="brand-btn">Koenigsegg</button>
+                <button class="brand-btn">Pagani</button>
+                <button class="brand-btn">Mansory</button>
+                <button class="brand-btn">Ferrari</button>
+                <button class="brand-btn">Aston Martin</button>
+                <button class="brand-btn">Rolls-Royce</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-media">
+                        <img src="/assets/images/koenigsegg.jpg" alt="Koenigsegg">
+                        <video autoplay muted loop playsinline>
+                            <source src="/assets/video/koenigsegg.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gold text-sm">01 / Hyper-Engineering</p>
+                        <h3 class="text-xl font-semibold text-white">Koenigsegg</h3>
+                        <p class="text-gray-300 text-sm mt-2">Pioneering speed barriers with revolutionary carbon-weave architecture and custom megawatt engineering.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-media">
+                        <img src="/assets/images/pagani.jpg" alt="Pagani">
+                        <video autoplay muted loop playsinline>
+                            <source src="/assets/video/pagani.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gold text-sm">02 / Haute Couture</p>
+                        <h3 class="text-xl font-semibold text-white">Pagani</h3>
+                        <p class="text-gray-300 text-sm mt-2">Where fine Renaissance art blends flawlessly with raw Mercedes-AMG V12 track dominance.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-media">
+                        <img src="/assets/images/mansory.jpg" alt="Mansory">
+                        <video autoplay muted loop playsinline>
+                            <source src="/assets/video/mansory.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gold text-sm">03 / High Customization</p>
+                        <h3 class="text-xl font-semibold text-white">Mansory</h3>
+                        <p class="text-gray-300 text-sm mt-2">Bespoke carbon modifications redefining visual impact and presence on structural super-assets.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-media">
+                        <img src="/assets/images/ferrari.jpg" alt="Ferrari">
+                        <video autoplay muted loop playsinline>
+                            <source src="/assets/video/ferrari.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gold text-sm">04 / Heritage Track</p>
+                        <h3 class="text-xl font-semibold text-white">Ferrari</h3>
+                        <p class="text-gray-300 text-sm mt-2">The undisputed baseline of legacy speed investments, spanning classic legends to modern icons.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-media">
+                        <img src="/assets/images/aston-martin.jpg" alt="Aston Martin">
+                        <video autoplay muted loop playsinline>
+                            <source src="/assets/video/aston-martin.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gold text-sm">05 / British Grand Tour</p>
+                        <h3 class="text-xl font-semibold text-white">Aston Martin</h3>
+                        <p class="text-gray-300 text-sm mt-2">Exquisite tailored aesthetic balance meeting computational performance dynamics.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-media">
+                        <img src="/assets/images/rolls-royce.jpg" alt="Rolls-Royce">
+                        <video autoplay muted loop playsinline>
+                            <source src="/assets/video/rolls-royce.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gold text-sm">06 / Ultimate Comfort</p>
+                        <h3 class="text-xl font-semibold text-white">Rolls-Royce</h3>
+                        <p class="text-gray-300 text-sm mt-2">The pinnacle structural benchmark of uncompromised whisper-silent private travel luxury.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estates Section -->
+    <section id="estates" class="py-20 px-6 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">Private Access Only</h2>
+            <p class="text-gold mb-12">The Imperium Estates</p>
+            <p class="text-gray-300 mb-12">Every transaction room, gallery lounge, and vault sanctuary is architectural proof of absolute prestige.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal">
+                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                        <div class="text-center">
+                            <p class="text-gold font-semibold">The Exotic Showroom Vault</p>
+                            <p class="text-gray-400 text-sm mt-2">High-Security Bonded Holding</p>
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-5">
-                    <div class="relative group overflow-hidden border border-white/10">
-                        <img src="public/assets/images/FRONT_OFFICE.png" alt="Front Office Lounge Hub" loading="lazy" decoding="async" class="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-6 text-left">
-                            <p class="text-xs uppercase tracking-[0.3em] text-gold mb-1">Enclave Headquarters</p>
-                            <h3 class="text-xl text-white serif-font"></h3>
+                <div class="reveal">
+                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                        <p class="text-gold font-semibold">The Sovereign Boardroom</p>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                        <div class="text-center">
+                            <p class="text-gold font-semibold">Café Imperium</p>
+                            <p class="text-gray-400 text-sm mt-2">Private Guest Lounge</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                        <div class="text-center">
+                            <p class="text-gold font-semibold">The Executive Client Suite</p>
+                            <p class="text-gray-400 text-sm mt-2">Private Sign-Off Room</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services" class="py-32 px-6 md:px-16 bg-[#090909]">
-            <div class="max-w-7xl mx-auto">
-                <article class="service-card reveal md:col-span-3 md:max-w-4xl md:mx-auto">
-                    <p class="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-4">Global White-Glove Logistics</p>
-                    <h3 class="text-2xl text-white font-semibold mb-4">Worldwide delivery. Zero compromise.</h3>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        Every hypercar is transported with the same reverence it deserves. Imperium Motors partners exclusively with <span class="text-white font-medium">Emirates SkyCargo</span> — the world's largest international cargo airline — for all international movements. Enclosed air freight, climate-controlled holds, full insurance, and door-to-door white-glove handling. Your asset never touches a trailer unless it's ours.
-                    </p>
-                    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                        <div class="space-y-1">
-                            <p class="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Business Partner</p>
-                            <p class="text-white font-semibold tracking-wide">Emirates SkyCargo</p>
-                            <p class="text-xs text-gray-500">World's Best Air Cargo Carrier</p>
-                        </div>
-                        <div class="w-px h-10 bg-gold/20 hidden md:block"></div>
-                        <div class="space-y-1">
-                            <p class="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Coverage</p>
-                            <p class="text-white font-semibold tracking-wide">155+ Countries</p>
-                            <p class="text-xs text-gray-500">Fully insured, end-to-end</p>
-                        </div>
-                        <div class="w-px h-10 bg-gold/20 hidden md:block"></div>
-                        <div class="space-y-1">
-                            <p class="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Standard</p>
-                            <p class="text-white font-semibold tracking-wide">White-Glove Protocol</p>
-                            <p class="text-xs text-gray-500">Zero-contact vehicle handling</p>
-                        </div>
-                        <a href="https://youtu.be/AasfpxvgT8A?si=8kOF4_jCKEUqxhdK" target="_blank" rel="noopener"
-                           class="ml-auto border border-gold text-gold hover:bg-gold hover:text-black text-xs uppercase tracking-[0.25em] font-semibold px-6 py-3 transition duration-300 whitespace-nowrap">
-                            Watch: Emirates SkyCargo →
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
+    <!-- Elite Circle Section -->
+    <section id="elite" class="py-20 px-6 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">The Imperium Legacy Circle</h2>
+            <p class="text-gold mb-12">Strictly By Invitation Only</p>
+            <p class="text-gray-300 mb-12 max-w-2xl">
+                Access to hidden hyper-assets or unlisted off-market collection transfers requires active peer nomination profiles.
+            </p>
+            <button class="px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-black transition mb-12">
+                Propose Membership
+            </button>
+        </div>
+    </section>
 
-        <section id="portfolio" class="py-32 bg-black border-y border-white/5 reveal">
-            <div class="max-w-7xl mx-auto px-6 md:px-16 text-center">
-                <p class="text-xs uppercase tracking-[0.4em] text-gold mb-4 font-semibold">The Asset Portfolio</p>
-                <h2 class="text-4xl md:text-6xl text-white font-medium mb-4">The Curated Icons</h2>
-                <p class="text-gray-400 font-light max-w-xl mx-auto mb-20 text-sm md:text-base">An overview of hypercars engineered by visionaries, procured exclusively through Imperium channels.</p>
-                
-                <div class="brand-filters flex flex-wrap justify-center gap-3 mb-12">
-                    <button type="button" class="brand-btn active" onclick="filterBrand('all', this)">All</button>
-                    <button type="button" class="brand-btn" onclick="filterBrand('koenigsegg', this)">Koenigsegg</button>
-                    <button type="button" class="brand-btn" onclick="filterBrand('pagani', this)">Pagani</button>
-                    <button type="button" class="brand-btn" onclick="filterBrand('mansory', this)">Mansory</button>
-                    <button type="button" class="brand-btn" onclick="filterBrand('ferrari', this)">Ferrari</button>
-                    <button type="button" class="brand-btn" onclick="filterBrand('aston-martin', this)">Aston Martin</button>
-                    <button type="button" class="brand-btn" onclick="filterBrand('rolls-royce', this)">Rolls-Royce</button>
+    <!-- Private Briefing Section -->
+    <section id="briefing" class="py-20 px-6 bg-black">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-light mb-8 text-white">Strictly Protocol</h2>
+            <p class="text-gold mb-4">Request Private Briefing</p>
+            <p class="text-gray-300 mb-8">
+                Visits to physical estate parameters are processed strictly through 48h corporate protocols.
+            </p>
+
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-gold text-sm mb-2">Full Legal Name</label>
+                    <input type="text" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-gold" placeholder="Your name">
                 </div>
+                <div>
+                    <label class="block text-gold text-sm mb-2">Secure Digital Coordinates (Email)</label>
+                    <input type="email" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-gold" placeholder="your@email.com">
+                </div>
+                <button type="submit" class="w-full bg-gold text-black font-semibold py-3 rounded-lg hover:bg-yellow-300 transition">
+                    Transmit Credentials
+                </button>
+            </form>
+        </div>
+    </section>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="koenigsegg">
-                        <div class="portfolio-media">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Koenigsegg_Agera_RS_Snap_Grand_2.jpg/1200px-Koenigsegg_Agera_RS_Snap_Grand_2.jpg" alt="Koenigsegg Agera RS">
-                            <video muted loop playsinline preload="metadata">
-                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="text-gold text-xs uppercase tracking-widest font-semibold">01 / Hyper-Engineering</div>
-                        <h3 class="text-2xl text-white group-hover:text-gold transition">Koenigsegg</h3>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed">Pioneering speed barriers with revolutionary carbon-weave architecture and custom megawatt engineering.</p>
-                    </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="pagani">
-                        <div class="portfolio-media">
-                            <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=1200&q=80" alt="Pagani sports car">
-                            <video muted loop playsinline preload="metadata">
-                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="text-gold text-xs uppercase tracking-widest font-semibold">02 / Haute Couture</div>
-                        <h3 class="text-2xl text-white group-hover:text-gold transition">Pagani</h3>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed">Where fine Renaissance art blends flawlessly with raw Mercedes-AMG V12 track dominance.</p>
-                    </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="mansory">
-                        <div class="portfolio-media">
-                            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" alt="Mansory custom car">
-                            <video muted loop playsinline preload="metadata">
-                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="text-gold text-xs uppercase tracking-widest font-semibold">03 / High Customization</div>
-                        <h3 class="text-2xl text-white group-hover:text-gold transition">Mansory</h3>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed">Bespoke carbon modifications redefining visual impact and presence on structural super-assets.</p>
-                    </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="ferrari">
-                        <div class="portfolio-media">
-                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Ferrari heritage car">
-                            <video muted loop playsinline preload="metadata">
-                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="text-gold text-xs uppercase tracking-widest font-semibold">04 / Heritage Track</div>
-                        <h3 class="text-2xl text-white group-hover:text-gold transition">Ferrari</h3>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed">The undisputed baseline of legacy speed investments, spanning classic legends to modern icons.</p>
-                    </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="aston-martin">
-                        <div class="portfolio-media">
-                            <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=80" alt="Aston Martin car">
-                            <video muted loop playsinline preload="metadata">
-                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="text-gold text-xs uppercase tracking-widest font-semibold">05 / British Grand Tour</div>
-                        <h3 class="text-2xl text-white group-hover:text-gold transition">Aston Martin</h3>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed">Exquisite tailored aesthetic balance meeting computational performance dynamics.</p>
-                    </div>
-                    <div class="group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal" data-brand="rolls-royce">
-                        <div class="portfolio-media">
-                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Rolls-Royce luxury car">
-                            <video muted loop playsinline preload="metadata">
-                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="text-gold text-xs uppercase tracking-widest font-semibold">06 / Ultimate Comfort</div>
-                        <h3 class="text-2xl text-white group-hover:text-gold transition">Rolls-Royce</h3>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed">The pinnacle structural benchmark of uncompromised whisper-silent private travel luxury.</p>
+    <!-- Floating Contact Icon -->
+    <a href="mailto:info@imperiummotors.co.uk" class="floating-contact-icon" title="Contact us">
+        <svg class="floating-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-gold font-semibold mb-4">Imperium Motors</h3>
+                    <p class="text-gray-400 text-sm">Where Luxury Meets Legacy. Exclusive hypercar sourcing, rare automotive investments and bespoke concierge for discerning global collectors.</p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-gold hover:text-yellow-300">IG</a>
+                        <a href="#" class="text-gold hover:text-yellow-300">FB</a>
+                        <a href="#" class="text-gold hover:text-yellow-300">LI</a>
+                        <a href="#" class="text-gold hover:text-yellow-300">YT</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="spaces" class="py-32 bg-[#060606] reveal">
-            <div class="max-w-7xl mx-auto px-6 md:px-16">
-                <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-20">
-                    <div>
-                        <p class="text-xs uppercase tracking-[0.4em] text-gold mb-3 font-semibold">Private Access Only</p>
-                        <h2 class="text-4xl md:text-6xl text-white tracking-tight">The Imperium Estates</h2>
-                    </div>
-                    <p class="text-gray-400 font-light max-w-md mt-4 md:mt-0 text-sm leading-relaxed">
-                        Every transaction room, gallery lounge, and vault sanctuary is architectural proof of absolute prestige.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="group overflow-hidden border border-white/5 relative">
-                        <img src="public/assets/images/EXOTIC-SHOW-ROOM-VAULT.png" alt="Exotic Showroom Vault Space" loading="lazy" decoding="async" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
-                        <div class="absolute bottom-6 left-6">
-                            <h3 class="text-2xl text-white serif-font">The Exotic Showroom Vault</h3>
-                            <p class="text-xs text-gold uppercase tracking-widest mt-1">High-Security Bonded Holding</p>
-                        </div>
-                    </div>
-                    <div class="group overflow-hidden border border-white/5 relative">
-                        <img src="public/assets/images/BOARDMEETING_ROOM.png" alt="Sovereign Boardroom Area" loading="lazy" decoding="async" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
-                        <div class="absolute bottom-6 left-6">
-                            <h3 class="text-2xl text-white serif-font">The Sovereign Boardroom</h3>
-                            <p class="text-xs text-gold uppercase tracking-widest mt-1"></p>
-                        </div>
-                    </div>
-                    <div class="group overflow-hidden border border-white/5 relative">
-                        <img src="public/assets/images/CAFE_LOUNGE.png" alt="Cafe Imperium Lounge Environment" loading="lazy" decoding="async" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
-                        <div class="absolute bottom-6 left-6">
-                            <h3 class="text-2xl text-white serif-font">Café Imperium</h3>
-                            <p class="text-xs text-gold uppercase tracking-widest mt-1">Private Guest Lounge</p>
-                        </div>
-                    </div>
-                    <div class="group overflow-hidden border border-white/5 relative">
-                        <img src="public/assets/images/CLIENT_MEETINGROOM.png" alt="Executive Client Signoff Suite" loading="lazy" decoding="async" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
-                        <div class="absolute bottom-6 left-6">
-                            <h3 class="text-2xl text-white serif-font">The Executive Client Suite</h3>
-                            <p class="text-xs text-gold uppercase tracking-widest mt-1">Private Sign-Off Room</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="club" class="py-36 bg-black relative border-t border-white/5">
-            <div class="absolute inset-0 z-0 opacity-20">
-                <img src="public/assets/images/ELITE_MEMBERS_CLUB.png" alt="Elite Members Lounge Core" loading="lazy" decoding="async" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute inset-0 bg-black/90 z-10"></div>
-            
-            <div class="relative z-20 max-w-4xl mx-auto px-6 text-center space-y-8">
-                <img src="public/assets/logo/SHIELD.png" alt="Sovereign Crest" class="h-20 mx-auto opacity-80 crest-glow">
-                <p class="text-xs uppercase tracking-[0.5em] text-gold font-bold">The Imperium Legacy Circle</p>
-                <h2 class="text-4xl md:text-6xl text-white font-medium tracking-tight">Strictly By Invitation Only</h2>
-                <div class="w-16 h-[1px] bg-gold mx-auto"></div>
-                <p class="text-gray-400 font-light max-w-2xl mx-auto text-base leading-relaxed">
-                    Access to hidden hyper-assets or unlisted off-market collection transfers requires active peer nomination profiles.
-                </p>
-                <div class="pt-6">
-                    <a href="#appointment" class="border border-gold text-gold hover:bg-gold hover:text-black font-semibold uppercase text-xs tracking-[0.3em] px-12 py-4 transition duration-300">Propose Membership</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="appointment" class="py-32 px-6 md:px-16 bg-[#040404]">
-            <div class="max-w-4xl mx-auto border border-white/10 p-8 md:p-16 bg-[#080808]/60 backdrop-blur-md relative">
-                <div class="text-center space-y-4 mb-12">
-                    <p class="text-xs uppercase tracking-[0.4em] text-gold font-semibold">Strictly Protocol</p>
-                    <h2 class="text-3xl md:text-5xl text-white serif-font">Request Private Briefing</h2>
-                    <p class="text-sm text-gray-400 font-light">Visits to physical estate parameters are processed strictly through 48h corporate protocols.</p>
-                </div>
-
-                <form action="https://formspree.io/f/YOUR_ID" method="POST" class="space-y-8">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Full Legal Name</label>
-                            <input type="text" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Secure Digital Coordinates (Email)</label>
-                            <input type="email" required class="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light">
-                        </div>
-                    </div>
-                    <div class="text-center pt-4">
-                        <button type="submit" class="w-full sm:w-auto bg-gold text-black font-bold uppercase text-xs tracking-[0.3em] px-16 py-4 hover:bg-white transition duration-300">
-                            Transmit Credentials
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <footer class="bg-[#0d0d0d] border-t border-white/5">
-
-            <!-- Main footer grid -->
-            <div class="max-w-7xl mx-auto px-6 md:px-16 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-                <!-- Col 1: Brand -->
-                <div class="space-y-5">
-                    <div>
-                        <p class="text-white font-semibold tracking-[0.35em] text-sm uppercase">Imperium</p>
-                        <p class="text-gray-500 tracking-[0.25em] text-[9px] uppercase mt-0.5">Motors &middot; imperiummotors.co.uk</p>
-                    </div>
-                    <p class="text-xs text-gray-500 leading-relaxed max-w-xs">Where Luxury Meets Legacy. Exclusive hypercar sourcing, rare automotive investments and bespoke concierge for discerning global collectors.</p>
-                    <!-- Social -->
-                    <div class="flex gap-3 pt-2">
-                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-500 hover:border-gold hover:text-gold transition text-[10px] font-semibold tracking-wider">IG</a>
-                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-500 hover:border-gold hover:text-gold transition text-[10px] font-semibold tracking-wider">FB</a>
-                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-500 hover:border-gold hover:text-gold transition text-[10px] font-semibold tracking-wider">LI</a>
-                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-500 hover:border-gold hover:text-gold transition text-[10px] font-semibold tracking-wider">YT</a>
-                    </div>
-                </div>
-
-                <!-- Col 2: Discover -->
-                <div class="space-y-5">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Discover</p>
-                    <ul class="space-y-3">
-                        <li><a href="#portfolio" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Collection</a></li>
-                        <li><a href="#portfolio" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Recently Sold</a></li>
-                        <li><a href="#about" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Cars</a></li>
-                        <li><a href="#portfolio" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Hypercars</a></li>
-                        <li><a href="#club" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Elite Circle</a></li>
+                <div>
+                    <h3 class="text-gold font-semibold mb-4">Discover</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Collection</a></li>
+                        <li><a href="#" class="hover:text-white transition">Recently Sold</a></li>
+                        <li><a href="#" class="hover:text-white transition">Investment Cars</a></li>
+                        <li><a href="#" class="hover:text-white transition">Hypercars</a></li>
+                        <li><a href="#" class="hover:text-white transition">Elite Circle</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 3: Services -->
-                <div class="space-y-5">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Services</p>
-                    <ul class="space-y-3">
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Private Acquisition</a></li>
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Advisory</a></li>
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Legacy Advisory</a></li>
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white transition tracking-wide">Asset Protection</a></li>
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white transition tracking-wide">International Delivery</a></li>
+                <div>
+                    <h3 class="text-gold font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Private Acquisition</a></li>
+                        <li><a href="#" class="hover:text-white transition">Investment Advisory</a></li>
+                        <li><a href="#" class="hover:text-white transition">Legacy Advisory</a></li>
+                        <li><a href="#" class="hover:text-white transition">Asset Protection</a></li>
+                        <li><a href="#" class="hover:text-white transition">International Delivery</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 4: Contact -->
-                <div class="space-y-5">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Contact</p>
-                    <ul class="space-y-3">
-                        <li><a href="mailto:info@imperiummotors.co.uk" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">info@imperiummotors.co.uk</a></li>
-                        <li class="pt-1"><a href="tel:+919940923510" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇮🇳 +91 99409 23510</a></li>
-                        <li><a href="tel:+447727298836" class="text-xs text-gray-400 hover:text-gold transition tracking-wide">🇬🇧 +44 7727 298836</a></li>
+                <div>
+                    <h3 class="text-gold font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="mailto:info@imperiummotors.co.uk" class="hover:text-white transition">info@imperiummotors.co.uk</a></li>
+                        <li>🇮🇳 +91 99409 23510</li>
+                        <li>🇬🇧 +44 7727 298836</li>
+                        <li class="mt-4">
+                            <p class="text-xs text-gray-500">Chennai HQ</p>
+                            <p class="text-xs text-gray-500">London Procurement Hub</p>
+                            <p class="text-xs text-gold mt-2">Strictly Confidential</p>
+                        </li>
                     </ul>
-                    <div class="pt-2 space-y-1">
-                        <p class="text-xs text-gray-600">Chennai HQ</p>
-                        <p class="text-xs text-gray-600">London Procurement Hub</p>
-                        <p class="text-xs text-gray-600">Strictly Confidential</p>
-                    </div>
                 </div>
             </div>
 
-            <!-- Soli Deo Gloria divider — YOUR signature, kept -->
-            <div class="border-t border-white/5 py-8 text-center space-y-3">
-                <div class="cursive-font text-3xl gold-gradient">Soli Deo Gloria</div>
-                <div class="w-10 h-[1px] bg-gold/30 mx-auto"></div>
-            </div>
-
-            <!-- Legal bottom bar -->
-            <div class="border-t border-white/5 py-5 px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-3 max-w-7xl mx-auto">
-                <p class="text-[10px] text-gray-600 tracking-[0.2em] uppercase">&copy; 2026 Imperium Motors Ltd. All Legacy Rights Reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#" class="text-[10px] text-gray-600 hover:text-gold transition tracking-wide">Privacy Policy</a>
-                    <a href="#" class="text-[10px] text-gray-600 hover:text-gold transition tracking-wide">Terms &amp; Conditions</a>
-                    <a href="#" class="text-[10px] text-gray-600 hover:text-gold transition tracking-wide">Cookie Policy</a>
+            <div class="border-t border-white/10 pt-8">
+                <p class="text-center text-gray-500 text-sm mb-4">Soli Deo Gloria</p>
+                <p class="text-center text-gray-500 text-sm">© 2026 Imperium Motors Ltd. All Legacy Rights Reserved.</p>
+                <div class="flex justify-center gap-6 mt-4 text-gray-500 text-xs">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                    <a href="#" class="hover:text-white transition">Cookie Policy</a>
                 </div>
             </div>
+        </div>
+    </footer>
 
-        </footer>
-
-    </div>
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
     <script src="script.js"></script>
 </body>
 </html>
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
