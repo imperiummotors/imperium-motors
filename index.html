@@ -53,12 +53,12 @@
             <a href="#briefing" class="mobile-nav-link">Private Briefing</a>
             <button class="mobile-menu-cta mt-4">Secure Entry</button>
         </div>
-    </div>
+    </nav>
 
     <!-- Hero Section with Background Video -->
     <section class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <!-- Background Video -->
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+        <video autoplay muted loop playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0">
             <source src="/assets/video/bugatti-intro-page.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -76,7 +76,7 @@
             <p class="hero-copy text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
                 Connecting discerning global visionaries through the procurement of the world's rarest automotive investments. Built on absolute privacy.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions flex flex-wrap gap-4 justify-center">
                 <button class="px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-black transition">
                     Secure Entry
                 </button>
@@ -87,7 +87,7 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
+        <div class="scroll-indicator absolute bottom-20 right-20 z-20">
             <p class="text-gray-400 text-xs">Scroll</p>
             <div class="scroll-line"></div>
         </div>
@@ -106,7 +106,7 @@
                     </p>
                 </div>
                 <div class="reveal">
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                    <div class="service-card">
                         <h3 class="text-xl font-semibold text-gold mb-4">Our Strategic Goal</h3>
                         <p class="text-gray-300">
                             To protect and enhance generational vehicular assets across specialized private transaction layers.
@@ -117,7 +117,7 @@
 
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="reveal">
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                    <div class="service-card">
                         <h3 class="text-xl font-semibold text-gold mb-4">The Chennai Hub Matrix</h3>
                         <p class="text-gray-300">
                             Direct custom logistic clearing infrastructure executing placement tasks accurately from OMR coordinates.
@@ -161,8 +161,8 @@
                 </div>
             </div>
 
-            <div class="aspect-video bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover rounded-3xl">
+            <div class="aspect-video bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="/assets/video/bugatti-intro-page.mp4" type="video/mp4">
                 </video>
             </div>
@@ -177,7 +177,7 @@
             <p class="text-gold mb-12">The Curated Icons</p>
             <p class="text-gray-300 mb-12">An overview of hypercars engineered by visionaries, procured exclusively through Imperium channels.</p>
 
-            <div class="flex flex-wrap gap-4 mb-16">
+            <div class="flex flex-wrap gap-4 mb-16 justify-center">
                 <button class="brand-btn active">All</button>
                 <button class="brand-btn">Koenigsegg</button>
                 <button class="brand-btn">Pagani</button>
@@ -189,11 +189,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-media">
-                        <img src="/assets/images/koenigsegg.jpg" alt="Koenigsegg">
-                        <video autoplay muted loop playsinline>
-                            <source src="/assets/video/koenigsegg.mp4" type="video/mp4">
-                        </video>
+                    <div class="portfolio-media bg-gradient-to-br from-gold/20 to-transparent">
+                        <img src="/assets/images/koenigsegg.webp" alt="Koenigsegg" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23333%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3EKoenigsegg%3C/text%3E%3C/svg%3E'">
                     </div>
                     <div class="mt-4">
                         <p class="text-gold text-sm">01 / Hyper-Engineering</p>
@@ -203,11 +200,8 @@
                 </div>
 
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-media">
-                        <img src="/assets/images/pagani.jpg" alt="Pagani">
-                        <video autoplay muted loop playsinline>
-                            <source src="/assets/video/pagani.mp4" type="video/mp4">
-                        </video>
+                    <div class="portfolio-media bg-gradient-to-br from-gold/20 to-transparent">
+                        <img src="/assets/images/pagani.webp" alt="Pagani" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23333%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3EPagani%3C/text%3E%3C/svg%3E'">
                     </div>
                     <div class="mt-4">
                         <p class="text-gold text-sm">02 / Haute Couture</p>
@@ -217,11 +211,8 @@
                 </div>
 
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-media">
-                        <img src="/assets/images/mansory.jpg" alt="Mansory">
-                        <video autoplay muted loop playsinline>
-                            <source src="/assets/video/mansory.mp4" type="video/mp4">
-                        </video>
+                    <div class="portfolio-media bg-gradient-to-br from-gold/20 to-transparent">
+                        <img src="/assets/images/mansory.webp" alt="Mansory" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23333%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3EMansory%3C/text%3E%3C/svg%3E'">
                     </div>
                     <div class="mt-4">
                         <p class="text-gold text-sm">03 / High Customization</p>
@@ -231,11 +222,8 @@
                 </div>
 
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-media">
-                        <img src="/assets/images/ferrari.jpg" alt="Ferrari">
-                        <video autoplay muted loop playsinline>
-                            <source src="/assets/video/ferrari.mp4" type="video/mp4">
-                        </video>
+                    <div class="portfolio-media bg-gradient-to-br from-gold/20 to-transparent">
+                        <img src="/assets/images/ferrari.webp" alt="Ferrari" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23333%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3EFerrari%3C/text%3E%3C/svg%3E'">
                     </div>
                     <div class="mt-4">
                         <p class="text-gold text-sm">04 / Heritage Track</p>
@@ -245,11 +233,8 @@
                 </div>
 
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-media">
-                        <img src="/assets/images/aston-martin.jpg" alt="Aston Martin">
-                        <video autoplay muted loop playsinline>
-                            <source src="/assets/video/aston-martin.mp4" type="video/mp4">
-                        </video>
+                    <div class="portfolio-media bg-gradient-to-br from-gold/20 to-transparent">
+                        <img src="/assets/images/aston-martin.webp" alt="Aston Martin" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23333%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3EAston Martin%3C/text%3E%3C/svg%3E'">
                     </div>
                     <div class="mt-4">
                         <p class="text-gold text-sm">05 / British Grand Tour</p>
@@ -259,11 +244,8 @@
                 </div>
 
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-media">
-                        <img src="/assets/images/rolls-royce.jpg" alt="Rolls-Royce">
-                        <video autoplay muted loop playsinline>
-                            <source src="/assets/video/rolls-royce.mp4" type="video/mp4">
-                        </video>
+                    <div class="portfolio-media bg-gradient-to-br from-gold/20 to-transparent">
+                        <img src="/assets/images/rolls-royce.webp" alt="Rolls-Royce" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23333%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3ERolls-Royce%3C/text%3E%3C/svg%3E'">
                     </div>
                     <div class="mt-4">
                         <p class="text-gold text-sm">06 / Ultimate Comfort</p>
@@ -284,32 +266,26 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="reveal">
-                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
-                        <div class="text-center">
-                            <p class="text-gold font-semibold">The Exotic Showroom Vault</p>
-                            <p class="text-gray-400 text-sm mt-2">High-Security Bonded Holding</p>
-                        </div>
+                    <div class="aspect-square service-card flex flex-col justify-center">
+                        <p class="text-gold font-semibold">The Exotic Showroom Vault</p>
+                        <p class="text-gray-400 text-sm mt-2">High-Security Bonded Holding</p>
                     </div>
                 </div>
                 <div class="reveal">
-                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                    <div class="aspect-square service-card flex items-center justify-center">
                         <p class="text-gold font-semibold">The Sovereign Boardroom</p>
                     </div>
                 </div>
                 <div class="reveal">
-                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
-                        <div class="text-center">
-                            <p class="text-gold font-semibold">Café Imperium</p>
-                            <p class="text-gray-400 text-sm mt-2">Private Guest Lounge</p>
-                        </div>
+                    <div class="aspect-square service-card flex flex-col justify-center">
+                        <p class="text-gold font-semibold">Café Imperium</p>
+                        <p class="text-gray-400 text-sm mt-2">Private Guest Lounge</p>
                     </div>
                 </div>
                 <div class="reveal">
-                    <div class="aspect-square bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
-                        <div class="text-center">
-                            <p class="text-gold font-semibold">The Executive Client Suite</p>
-                            <p class="text-gray-400 text-sm mt-2">Private Sign-Off Room</p>
-                        </div>
+                    <div class="aspect-square service-card flex flex-col justify-center">
+                        <p class="text-gold font-semibold">The Executive Client Suite</p>
+                        <p class="text-gray-400 text-sm mt-2">Private Sign-Off Room</p>
                     </div>
                 </div>
             </div>
@@ -356,9 +332,9 @@
     </section>
 
     <!-- Floating Contact Icon -->
-    <a href="mailto:info@imperiummotors.co.uk" class="floating-contact-icon" title="Contact us">
-        <svg class="floating-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2"/>
+    <a href="mailto:info@imperiummotors.co.uk" class="floating-contact-icon fixed bottom-8 right-8 w-16 h-16 rounded-full bg-gradient-to-br from-gold to-yellow-300 flex items-center justify-center z-50 shadow-lg hover:scale-110 transition" title="Contact us">
+        <svg class="floating-icon-svg w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#030303" stroke-width="2">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
     </a>
 
@@ -370,10 +346,10 @@
                     <h3 class="text-gold font-semibold mb-4">Imperium Motors</h3>
                     <p class="text-gray-400 text-sm">Where Luxury Meets Legacy. Exclusive hypercar sourcing, rare automotive investments and bespoke concierge for discerning global collectors.</p>
                     <div class="flex gap-4 mt-4">
-                        <a href="#" class="text-gold hover:text-yellow-300">IG</a>
-                        <a href="#" class="text-gold hover:text-yellow-300">FB</a>
-                        <a href="#" class="text-gold hover:text-yellow-300">LI</a>
-                        <a href="#" class="text-gold hover:text-yellow-300">YT</a>
+                        <a href="#" class="text-gold hover:text-yellow-300 transition">IG</a>
+                        <a href="#" class="text-gold hover:text-yellow-300 transition">FB</a>
+                        <a href="#" class="text-gold hover:text-yellow-300 transition">LI</a>
+                        <a href="#" class="text-gold hover:text-yellow-300 transition">YT</a>
                     </div>
                 </div>
                 <div>
@@ -414,7 +390,7 @@
             <div class="border-t border-white/10 pt-8">
                 <p class="text-center text-gray-500 text-sm mb-4">Soli Deo Gloria</p>
                 <p class="text-center text-gray-500 text-sm">© 2026 Imperium Motors Ltd. All Legacy Rights Reserved.</p>
-                <div class="flex justify-center gap-6 mt-4 text-gray-500 text-xs">
+                <div class="flex justify-center gap-6 mt-4 text-gray-500 text-xs flex-wrap">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms & Conditions</a>
                     <a href="#" class="hover:text-white transition">Cookie Policy</a>
