@@ -24,13 +24,21 @@ body {
     background: var(--black);
     color: white;
     overflow-x: hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter, 'Inter'), sans-serif;
     -webkit-font-smoothing: antialiased;
     font-smooth: antialiased;
 }
 
 main {
     min-height: 100vh;
+}
+
+.serif-font {
+    font-family: var(--font-playfair, 'Playfair Display'), serif;
+}
+
+.cursive-font {
+    font-family: var(--font-cormorant, 'Cormorant Garamond'), serif;
 }
 
 .hero-copy {

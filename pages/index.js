@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import LazyPortfolioCard from '../components/LazyPortfolioCard';
 
 async function getInventoryData() {
   try {
@@ -306,7 +307,14 @@ export default function Home({ portfolioImages }) {
       document.querySelectorAll('a, button, input, textarea, select, .brand-btn, .nav-toggle, .mobile-nav-link')
     );
 
+    let lastUpdateTime = 0;
+    const throttleDelay = 16; // ~60fps
+
     const updatePosition = event => {
+      const now = Date.now();
+      if (now - lastUpdateTime < throttleDelay) return;
+      lastUpdateTime = now;
+
       const x = event.clientX;
       const y = event.clientY;
       if (cursor && ring) {
@@ -386,12 +394,6 @@ export default function Home({ portfolioImages }) {
           content="Imperium Motors — Exclusive hypercar acquisition, rare automotive investments and bespoke concierge services for discerning global collectors."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600;700&family=Alex+Brush&display=swap"
-          rel="stylesheet"
-        />
       </Head>
 
       <Script id="tailwind-config" strategy="beforeInteractive">
@@ -507,7 +509,14 @@ export default function Home({ portfolioImages }) {
             </div>
             <div className="lg:col-span-5">
               <div className="relative group overflow-hidden border border-white/10">
-                <img src="/assets/images/FRONT_OFFICE.png" alt="Front Office Lounge Hub" loading="lazy" decoding="async" className="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105" />
+                <Image
+                  src="/assets/images/FRONT_OFFICE.png"
+                  alt="Front Office Lounge Hub"
+                  width={600}
+                  height={550}
+                  loading="lazy"
+                  className="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-6 left-6 text-left">
                   <p className="text-xs uppercase tracking-[0.3em] text-gold mb-1">Enclave Headquarters</p>
@@ -606,21 +615,13 @@ export default function Home({ portfolioImages }) {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioCards.map(card => (
-                <div
+                <LazyPortfolioCard
                   key={card.brand}
-                  className={`group portfolio-card border border-white/5 bg-[#080808] p-8 hover:border-gold/40 transition duration-500 text-left space-y-4 reveal ${activeBrand === 'all' || activeBrand === card.brand ? '' : 'hidden'}`}
-                  data-brand={card.brand}
-                >
-                  <div className="portfolio-media">
-                    <img src={portfolioImages[card.brand] || card.image} alt={card.alt} />
-                    <video muted loop playsInline preload="metadata">
-                      <source src={card.video} type="video/mp4" />
-                    </video>
-                  </div>
-                  <div className="text-gold text-xs uppercase tracking-widest font-semibold">{card.label}</div>
-                  <h3 className="text-2xl text-white group-hover:text-gold transition">{card.title}</h3>
-                  <p className="text-sm text-gray-400 font-light leading-relaxed">{card.description}</p>
-                </div>
+                  brand={card.brand}
+                  card={card}
+                  portfolioImages={portfolioImages}
+                  activeBrand={activeBrand}
+                />
               ))}
             </div>
           </div>
@@ -641,8 +642,15 @@ export default function Home({ portfolioImages }) {
             <div className="grid md:grid-cols-2 gap-8">
               {spaces.map(space => (
                 <div key={space.title} className="group overflow-hidden border border-white/5 relative">
-                  <img src={space.src} alt={space.alt} loading="lazy" decoding="async" className="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
+                  <Image
+                    src={space.src}
+                    alt={space.alt}
+                    width={600}
+                    height={400}
+                    loading="lazy"
+                    className="w-full h-[400px] object-cover transition duration-700 group-hover:scale-105"
+                  />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
                   <div className="absolute bottom-6 left-6">
                     <h3 className="text-2xl text-white serif-font">{space.title}</h3>
                     <p className="text-xs text-gold uppercase tracking-widest mt-1">{space.subtitle}</p>
@@ -655,11 +663,17 @@ export default function Home({ portfolioImages }) {
 
         <section id="club" className="py-36 bg-black relative border-t border-white/5">
           <div className="absolute inset-0 z-0 opacity-20">
-            <img src="/assets/images/ELITE_MEMBERS_CLUB.png" alt="Elite Members Lounge Core" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+            <Image
+              src="/assets/images/ELITE_MEMBERS_CLUB.png"
+              alt="Elite Members Lounge Core"
+              fill
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="absolute inset-0 bg-black/90 z-10" />
           <div className="relative z-20 max-w-4xl mx-auto px-6 text-center space-y-8">
-            <img src="/assets/logo/SHIELD.png" alt="Sovereign Crest" className="h-20 mx-auto opacity-80 crest-glow" />
+            <Image src="/assets/logo/SHIELD.png" alt="Sovereign Crest" width={80} height={80} className="h-20 mx-auto opacity-80 crest-glow" />
             <p className="text-xs uppercase tracking-[0.5em] text-gold font-bold">The Imperium Legacy Circle</p>
             <h2 className="text-4xl md:text-6xl text-white font-medium tracking-tight">Strictly By Invitation Only</h2>
             <div className="w-16 h-[1px] bg-gold mx-auto" />
