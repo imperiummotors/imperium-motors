@@ -181,6 +181,78 @@ export default function VaultPage({ portfolioImages }) {
     };
   }, []);
 
+  useEffect(() => {
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    const interactiveElements = Array.from(
+      document.querySelectorAll('a, button, input, textarea, select, .brand-btn')
+    );
+
+    let lastUpdateTime = 0;
+    const throttleDelay = 16;
+
+    const updatePosition = event => {
+      const now = Date.now();
+      if (now - lastUpdateTime < throttleDelay) return;
+      lastUpdateTime = now;
+
+      if (cursor && ring) {
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY}px`;
+        ring.style.left = `${event.clientX}px`;
+        ring.style.top = `${event.clientY}px`;
+        cursor.style.opacity = '1';
+        ring.style.opacity = '1';
+      }
+    };
+
+    const hideCursor = () => {
+      if (cursor && ring) {
+        cursor.style.opacity = '0';
+        ring.style.opacity = '0';
+      }
+    };
+
+    const showCursor = () => {
+      if (cursor && ring) {
+        cursor.style.opacity = '1';
+        ring.style.opacity = '1';
+      }
+    };
+
+    const addHoverState = () => {
+      if (cursor && ring) {
+        cursor.classList.add('cursor-hover');
+        ring.classList.add('cursor-hover');
+      }
+    };
+
+    const removeHoverState = () => {
+      if (cursor && ring) {
+        cursor.classList.remove('cursor-hover');
+        ring.classList.remove('cursor-hover');
+      }
+    };
+
+    document.addEventListener('mousemove', updatePosition);
+    document.addEventListener('mouseleave', hideCursor);
+    document.addEventListener('mouseenter', showCursor);
+    interactiveElements.forEach(element => {
+      element.addEventListener('mouseenter', addHoverState);
+      element.addEventListener('mouseleave', removeHoverState);
+    });
+
+    return () => {
+      document.removeEventListener('mousemove', updatePosition);
+      document.removeEventListener('mouseleave', hideCursor);
+      document.removeEventListener('mouseenter', showCursor);
+      interactiveElements.forEach(element => {
+        element.removeEventListener('mouseenter', addHoverState);
+        element.removeEventListener('mouseleave', removeHoverState);
+      });
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -273,6 +345,8 @@ export default function VaultPage({ portfolioImages }) {
           </div>
         </section>
       </main>
+      <div className="cursor" id="cursor" />
+      <div className="cursor-ring" id="cursorRing" />
     </>
   );
 }
