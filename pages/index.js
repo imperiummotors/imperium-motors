@@ -188,7 +188,7 @@ export async function getStaticProps() {
     props: {
       portfolioImages,
     },
-    revalidate: 172800,
+    revalidate: 86400,
   };
 }
 
@@ -385,6 +385,15 @@ export default function Home({ portfolioImages }) {
     setMobileMenuOpen(false);
   };
 
+  const handleHeroBrandClick = filter => {
+    setActiveBrand(filter);
+    setMobileMenuOpen(false);
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -483,6 +492,23 @@ export default function Home({ portfolioImages }) {
             <div className="hero-actions">
               <a href="#appointment" className="bg-gold text-black px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">Secure Entry</a>
               <a href="#portfolio" className="border border-white/20 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:border-gold transition-all duration-300">View Vault</a>
+            </div>
+          </div>
+          <div className="hero-brand-float-panel">
+            <div className="hero-brand-float-grid">
+              {brandFilters
+                .filter(filter => filter.id !== 'all')
+                .map(filter => (
+                  <button
+                    type="button"
+                    key={filter.id}
+                    className={`brand-grid-item ${activeBrand === filter.id ? 'active' : ''}`}
+                    onClick={() => handleHeroBrandClick(filter.id)}
+                    aria-label={`Explore ${filter.label}`}
+                  >
+                    <span>{filter.label}</span>
+                  </button>
+                ))}
             </div>
           </div>
         </section>
