@@ -439,7 +439,7 @@ body {
 .brand-grid-item {
     min-height: 58px;
     padding: 0.8rem 0.6rem;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: #d1d5db;
     display: flex;
@@ -450,6 +450,15 @@ body {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.brand-grid-logo {
+    max-width: 78%;
+    max-height: 30px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0.95);
 }
 
 .brand-grid-item:hover,

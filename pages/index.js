@@ -4,16 +4,16 @@ import Script from 'next/script';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 const brandFilters = [
-  { id: 'koenigsegg', label: 'Koenigsegg' },
-  { id: 'pagani', label: 'Pagani' },
-  { id: 'mansory', label: 'Mansory' },
-  { id: 'ferrari', label: 'Ferrari' },
-  { id: 'aston-martin', label: 'Aston Martin' },
-  { id: 'rolls-royce', label: 'Rolls-Royce' },
-  { id: 'bugatti', label: 'Bugatti' },
-  { id: 'lamborghini', label: 'Lamborghini' },
-  { id: 'maserati', label: 'Maserati' },
-  { id: 'bentley', label: 'Bentley' },
+  { id: 'koenigsegg', label: 'Koenigsegg', logo: '/assets/logo/SHIELD_ONLY.png' },
+  { id: 'pagani', label: 'Pagani', logo: '/assets/logo/SHIELD_ONLY.png' },
+  { id: 'mansory', label: 'Mansory', logo: '/assets/logo/SHIELD_ONLY.png' },
+  { id: 'ferrari', label: 'Ferrari', logo: '/assets/logo/ferrari-logo.webp' },
+  { id: 'aston-martin', label: 'Aston Martin', logo: '/assets/logo/aston-martin-white-logo.webp' },
+  { id: 'rolls-royce', label: 'Rolls-Royce', logo: '/assets/logo/rolls-royce-white-logo.webp' },
+  { id: 'bugatti', label: 'Bugatti', logo: '/assets/logo/bugatti-logo-new-1.webp' },
+  { id: 'lamborghini', label: 'Lamborghini', logo: '/assets/logo/lamborghini_shield-logo.webp' },
+  { id: 'maserati', label: 'Maserati', logo: '/assets/logo/SHIELD_ONLY.png' },
+  { id: 'bentley', label: 'Bentley', logo: '/assets/logo/bentley-white-logo.webp' },
 ];
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -298,7 +298,7 @@ export default function Home() {
                     onClick={handleHeroBrandClick}
                     aria-label={`Explore ${filter.label}`}
                   >
-                    <span>{filter.label}</span>
+                    <img src={filter.logo} alt={filter.label} className="brand-grid-logo" />
                   </button>
                 ))}
             </div>
