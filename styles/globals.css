@@ -1,79 +1,19 @@
-/* Global Imperium Motors styles */
-:root {
-    --gold: #d4af37;
-    --gold-light: #fff2b2;
-    --black: #030303;
-    --white-06: rgba(255,255,255,0.06);
-    --white-14: rgba(255,255,255,0.14);
-    --text-muted: #d1d5db;
-    --radius-card: 24px;
-    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-}
+/* ==========================================================================
+   IMPERIUM MOTORS — GLOBALS
+   Base resets and font inheritance only.
+   All visual styles live in style.css
+   ========================================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--black);
-    color: white;
-    overflow-x: hidden;
-    font-family: var(--font-inter, 'Inter'), sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-smooth: antialiased;
-}
-
-main {
-    min-height: 100vh;
-}
-
-.serif-font {
-    font-family: var(--font-playfair, 'Playfair Display'), serif;
-}
-
-.cursive-font {
-    font-family: var(--font-cormorant, 'Cormorant Garamond'), serif;
-}
-
-.hero-copy {
-    max-width: 850px;
-}
-
-.hero-actions {
-    width: 100%;
-    max-width: 520px;
-    margin-left: 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.hero-heading {
-    line-height: 1.15;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: none;
-}
-
-.gold-gradient {
-    background: linear-gradient(90deg, #d4af37, #fff2b2, #d4af37);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    line-height: 1.15;
-    vertical-align: middle;
-    overflow: visible;
-    will-change: transform, opacity;
+  scroll-behavior: smooth;
 }
 
 body,
@@ -81,29 +21,21 @@ button,
 input,
 textarea,
 select {
-    font-family: inherit;
-}
-
-button,
-a {
-    cursor: pointer;
+  font-family: inherit;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 button {
-    background: none;
-    border: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+main {
+  min-height: 100vh;
 }
