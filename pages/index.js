@@ -111,15 +111,15 @@ const portfolioCards = [
   },
 ];
 const brandFilters = [
-  { id: 'koenigsegg', label: 'Koenigsegg', logo: '/assets/logo/SHIELD_ONLY.png' },
-  { id: 'pagani', label: 'Pagani', logo: '/assets/logo/SHIELD_ONLY.png' },
-  { id: 'mansory', label: 'Mansory', logo: '/assets/logo/SHIELD_ONLY.png' },
+  { id: 'koenigsegg', label: 'Koenigsegg', logo: '/assets/logo/koenigsegg-logo.webp' },
+  { id: 'pagani', label: 'Pagani', logo: '/assets/logo/pagani-logo.webp' },
+  { id: 'mansory', label: 'Mansory', logo: '/assets/logo/mansory-logo.webp' },
   { id: 'ferrari', label: 'Ferrari', logo: '/assets/logo/ferrari-logo.webp' },
   { id: 'aston-martin', label: 'Aston Martin', logo: '/assets/logo/aston-martin-white-logo.webp' },
   { id: 'rolls-royce', label: 'Rolls-Royce', logo: '/assets/logo/rolls-royce-white-logo.webp' },
   { id: 'bugatti', label: 'Bugatti', logo: '/assets/logo/bugatti-logo-new-1.webp' },
   { id: 'lamborghini', label: 'Lamborghini', logo: '/assets/logo/lamborghini_shield-logo.webp' },
-  { id: 'maserati', label: 'Maserati', logo: '/assets/logo/SHIELD_ONLY.png' },
+  { id: 'maserati', label: 'Maserati', logo: '/assets/logo/maserati-logo.webp' },
   { id: 'bentley', label: 'Bentley', logo: '/assets/logo/bentley-white-logo.webp' },
 ];
 
