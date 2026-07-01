@@ -181,22 +181,26 @@ body {
     max-width: 18ch;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.08;
+    line-height: 1.24;
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: none;
-    min-height: 2.25em;
+    min-height: auto;
+    overflow: visible;
+    padding-bottom: 0.2em;
 }
 
 .hero-heading .gold-gradient {
-    display: inline-block;
-    padding-bottom: 0.1em;
+    display: inline;
+    line-height: inherit;
+    padding-bottom: 0;
+    vertical-align: baseline;
 }
 
 @media (max-width: 1024px) {
     .hero-heading {
         max-width: 15ch;
-        min-height: 2.4em;
+        min-height: auto;
     }
 }
 
@@ -703,8 +707,8 @@ body {
 
     .hero-heading {
         max-width: 12ch;
-        min-height: 2.6em;
-        line-height: 1.1;
+        min-height: auto;
+        line-height: 1.22;
     }
 
     #intro-shield-wrapper {
