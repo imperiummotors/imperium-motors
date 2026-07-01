@@ -513,39 +513,37 @@ export default function Home({ portfolioImages }) {
           </div>
         </section>
 
-        <section id="inventory" className="py-32 px-6 md:px-16 bg-[#0d0d0d] reveal">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 font-semibold">Live Inventory</p>
-            <h2 className="text-4xl md:text-6xl text-white font-medium mb-4">Current Showcase</h2>
-            <p className="text-gray-400 font-light max-w-2xl mx-auto mb-12 text-sm md:text-base">
-              Real-time inventory updates through our edge-powered inventory API.
-            </p>
-
-            {inventoryLoading ? (
-              <p className="text-gray-400">Loading inventory...</p>
-            ) : inventory.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {inventory.map((item, index) => (
-                  <article key={index} className="service-card text-left">
-                    <p className="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-3">{item.brand || 'Imperium Collection'}</p>
-                    <h3 className="text-2xl text-white font-semibold mb-3">{item.model || item.name || 'Signature Vehicle'}</h3>
-                    <p className="text-gray-400 leading-relaxed text-sm">{item.description || item.summary || 'A rare automotive showcase asset available for discreet inquiry.'}</p>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="text-gray-400">
-                {inventoryError || 'No inventory data is available at this time.'}
-              </div>
-            )}
-          </div>
-        </section>
-
         <section id="portfolio" className="py-32 bg-black border-y border-white/5 reveal">
           <div className="max-w-7xl mx-auto px-6 md:px-16 text-center">
             <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 font-semibold">The Asset Portfolio</p>
             <h2 className="text-4xl md:text-6xl text-white font-medium mb-4">The Curated Icons</h2>
             <p className="text-gray-400 font-light max-w-xl mx-auto mb-20 text-sm md:text-base">An overview of hypercars engineered by visionaries, procured exclusively through Imperium channels.</p>
+
+            <div id="inventory" className="mb-20">
+              <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 font-semibold">Live Inventory</p>
+              <h3 className="text-3xl md:text-5xl text-white font-medium mb-4">Current Showcase</h3>
+              <p className="text-gray-400 font-light max-w-2xl mx-auto mb-12 text-sm md:text-base">
+                Real-time inventory updates through our edge-powered inventory API.
+              </p>
+
+              {inventoryLoading ? (
+                <p className="text-gray-400">Loading inventory...</p>
+              ) : inventory.length > 0 ? (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {inventory.map((item, index) => (
+                    <article key={index} className="service-card text-left">
+                      <p className="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-3">{item.brand || 'Imperium Collection'}</p>
+                      <h4 className="text-2xl text-white font-semibold mb-3">{item.model || item.name || 'Signature Vehicle'}</h4>
+                      <p className="text-gray-400 leading-relaxed text-sm">{item.description || item.summary || 'A rare automotive showcase asset available for discreet inquiry.'}</p>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-gray-400">
+                  {inventoryError || 'No inventory data is available at this time.'}
+                </div>
+              )}
+            </div>
 
             <div className="brand-filters flex flex-wrap justify-center gap-3 mb-12">
               {brandFilters.map(filter => (
