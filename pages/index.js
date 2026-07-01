@@ -448,7 +448,7 @@ export default function Home({ portfolioImages }) {
 
             <div className="nav-links hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
               <a href="#about" className="text-gray-300 hover:text-white transition">Our Identity</a>
-              <a href="#services" className="text-gray-300 hover:text-white transition">Services</a>
+              <a href="/services" className="text-gray-300 hover:text-white transition">Services</a>
               <a href="#portfolio" className="text-gray-300 hover:text-white transition">The Vault</a>
               <a href="#spaces" className="text-gray-300 hover:text-white transition">The Estates</a>
               <a href="#club" className="text-gray-300 hover:text-white transition">Elite Circle</a>
@@ -460,7 +460,7 @@ export default function Home({ portfolioImages }) {
         <div className={`mobile-menu ${mobileMenuOpen ? '' : 'hidden'}`} id="mobile-menu">
           <div className="mobile-menu-inner">
             <a href="#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Our Identity</a>
-            <a href="#services" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <a href="/services" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#portfolio" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Vault</a>
             <a href="#spaces" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Estates</a>
             <a href="#club" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Elite Circle</a>
@@ -550,45 +550,6 @@ export default function Home({ portfolioImages }) {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="services" className="py-32 px-6 md:px-16 bg-[#090909]">
-          <div className="max-w-7xl mx-auto">
-            <article className="service-card reveal md:col-span-3 md:max-w-4xl md:mx-auto">
-              <p className="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-4">Global White-Glove Logistics</p>
-              <h3 className="text-2xl text-white font-semibold mb-4">Worldwide delivery. Zero compromise.</h3>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Every hypercar is transported with the same reverence it deserves. Imperium Motors partners exclusively with <span className="text-white font-medium">Emirates SkyCargo</span> — the world's largest international cargo airline — for all international movements. Enclosed air freight, climate-controlled holds, full insurance, and door-to-door white-glove handling. Your asset never touches a trailer unless it's ours.
-              </p>
-              <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                <div className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Business Partner</p>
-                  <p className="text-white font-semibold tracking-wide">Emirates SkyCargo</p>
-                  <p className="text-xs text-gray-500">World's Best Air Cargo Carrier</p>
-                </div>
-                <div className="w-px h-10 bg-gold/20 hidden md:block" />
-                <div className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Coverage</p>
-                  <p className="text-white font-semibold tracking-wide">155+ Countries</p>
-                  <p className="text-xs text-gray-500">Fully insured, end-to-end</p>
-                </div>
-                <div className="w-px h-10 bg-gold/20 hidden md:block" />
-                <div className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Standard</p>
-                  <p className="text-white font-semibold tracking-wide">White-Glove Protocol</p>
-                  <p className="text-xs text-gray-500">Zero-contact vehicle handling</p>
-                </div>
-                <a
-                  href="https://youtu.be/AasfpxvgT8A?si=8kOF4_jCKEUqxhdK"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ml-auto border border-gold text-gold hover:bg-gold hover:text-black text-xs uppercase tracking-[0.25em] font-semibold px-6 py-3 transition duration-300 whitespace-nowrap"
-                >
-                  Watch: Emirates SkyCargo →
-                </a>
-              </div>
-            </article>
           </div>
         </section>
 
@@ -767,11 +728,11 @@ export default function Home({ portfolioImages }) {
             <div className="space-y-5">
               <p className="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Services</p>
               <ul className="space-y-3">
-                <li><a href="#services" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Private Acquisition</a></li>
-                <li><a href="#services" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Advisory</a></li>
-                <li><a href="#services" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Legacy Advisory</a></li>
-                <li><a href="#services" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Asset Protection</a></li>
-                <li><a href="#services" className="text-xs text-gray-400 hover:text-white transition tracking-wide">International Delivery</a></li>
+                <li><a href="/services#private-acquisition" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Private Acquisition</a></li>
+                <li><a href="/services#investment-advisory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Advisory</a></li>
+                <li><a href="/services#legacy-advisory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Legacy Advisory</a></li>
+                <li><a href="/services#asset-protection" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Asset Protection</a></li>
+                <li><a href="/services#international-delivery" className="text-xs text-gray-400 hover:text-white transition tracking-wide">International Delivery</a></li>
               </ul>
             </div>
             <div className="space-y-5">
