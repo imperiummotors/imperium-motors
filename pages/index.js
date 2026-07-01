@@ -1,5 +1,6 @@
 
 import Head from 'next/head';
+import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -189,6 +190,24 @@ export default function Home({ portfolioImages }) {
     const introOverlay = document.getElementById('intro-screen');
     const mainContent = document.getElementById('main-content');
     const navText = document.getElementById('nav-brand-text');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const saveData = Boolean(connection && connection.saveData);
+    const slowConnection = Boolean(
+      connection && typeof connection.effectiveType === 'string' && /(^2g$|slow-2g)/.test(connection.effectiveType)
+    );
+    const hasSeenIntro = window.sessionStorage.getItem('im-intro-seen') === '1';
+    const shouldSkipIntro = reduceMotion || saveData || slowConnection || hasSeenIntro;
+
+    if (shouldSkipIntro) {
+      if (mainContent) mainContent.classList.add('visible');
+      if (introOverlay) introOverlay.style.display = 'none';
+      if (navText) navText.classList.add('show-nav-text');
+      document.body.classList.remove('intro-active');
+      return () => {
+        document.body.classList.remove('intro-active');
+      };
+    }
 
     document.body.classList.add('intro-active');
 
@@ -203,6 +222,7 @@ export default function Home({ portfolioImages }) {
 
         setTimeout(() => {
           if (introOverlay) introOverlay.style.display = 'none';
+          window.sessionStorage.setItem('im-intro-seen', '1');
           document.body.classList.remove('intro-active');
         }, 800);
       }, 300);
@@ -267,8 +287,9 @@ export default function Home({ portfolioImages }) {
       return { item, enter, leave };
     });
 
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
+    const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const cursor = supportsFinePointer ? document.getElementById('cursor') : null;
+    const ring = supportsFinePointer ? document.getElementById('cursorRing') : null;
     const interactiveElements = Array.from(
       document.querySelectorAll('a, button, input, textarea, select, .brand-btn, .nav-toggle, .mobile-nav-link')
     );
@@ -321,13 +342,15 @@ export default function Home({ portfolioImages }) {
       }
     };
 
-    document.addEventListener('mousemove', updatePosition);
-    document.addEventListener('mouseleave', hideCursor);
-    document.addEventListener('mouseenter', showCursor);
-    interactiveElements.forEach(element => {
-      element.addEventListener('mouseenter', addHoverState);
-      element.addEventListener('mouseleave', removeHoverState);
-    });
+    if (supportsFinePointer) {
+      document.addEventListener('mousemove', updatePosition);
+      document.addEventListener('mouseleave', hideCursor);
+      document.addEventListener('mouseenter', showCursor);
+      interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', addHoverState);
+        element.addEventListener('mouseleave', removeHoverState);
+      });
+    }
 
     return () => {
       observer.disconnect();
@@ -336,13 +359,15 @@ export default function Home({ portfolioImages }) {
         handler.item.removeEventListener('mouseenter', handler.enter);
         handler.item.removeEventListener('mouseleave', handler.leave);
       });
-      document.removeEventListener('mousemove', updatePosition);
-      document.removeEventListener('mouseleave', hideCursor);
-      document.removeEventListener('mouseenter', showCursor);
-      interactiveElements.forEach(element => {
-        element.removeEventListener('mouseenter', addHoverState);
-        element.removeEventListener('mouseleave', removeHoverState);
-      });
+      if (supportsFinePointer) {
+        document.removeEventListener('mousemove', updatePosition);
+        document.removeEventListener('mouseleave', hideCursor);
+        document.removeEventListener('mouseenter', showCursor);
+        interactiveElements.forEach(element => {
+          element.removeEventListener('mouseenter', addHoverState);
+          element.removeEventListener('mouseleave', removeHoverState);
+        });
+      }
     };
   }, []);
 
@@ -371,10 +396,10 @@ export default function Home({ portfolioImages }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <Script id="tailwind-config" strategy="beforeInteractive">
+      <Script id="tailwind-config" strategy="afterInteractive">
         {`window.tailwind = window.tailwind || {}; window.tailwind.config = { theme: { extend: { colors: { gold: '#d4af37' } } } };`}
       </Script>
-      <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
+      <Script src="https://cdn.tailwindcss.com" strategy="afterInteractive" />
 
       <div id="intro-shield-wrapper">
         <div id="intro-logo-stack" aria-label="Imperium Motors crest">
@@ -413,10 +438,10 @@ export default function Home({ portfolioImages }) {
             </button>
 
             <div className="nav-links hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
-              <a href="/identity" className="text-gray-300 hover:text-white transition">Our Identity</a>
-              <a href="/services" className="text-gray-300 hover:text-white transition">Services</a>
+              <Link href="/identity" className="text-gray-300 hover:text-white transition">Our Identity</Link>
+              <Link href="/services" className="text-gray-300 hover:text-white transition">Services</Link>
               <a href="#portfolio" className="text-gray-300 hover:text-white transition">The Vault</a>
-              <a href="/estates" className="text-gray-300 hover:text-white transition">The Estates</a>
+              <Link href="/estates" className="text-gray-300 hover:text-white transition">The Estates</Link>
               <a href="#club" className="text-gray-300 hover:text-white transition">Elite Circle</a>
               <a href="#appointment" className="px-5 py-2.5 border border-gold text-white hover:bg-gold hover:text-black transition duration-300">Private Briefing</a>
             </div>
@@ -425,10 +450,10 @@ export default function Home({ portfolioImages }) {
 
         <div className={`mobile-menu ${mobileMenuOpen ? '' : 'hidden'}`} id="mobile-menu">
           <div className="mobile-menu-inner">
-            <a href="/identity" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Our Identity</a>
-            <a href="/services" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <Link href="/identity" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Our Identity</Link>
+            <Link href="/services" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</Link>
             <a href="#portfolio" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Vault</a>
-            <a href="/estates" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Estates</a>
+            <Link href="/estates" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Estates</Link>
             <a href="#club" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Elite Circle</a>
             <a href="#appointment" className="mobile-menu-cta" onClick={() => setMobileMenuOpen(false)}>Private Briefing</a>
           </div>
@@ -453,7 +478,7 @@ export default function Home({ portfolioImages }) {
             </h2>
             <div className="w-16 h-[1px] bg-gold/50 mx-auto mb-6" />
             <p className="text-sm md:text-base max-w-xl mx-auto font-light text-gray-300 tracking-wide leading-relaxed mb-8">
-              Connecting discerning global visionaries through the procurement of the world's rarest automotive investments. Built on absolute privacy.
+              Connecting discerning global visionaries through the procurement of the world&apos;s rarest automotive investments. Built on absolute privacy.
             </p>
             <div className="hero-actions">
               <a href="#appointment" className="bg-gold text-black px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">Secure Entry</a>
@@ -606,21 +631,21 @@ export default function Home({ portfolioImages }) {
             <div className="space-y-5">
               <p className="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Discover</p>
               <ul className="space-y-3">
-                <li><a href="/vault" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Collection</a></li>
-                <li><a href="/vault#inventory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Recently Sold</a></li>
-                <li><a href="/identity#core-journey" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Cars</a></li>
-                <li><a href="/vault" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Hypercars</a></li>
+                <li><Link href="/vault" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Collection</Link></li>
+                <li><Link href="/vault#inventory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Recently Sold</Link></li>
+                <li><Link href="/identity#core-journey" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Cars</Link></li>
+                <li><Link href="/vault" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Hypercars</Link></li>
                 <li><a href="#club" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Elite Circle</a></li>
               </ul>
             </div>
             <div className="space-y-5">
               <p className="text-[9px] uppercase tracking-[0.4em] text-gold font-semibold">Services</p>
               <ul className="space-y-3">
-                <li><a href="/services#private-acquisition" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Private Acquisition</a></li>
-                <li><a href="/services#investment-advisory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Advisory</a></li>
-                <li><a href="/services#legacy-advisory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Legacy Advisory</a></li>
-                <li><a href="/services#asset-protection" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Asset Protection</a></li>
-                <li><a href="/services#international-delivery" className="text-xs text-gray-400 hover:text-white transition tracking-wide">International Delivery</a></li>
+                <li><Link href="/services#private-acquisition" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Private Acquisition</Link></li>
+                <li><Link href="/services#investment-advisory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Advisory</Link></li>
+                <li><Link href="/services#legacy-advisory" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Legacy Advisory</Link></li>
+                <li><Link href="/services#asset-protection" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Asset Protection</Link></li>
+                <li><Link href="/services#international-delivery" className="text-xs text-gray-400 hover:text-white transition tracking-wide">International Delivery</Link></li>
               </ul>
             </div>
             <div className="space-y-5">

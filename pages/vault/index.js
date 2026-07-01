@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import LazyPortfolioCard from '../../components/LazyPortfolioCard';
@@ -264,20 +265,20 @@ export default function VaultPage({ portfolioImages }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <Script id="tailwind-config-vault" strategy="beforeInteractive">
+      <Script id="tailwind-config-vault" strategy="afterInteractive">
         {`window.tailwind = window.tailwind || {}; window.tailwind.config = { theme: { extend: { colors: { gold: '#d4af37' } } } };`}
       </Script>
-      <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
+      <Script src="https://cdn.tailwindcss.com" strategy="afterInteractive" />
 
       <main className="min-h-screen bg-black text-white">
         <header className="site-nav sticky top-0 z-40">
           <div className="nav-inner flex items-center justify-between px-6 md:px-16 py-4">
-            <a href="/" className="text-xs uppercase tracking-[0.35em] text-white">Imperium Motors</a>
+            <Link href="/" className="text-xs uppercase tracking-[0.35em] text-white">Imperium Motors</Link>
             <div className="flex items-center gap-6 text-[11px] uppercase tracking-[0.25em]">
-              <a href="/" className="text-gray-300 hover:text-white transition">Home</a>
-              <a href="/identity" className="text-gray-300 hover:text-white transition">Our Identity</a>
-              <a href="/services" className="text-gray-300 hover:text-white transition">Services</a>
-              <a href="/estates" className="text-gray-300 hover:text-white transition">The Estates</a>
+              <Link href="/" className="text-gray-300 hover:text-white transition">Home</Link>
+              <Link href="/identity" className="text-gray-300 hover:text-white transition">Our Identity</Link>
+              <Link href="/services" className="text-gray-300 hover:text-white transition">Services</Link>
+              <Link href="/estates" className="text-gray-300 hover:text-white transition">The Estates</Link>
             </div>
           </div>
         </header>
