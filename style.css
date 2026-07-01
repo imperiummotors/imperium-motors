@@ -35,6 +35,8 @@ body.intro-active {
 
 .hero-copy {
     max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-actions {
@@ -176,15 +178,26 @@ body {
 }
 
 .hero-heading {
-    line-height: 1.15;
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.08;
     overflow-wrap: break-word;
-    word-break: break-word;
+    word-break: normal;
     hyphens: none;
+    min-height: 2.25em;
 }
 
 .hero-heading .gold-gradient {
     display: inline-block;
     padding-bottom: 0.1em;
+}
+
+@media (max-width: 1024px) {
+    .hero-heading {
+        max-width: 15ch;
+        min-height: 2.4em;
+    }
 }
 
 #main-content {
@@ -606,6 +619,12 @@ body {
 
 /* SCREEN VIEWPORT BALANCING DECK */
 @media (max-width: 768px) {
+    .hero-heading {
+        max-width: 12ch;
+        min-height: 2.6em;
+        line-height: 1.1;
+    }
+
     #intro-shield-wrapper {
         width: 180px;
         height: auto;

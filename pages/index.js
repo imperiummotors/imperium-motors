@@ -473,7 +473,7 @@ export default function Home({ portfolioImages }) {
           <div className="relative z-20 max-w-4xl mx-auto px-4 mt-16 hero-copy">
             <p className="uppercase tracking-[0.6em] text-xs md:text-sm mb-4 text-gold font-semibold">Soli Deo Gloria</p>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 pb-2 text-white tracking-tight hero-heading">
-              Where <span className="italic font-light gold-gradient">Luxury</span> Meets <br className="hidden md:block" />
+              Where <span className="italic font-light gold-gradient">Luxury</span> Meets{' '}
               <span className="italic font-light gold-gradient">Legacy</span>
             </h2>
             <div className="w-16 h-[1px] bg-gold/50 mx-auto mb-6" />
@@ -804,4 +804,3 @@ export default function Home({ portfolioImages }) {
     </>
   );
 }
-
