@@ -447,7 +447,7 @@ export default function Home({ portfolioImages }) {
             </button>
 
             <div className="nav-links hidden lg:flex space-x-10 uppercase text-[11px] tracking-[0.3em] font-medium items-center">
-              <a href="#about" className="text-gray-300 hover:text-white transition">Our Identity</a>
+              <a href="/identity" className="text-gray-300 hover:text-white transition">Our Identity</a>
               <a href="/services" className="text-gray-300 hover:text-white transition">Services</a>
               <a href="#portfolio" className="text-gray-300 hover:text-white transition">The Vault</a>
               <a href="#spaces" className="text-gray-300 hover:text-white transition">The Estates</a>
@@ -459,7 +459,7 @@ export default function Home({ portfolioImages }) {
 
         <div className={`mobile-menu ${mobileMenuOpen ? '' : 'hidden'}`} id="mobile-menu">
           <div className="mobile-menu-inner">
-            <a href="#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Our Identity</a>
+            <a href="/identity" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Our Identity</a>
             <a href="/services" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#portfolio" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Vault</a>
             <a href="#spaces" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Estates</a>
@@ -509,46 +509,6 @@ export default function Home({ portfolioImages }) {
                     <span>{filter.label}</span>
                   </button>
                 ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="py-32 px-6 md:px-16 bg-[#060606] relative">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-7 space-y-8">
-              <p className="text-xs uppercase tracking-[0.4em] text-gold font-semibold">The Core Journey</p>
-              <h2 className="text-4xl md:text-6xl text-white tracking-tight">Born in Nellai.<br /><span className="italic text-gray-400 font-light">Refined in London.</span></h2>
-              <div className="w-20 h-[2px] bg-gold" />
-              <p className="text-gray-300 font-light leading-relaxed text-lg">
-                From childhood automotive dreams sparked in Tamil Nadu to navigating high-stakes hypercar acquisition networks across Europe, Imperium Motors represents an unbroken timeline of absolute personal integrity and relationship curation.
-              </p>
-              <div className="grid md:grid-cols-2 gap-8 pt-4">
-                <div className="border-l-2 border-gold/40 pl-4 space-y-2">
-                  <h4 className="text-white font-medium tracking-wide">Our Strategic Goal</h4>
-                  <p className="text-sm text-gray-400 font-light">To protect and enhance generational vehicular assets across specialized private transaction layers.</p>
-                </div>
-                <div className="border-l-2 border-gold/40 pl-4 space-y-2">
-                  <h4 className="text-white font-medium tracking-wide">The Chennai Hub Matrix</h4>
-                  <p className="text-sm text-gray-400 font-light">Direct custom logistic clearing infrastructure executing placement tasks accurately from OMR coordinates.</p>
-                </div>
-              </div>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="relative group overflow-hidden border border-white/10">
-                <Image
-                  src="/assets/images/FRONT_OFFICE.png"
-                  alt="Front Office Lounge Hub"
-                  width={600}
-                  height={550}
-                  loading="lazy"
-                  className="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-6 left-6 text-left">
-                  <p className="text-xs uppercase tracking-[0.3em] text-gold mb-1">Enclave Headquarters</p>
-                  <h3 className="text-xl text-white serif-font" />
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -720,7 +680,7 @@ export default function Home({ portfolioImages }) {
               <ul className="space-y-3">
                 <li><a href="#portfolio" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Collection</a></li>
                 <li><a href="#portfolio" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Recently Sold</a></li>
-                <li><a href="#about" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Cars</a></li>
+                <li><a href="/identity#core-journey" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Investment Cars</a></li>
                 <li><a href="#portfolio" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Hypercars</a></li>
                 <li><a href="#club" className="text-xs text-gray-400 hover:text-white transition tracking-wide">Elite Circle</a></li>
               </ul>
