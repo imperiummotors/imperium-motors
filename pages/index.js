@@ -558,36 +558,33 @@ export default function Home({ portfolioImages }) {
             <p className="text-gray-400 font-light max-w-2xl mx-auto text-base leading-relaxed">
               Access to hidden hyper-assets or unlisted off-market collection transfers requires active peer nomination profiles.
             </p>
-            <div className="pt-6">
-              <a href="#appointment" className="border border-gold text-gold hover:bg-gold hover:text-black font-semibold uppercase text-xs tracking-[0.3em] px-12 py-4 transition duration-300">Propose Membership</a>
+            <div className="pt-6" id="appointment">
+              <a href="#appointment-form" className="border border-gold text-gold hover:bg-gold hover:text-black font-semibold uppercase text-xs tracking-[0.3em] px-12 py-4 transition duration-300">Propose Membership</a>
             </div>
-          </div>
-        </section>
-
-        <section id="appointment" className="py-32 px-6 md:px-16 bg-[#040404]">
-          <div className="max-w-4xl mx-auto border border-white/10 p-8 md:p-16 bg-[#080808]/60 backdrop-blur-md relative">
-            <div className="text-center space-y-4 mb-12">
-              <p className="text-xs uppercase tracking-[0.4em] text-gold font-semibold">Strictly Protocol</p>
-              <h2 className="text-3xl md:text-5xl text-white serif-font">Request Private Briefing</h2>
-              <p className="text-sm text-gray-400 font-light">Visits to physical estate parameters are processed strictly through 48h corporate protocols.</p>
+            <div id="appointment-form" className="max-w-4xl mx-auto border border-white/10 p-8 md:p-16 bg-[#080808]/60 backdrop-blur-md relative mt-12 text-left">
+              <div className="text-center space-y-4 mb-12">
+                <p className="text-xs uppercase tracking-[0.4em] text-gold font-semibold">Strictly Protocol</p>
+                <h3 className="text-3xl md:text-5xl text-white serif-font">Request Private Briefing</h3>
+                <p className="text-sm text-gray-400 font-light">Visits to physical estate parameters are processed strictly through 48h corporate protocols.</p>
+              </div>
+              <form action="https://formspree.io/f/YOUR_ID" method="POST" className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Full Legal Name</label>
+                    <input type="text" required className="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Secure Digital Coordinates (Email)</label>
+                    <input type="email" required className="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light" />
+                  </div>
+                </div>
+                <div className="text-center pt-4">
+                  <button type="submit" className="w-full sm:w-auto bg-gold text-black font-bold uppercase text-xs tracking-[0.3em] px-16 py-4 hover:bg-white transition duration-300">
+                    Transmit Credentials
+                  </button>
+                </div>
+              </form>
             </div>
-            <form action="https://formspree.io/f/YOUR_ID" method="POST" className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Full Legal Name</label>
-                  <input type="text" required className="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Secure Digital Coordinates (Email)</label>
-                  <input type="email" required className="w-full bg-black border border-white/10 focus:border-gold px-4 py-3.5 text-white outline-none transition text-sm font-light" />
-                </div>
-              </div>
-              <div className="text-center pt-4">
-                <button type="submit" className="w-full sm:w-auto bg-gold text-black font-bold uppercase text-xs tracking-[0.3em] px-16 py-4 hover:bg-white transition duration-300">
-                  Transmit Credentials
-                </button>
-              </div>
-            </form>
           </div>
         </section>
 
