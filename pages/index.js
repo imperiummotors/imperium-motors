@@ -161,7 +161,7 @@ export async function getStaticProps() {
 
   try {
     const brandDirs = await fs.promises.readdir(imagesRoot, { withFileTypes: true });
-    const rotationIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 2));
+    const rotationIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
 
     const hashBrand = brand =>
       [...brand].reduce((sum, char) => sum + char.charCodeAt(0), 0);
