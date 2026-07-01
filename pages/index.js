@@ -307,11 +307,6 @@ export default function Home() {
 
         <section className="py-28 bg-black border-y border-white/5 reveal">
           <div className="max-w-5xl mx-auto px-6 md:px-16 text-center">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 font-semibold">The Asset Portfolio</p>
-            <h2 className="text-4xl md:text-6xl text-white font-medium mb-4">The Curated Icons</h2>
-            <p className="text-gray-400 font-light max-w-2xl mx-auto mb-10 text-sm md:text-base">
-              An overview of hypercars engineered by visionaries, procured exclusively through Imperium channels.
-            </p>
             <p className="text-gray-500 font-light max-w-2xl mx-auto mb-12 text-sm md:text-base">
               Live Inventory and Current Showcase now live inside the dedicated Vault experience.
             </p>
