@@ -21,17 +21,8 @@ async function getInventoryData() {
 
 const portfolioCards = [
   {
-    brand: 'koenigsegg',
-    label: '01 / Hyper-Engineering',
-    title: 'Koenigsegg',
-    description: 'Pioneering speed barriers with revolutionary carbon-weave architecture and custom megawatt engineering.',
-    image: '/assets/images/hypercars/koenigsegg/koenigsegg-jesko.webp',
-    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
-    alt: 'Koenigsegg Jesko',
-  },
-  {
     brand: 'pagani',
-    label: '02 / Haute Couture',
+    label: '01 / Haute Couture',
     title: 'Pagani',
     description: 'Where fine Renaissance art blends flawlessly with raw Mercedes-AMG V12 track dominance.',
     image: '/assets/images/hypercars/pagani/pagani-01.webp',
@@ -39,17 +30,17 @@ const portfolioCards = [
     alt: 'Pagani sports car',
   },
   {
-    brand: 'mansory',
-    label: '03 / High Customization',
-    title: 'Mansory',
-    description: 'Bespoke carbon modifications redefining visual impact and presence on structural super-assets.',
-    image: '/assets/images/hypercars/mansory/mansory-jesko.webp',
-    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-    alt: 'Mansory custom car',
+    brand: 'koenigsegg',
+    label: '02 / Hyper-Engineering',
+    title: 'Koenigsegg',
+    description: 'Pioneering speed barriers with revolutionary carbon-weave architecture and custom megawatt engineering.',
+    image: '/assets/images/hypercars/koenigsegg/koenigsegg-jesko.webp',
+    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    alt: 'Koenigsegg Jesko',
   },
   {
     brand: 'ferrari',
-    label: '04 / Heritage Track',
+    label: '03 / Heritage Track',
     title: 'Ferrari',
     description: 'The undisputed baseline of legacy speed investments, spanning classic legends to modern icons.',
     image: '/assets/images/hypercars/ferrari/ferrari-enzo.webp',
@@ -58,7 +49,7 @@ const portfolioCards = [
   },
   {
     brand: 'aston-martin',
-    label: '05 / British Grand Tour',
+    label: '04 / British Grand Tour',
     title: 'Aston Martin',
     description: 'Exquisite tailored aesthetic balance meeting computational performance dynamics.',
     image: '/assets/images/hypercars/aston-martin/aston-vantage.webp',
@@ -67,7 +58,7 @@ const portfolioCards = [
   },
   {
     brand: 'rolls-royce',
-    label: '06 / Ultimate Comfort',
+    label: '05 / Ultimate Comfort',
     title: 'Rolls-Royce',
     description: 'The pinnacle structural benchmark of uncompromised whisper-silent private travel luxury.',
     image: '/assets/images/hypercars/rolls-royce/rolls-royce-spirit-of-estacy.webp',
@@ -76,7 +67,7 @@ const portfolioCards = [
   },
   {
     brand: 'bugatti',
-    label: '07 / Supreme Power',
+    label: '06 / Supreme Power',
     title: 'Bugatti',
     description: 'Uncompromising hypercar excellence defined by raw quad-turbocharged dominance and sculptural perfection.',
     image: '/assets/images/hypercars/bugatti/bugatti-chiron.webp',
@@ -85,7 +76,7 @@ const portfolioCards = [
   },
   {
     brand: 'lamborghini',
-    label: '08 / Italian Precision',
+    label: '07 / Italian Precision',
     title: 'Lamborghini',
     description: 'Aggressive design language paired with mid-engine performance and cutting-edge superlative engineering.',
     image: '/assets/images/hypercars/lamborghini/lamborghini-revuelto.webp',
@@ -94,7 +85,7 @@ const portfolioCards = [
   },
   {
     brand: 'maserati',
-    label: '09 / Tridemte Legacy',
+    label: '08 / Tridemte Legacy',
     title: 'Maserati',
     description: 'Where Italian motorsport heritage meets refined luxury and timeless design sophistication.',
     image: '/assets/images/hypercars/maserati/maserati-mc20.webp',
@@ -103,18 +94,26 @@ const portfolioCards = [
   },
   {
     brand: 'bentley',
-    label: '10 / British Heritage',
+    label: '09 / British Heritage',
     title: 'Bentley',
     description: 'Continental elegance fused with blistering acceleration and ultra-luxury craftsmanship.',
     image: '/assets/images/hypercars/bentley/bentley-continental.webp',
     video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
     alt: 'Bentley Continental',
   },
+  {
+    brand: 'mansory',
+    label: '10 / High Customization',
+    title: 'Mansory',
+    description: 'Bespoke carbon modifications redefining visual impact and presence on structural super-assets.',
+    image: '/assets/images/hypercars/mansory/mansory-jesko.webp',
+    video: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    alt: 'Mansory custom car',
+  },
 ];
 const brandFilters = [
-  { id: 'koenigsegg', label: 'Koenigsegg', logo: '/assets/logo/koenigsegg-logo.webp' },
   { id: 'pagani', label: 'Pagani', logo: '/assets/logo/pagani-logo.webp' },
-  { id: 'mansory', label: 'Mansory', logo: '/assets/logo/mansory_logo.svg.webp' },
+  { id: 'koenigsegg', label: 'Koenigsegg', logo: '/assets/logo/koenigsegg-logo.webp' },
   { id: 'ferrari', label: 'Ferrari', logo: '/assets/logo/ferrari-logo.webp' },
   { id: 'aston-martin', label: 'Aston Martin', logo: '/assets/logo/aston-martin-white-logo.webp' },
   { id: 'rolls-royce', label: 'Rolls-Royce', logo: '/assets/logo/rolls-royce-white-logo.webp' },
@@ -122,6 +121,7 @@ const brandFilters = [
   { id: 'lamborghini', label: 'Lamborghini', logo: '/assets/logo/lamborghini_shield-logo.webp' },
   { id: 'maserati', label: 'Maserati', logo: '/assets/logo/maserati-logo.webp' },
   { id: 'bentley', label: 'Bentley', logo: '/assets/logo/bentley-white-logo.webp' },
+  { id: 'mansory', label: 'Mansory', logo: '/assets/logo/mansory_logo.svg.webp' },
 ];
 
 export async function getStaticProps() {
