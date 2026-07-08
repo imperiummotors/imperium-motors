@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import LazyPortfolioCard from '../components/LazyPortfolioCard';
+import GlassNavbar from '../components/layout/GlassNavbar';
 
 async function getInventoryData() {
   try {
