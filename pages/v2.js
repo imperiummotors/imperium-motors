@@ -1,5 +1,6 @@
 import Head from "next/head";
 import GlassNavbar from "../components/layout/GlassNavbar";
+import Hero from "../components/hero/Hero";
 
 export default function V2() {
   return (
@@ -10,33 +11,7 @@ export default function V2() {
 
       <GlassNavbar />
 
-      <main>
-
-        <section
-          style={{
-            height: "100vh",
-            paddingTop: "180px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            background: "#F8F7F3"
-          }}
-        >
-
-          <h1
-            style={{
-              fontSize: "64px",
-              fontFamily: "Cormorant Garamond",
-              fontWeight: 600,
-              color: "#181818"
-            }}
-          >
-            Imperium V2 Begins Here
-          </h1>
-
-        </section>
-
-      </main>
+      <Hero />
     </>
   );
 }

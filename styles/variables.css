@@ -1,0 +1,89 @@
+/* ==========================================================
+   IMPERIUM DESIGN SYSTEM
+   The House of Imperium
+   Where Luxury Meets Legacy
+   SOLI DEO GLORIA
+========================================================== */
+
+:root{
+
+/*=========================================================
+  BRAND COLOURS
+=========================================================*/
+
+--imperium-gold:#C8A55B;
+--imperium-gold-light:#E8CB7A;
+--imperium-gold-dark:#8B6A2B;
+
+--imperium-white:#FFFFFF;
+--imperium-ivory:#F7F4EE;
+
+--imperium-black:#090909;
+--imperium-charcoal:#1B1B1B;
+--imperium-graphite:#2F2F2F;
+
+--imperium-grey:#707070;
+--imperium-light-grey:#CFCFCF;
+
+
+/*=========================================================
+  GLASS
+=========================================================*/
+
+--glass-background:rgba(255,255,255,.42);
+
+--glass-border:rgba(255,255,255,.55);
+
+--glass-shadow:
+0 14px 40px rgba(0,0,0,.10),
+inset 0 1px rgba(255,255,255,.55);
+
+
+/*=========================================================
+  TYPOGRAPHY
+=========================================================*/
+
+--font-heading:
+"Cormorant Garamond",
+serif;
+
+--font-body:
+"Inter",
+sans-serif;
+
+
+/*=========================================================
+  BORDER RADIUS
+=========================================================*/
+
+--radius-small:10px;
+
+--radius-medium:18px;
+
+--radius-large:28px;
+
+--radius-pill:999px;
+
+
+/*=========================================================
+  SPACING
+=========================================================*/
+
+--space-xs:8px;
+--space-sm:16px;
+--space-md:24px;
+--space-lg:40px;
+--space-xl:80px;
+
+
+/*=========================================================
+  ANIMATION
+=========================================================*/
+
+--transition-fast:.25s;
+
+--transition-medium:.45s;
+
+--transition-slow:.7s;
+
+}

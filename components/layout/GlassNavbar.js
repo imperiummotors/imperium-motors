@@ -1,43 +1,47 @@
+import { useState } from "react";
+import MenuDrawer from "./MenuDrawer";
+
 export default function GlassNavbar() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
-    <header className="imperium-header">
-      <nav className="imperium-nav">
+    <>
+      <header className="imperium-header">
+        <nav className="imperium-nav">
 
-        <div className="nav-left">
-          <button
-            className="menu-button"
-            aria-label="Open navigation"
-          >
-            ☰
-          </button>
-        </div>
+          <div className="nav-left">
+            <button
+              className="menu-button"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="Open navigation"
+            >
+              ☰
+            </button>
+          </div>
 
-        <div className="nav-center">
+          <div className="nav-center">
+            <h1 className="brand-name">
+              IMPERIUM MOTORS
+            </h1>
 
-          {/* Add your shield later */}
-          {/* <img
-            src="/images/crest-gold.png"
-            className="brand-logo"
-            alt="Imperium Motors"
-          /> */}
+            <p className="brand-subtitle">
+              THE HOUSE OF IMPERIUM
+            </p>
+          </div>
 
-          <h1 className="brand-name">
-            IMPERIUM MOTORS
-          </h1>
+          <div className="nav-right">
+            <button className="enquiry-button">
+              Private Enquiry
+            </button>
+          </div>
 
-          <p className="brand-subtitle">
-            THE HOUSE OF IMPERIUM
-          </p>
+        </nav>
+      </header>
 
-        </div>
-
-        <div className="nav-right">
-          <button className="enquiry-button">
-            Private Enquiry
-          </button>
-        </div>
-
-      </nav>
-    </header>
+      <MenuDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      />
+    </>
   );
 }
