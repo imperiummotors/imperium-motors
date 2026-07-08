@@ -1,30 +1,12 @@
-import { useEffect, useState } from "react";
-
 export default function GlassNavbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`imperium-header ${
-        scrolled ? "imperium-header-scrolled" : ""
-      }`}
-    >
+    <header className="imperium-header">
       <nav className="imperium-nav">
 
         <div className="nav-left">
           <button
             className="menu-button"
-            aria-label="Open navigation menu"
+            aria-label="Open navigation"
           >
             ☰
           </button>
@@ -32,30 +14,27 @@ export default function GlassNavbar() {
 
         <div className="nav-center">
 
-          <div className="brand-crest">
-            IM
-          </div>
+          {/* Add your shield later */}
+          {/* <img
+            src="/images/crest-gold.png"
+            className="brand-logo"
+            alt="Imperium Motors"
+          /> */}
 
-          <div className="brand-text">
+          <h1 className="brand-name">
+            IMPERIUM MOTORS
+          </h1>
 
-            <span className="brand-title">
-              IMPERIUM MOTORS
-            </span>
-
-            <span className="brand-subtitle">
-              The House of Imperium
-            </span>
-
-          </div>
+          <p className="brand-subtitle">
+            THE HOUSE OF IMPERIUM
+          </p>
 
         </div>
 
         <div className="nav-right">
-
           <button className="enquiry-button">
             Private Enquiry
           </button>
-
         </div>
 
       </nav>

@@ -1,4 +1,4 @@
-import '../style.css';
+import '../styles/globals.css';
 import { playfair, inter, cormorant } from '../lib/fonts';
 
 export default function App({ Component, pageProps }) {
